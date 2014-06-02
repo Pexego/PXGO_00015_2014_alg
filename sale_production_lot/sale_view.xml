@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_order_form_add_prodlot_id" model="ir.ui.view">
+            <field name="name">sale.order.form.add_prodlot_id</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
+                    <field name="barcode_enter" on_change="onchange_barcode_enter(barcode_enter)" groups="stock.group_production_lot"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="after">
+                    <field name="prodlot_id" domain="[('product_id', '=', product_id)]" groups="stock.group_production_lot" context="{'product_id':product_id}"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form/group/group[1]/field[@name='product_id']" position="after">
+                    <field name="prodlot_id" domain="[('product_id', '=', product_id)]" groups="stock.group_production_lot" context="{'product_id':product_id}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_order_line_tree_add_prodlot_id" model="ir.ui.view">
+            <field name="name">sale.order.line.tree.add_prodlot_id</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.view_order_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="product_uom" position="after">
+                    <field name="prodlot_id" domain="[('product_id', '=', product_id)]" groups="stock.group_production_lot"
+                    context="{'product_id':product_id}"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_order_line_form2_add_prodlot_id" model="ir.ui.view">
+            <field name="name">sale.order.line.form2.add_prodlot_id</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.view_order_line_form2"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="prodlot_id" domain="[('product_id', '=', product_id)]" groups="stock.group_production_lot"
+                    context="{'product_id':product_id}"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_sales_order_line_filter_add_prodlot_id" model="ir.ui.view">
+            <field name="name">sale.order.line.select.add_prodlot_id</field>
+            <field name="inherit_id" ref="sale.view_sales_order_line_filter"/>
+            <field name="model">sale.order.line</field>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="prodlot_id" groups="stock.group_production_lot"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_sales_order_uninvoiced_line_filter" model="ir.ui.view">
+            <field name="name">sale.order.uninvoiced.line</field>
+            <field name="inherit_id" ref="sale.view_sales_order_uninvoiced_line_filter"/>
+            <field name="model">sale.order.line</field>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="prodlot_id" groups="stock.group_production_lot"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
