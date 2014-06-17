@@ -21,6 +21,7 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+import netsvc
 
 
 class sale_order_line(orm.Model):
@@ -67,5 +68,21 @@ class sale_order(orm.Model):
                                                                context=context)
         if line.prodlot_id:
             res['prodlot_id'] = line.prodlot_id.id
+
+        return res
+
+    def action_ship_create(self, cr, uid, ids, context=None):
+        if context is None:
+            context = {}
+        res = super(sale_order, self).action_ship_create(cr, uid, ids,
+                                                         context=context)
+        wf_service = netsvc.LocalService("workflow")
+
+        for order in self.browse(cr, uid, ids, context=context):
+            for picking in order.picking_ids:
+                if picking.state == 'confirmed':
+                    picking.force_assign()
+                    wf_service.trg_validate(uid, 'stock.picking', picking.id,
+                                            'button_done', cr)
 
         return res
