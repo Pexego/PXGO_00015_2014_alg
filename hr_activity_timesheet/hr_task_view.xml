@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="hr_task_tree" model="ir.ui.view">
+            <field name="name">hr.task.tree</field>
+            <field name="model">hr.task</field>
+            <field name="arch" type="xml">
+                <tree string="Activities">
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hr_task_form" model="ir.ui.view">
+            <field name="name">hr.task.form</field>
+            <field name="model">hr.task</field>
+            <field name="arch" type="xml">
+                <form string="Activity" version="7.0">
+                    <sheet>
+                    <group>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="date"/>
+                            <field name="name" colspan="4"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Information">
+                            <group>
+                                <field name="kg_moved"/>
+                                <separator string="Notes" colspan="4"/>
+                                <field name="note" colspan="4" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Timesheet">
+                            <field name="work_line_ids" nolabel="1" colspan="4"/>
+                        </page>
+                    </notebook>
+                    <button name="set_cancel" states="draft" string="Cancel" type="object" icon="gtk-cancel"/>
+                    <button name="set_open" states="draft" string="Open" type="object" icon="gtk-go-forward"/>
+                    <button name="set_close" states="open" string="Close" type="object" icon="gtk-close"/>
+                    <field name="state" widget="statusbar"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_task_search" model="ir.ui.view">
+            <field name="name">hr.task.search</field>
+            <field name="model">hr.task</field>
+            <field name="arch" type="xml">
+                <search string="Activities">
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Product" icon="terp-accessories-archiver" domain="[]" context="{'group_by':'product_id'}"/>
+                        <filter string="Date" icon="terp-go-month" domain="[]" context="{'group_by':'date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="act_hr_employee_tasks" model="ir.actions.act_window">
+            <field name="name">Employee's activities</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.task</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="hr_task_search"/>
+        </record>
+
+        <menuitem id="menu_hr_employee_tasks" parent="hr_attendance.menu_hr_time_tracking" action="act_hr_employee_tasks"/>
+
+    </data>
+</openerp>
