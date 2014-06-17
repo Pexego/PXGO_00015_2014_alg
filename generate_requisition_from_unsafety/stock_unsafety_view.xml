@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<act_window id="generate_requisitions_action" name="Generate requisition"
+			src_model="product.stock.unsafety" res_model="generate.requisitions.wizard"
+			target="new" multi="True" view_id="generate_requisitions_wizard_view" />
+	</data>
+</openerp>

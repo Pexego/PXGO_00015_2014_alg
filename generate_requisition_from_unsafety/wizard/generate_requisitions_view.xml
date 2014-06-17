@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="generate_requisitions_wizard_view" model="ir.ui.view">
+            <field name="name">generate.requisitions.wizard.form</field>
+            <field name="model">generate.requisitions.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="requisitions">
+                    <button name="generate" type="object" string="Generate" />
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>
