@@ -40,7 +40,7 @@ class hr_task(orm.Model):
                                       domain=[('type', '=', 'service'),
                                               ('analytic_acc_id', '!=',
                                                False)]),
-        'kg_moved': fields.float('KG moved', digits=(12, 4), readonly=True),
+        'kg_moved': fields.float('KG moved', digits=(12, 4)),
         'work_line_ids': fields.one2many('hr.analytic.timesheet', 'hr_task_id',
                                          string="Timesheet")
     }
@@ -65,6 +65,12 @@ class hr_task(orm.Model):
         self.write(cr, uid, ids, {'state': 'close',
                                   'end_date': time.strftime("%Y-%m-%d")},
                    context=context)
+        for obj in self.browse(cr, uid, ids, context=context):
+            total_hours = sum([x.unit_amount for x in obj.work_line_ids])
+            if obj.kg_moved and total_hours:
+                for line in obj.work_line_ids:
+                    line.write({'kg_moved': ((line.unit_amount * obj.kg_moved)
+                                             / total_hours)})
 
         return True
 
