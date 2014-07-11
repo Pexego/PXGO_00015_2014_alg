@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block contenido %}
+
+     <div class="row">
+        <div class="col-md-6">
+            <div style="float:left;margin:2em;padding:2em;border:1px solid black;">{{ product.product_id.name }}</div>
+            <div style="float:left;margin:2em;padding:2em;border:1px solid black;">{{ product.product_qty }}</div>
+            <div style="float:left;margin:2em;padding:2em;border:1px solid black;">{{ product.location_dest_id.name }}</div>
+        </div>
+        <div class="col-md-6">
+            <div style="float:left;margin-left:12em;padding:2em;">
+                <a href="#" class="btn btn-success">Imprimir etiquetas</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-hover f">
+                <caption class="text-left"><h3>Productos a consumir</h3></caption>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Lote</th>
+                    <th></th>
+                </tr>
+                {% for p in product.move_lines %}
+                    <tr>
+                        <td>{{ p.product_id.name }}</td>
+                        <td>{{ p.product_qty }}</td>
+                        <td>{{ p.prodlot_id.name }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-hover">
+                <caption class="text-left"><h3>Productos finales</h3></caption>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Lote</th>
+                    <th></th>
+                </tr>
+                {% for p in product.move_created_ids %}
+                <tr>
+                    <td>{{ p.product_id.name }}</td>
+                    <td>{{ p.product_qty }}</td>
+                    <td>{{ p.prodlor_id.name }}</td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        {% if product.state == "draft" %}
+            <a href="/abrir/{{ product.id }}" class="btn btn-primary btn-default pull-left" >Abrir</a>
+        {% endif %}
+        {% if product.state == "ready" %}
+            <a href="/procesar/{{ product.id }}" class="btn btn-primary btn-default pull-left" >Procesar</a>
+        {% endif %}
+        {% if product.state == "in_production" %}
+            <a href="/finalizar/{{ product.id }}" class="btn btn-primary btn-default pull-left" >Finalizar</a>
+        {% endif %}
+
+    </div>
+{% endblock contenido %}
