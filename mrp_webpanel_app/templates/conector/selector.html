@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block contenido %}
+    <br /><br />
+    <center>
+     <div class="row">
+        <div class="col-lg-6">
+            <a href="/productos/">
+                <img class="img-circle" src="{% static 'img/produc.jpg' %}" alt="Producción">
+                <h2>{% trans "Producción" %}</h2>
+            </a>
+        </div>
+        <div class="col-lg-6">
+          <img class="img-circle" src="{% static 'img/otras.jpg' %}" alt="Otras Tareas">
+          <h2>{% trans "Otras Tareas" %}</h2>
+        </div>
+      </div>
+    </center>
+{% endblock contenido %}
