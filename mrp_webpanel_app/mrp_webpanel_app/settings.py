@@ -21,7 +21,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'prueba',                      # Or path to database file if using sqlite3.
+        'NAME': '/home/pexadmin/algamar/mrp_webpanel_app/prueba',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -170,8 +170,8 @@ LOGGING = {
 
 #OpenERP connector conf
 ENABLE_ERP = True
-ERP_CONF = "/opt/openerp/server/ocb70/install/openerp-server.conf"
-ERP_PATH = "/opt/openerp/server/ocb70/"
+ERP_CONF = "/etc/openerp-server.conf"
+ERP_PATH = "/opt/openerp/server/"
 ERP_UN = 'admin'
 ERP_PW = 'admin'
-ERP_DB = 'algamar_prod'
+ERP_DB = 'algamar_testing'
