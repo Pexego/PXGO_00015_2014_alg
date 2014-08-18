@@ -8,7 +8,7 @@
         <div class="col-md-6">
             <div style="float:left;margin:2em;padding:2em;border:1px solid black;">{{ product.product_id.name }}</div>
             <div style="float:left;margin:2em;padding:2em;border:1px solid black;">{{ product.product_qty }}</div>
-            <div style="float:left;margin:2em;padding:2em;border:1px solid black;">{{ product.location_dest_id.name }}</div>
+            <div style="float:left;margin:2em;padding:2em;border:1px solid black;">{{ product.warehouse_id.name }}</div>
         </div>
         <div class="col-md-6">
             <div style="float:left;margin-left:12em;padding:2em;">
@@ -25,13 +25,19 @@
                     <th>Producto</th>
                     <th>Cantidad</th>
                     <th>Lote</th>
-                    <th></th>
+                    <th colspan="2"></th>
                 </tr>
                 {% for p in product.move_lines %}
                     <tr>
                         <td>{{ p.product_id.name }}</td>
-                        <td>{{ p.product_qty }}</td>
+                        <td>{{ p.product_qty|floatformat:0 }}</td>
                         <td>{{ p.prodlot_id.name }}</td>
+                        <td>
+                            <a href="/verstock/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">VS</a>
+                        </td>
+                        <td>
+                            <a href="/desechar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">DS</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </table>
@@ -48,9 +54,9 @@
                 {% for p in product.move_created_ids %}
                 <tr>
                     <td>{{ p.product_id.name }}</td>
-                    <td>{{ p.product_qty }}</td>
-                    <td>{{ p.prodlor_id.name }}</td>
-                    <td></td>
+                    <td>{{ p.product_qty|floatformat:0 }}</td>
+                    <td>{{ p.prodlot_id.name }}</td>
+                    <td><a href="/dividir/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">DV</a></td>
                 </tr>
                 {% endfor %}
             </table>
@@ -60,9 +66,10 @@
         {% if product.state == "draft" %}
             <a href="/abrir/{{ product.id }}" class="btn btn-primary btn-default pull-left" >Abrir</a>
         {% endif %}
-        {% if product.state == "ready" %}
+        {% if product.state == "confirmed" %}
             <a href="/procesar/{{ product.id }}" class="btn btn-primary btn-default pull-left" >Procesar</a>
         {% endif %}
+        
         {% if product.state == "in_production" %}
             <a href="/finalizar/{{ product.id }}" class="btn btn-primary btn-default pull-left" >Finalizar</a>
         {% endif %}

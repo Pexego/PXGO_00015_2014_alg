@@ -15,6 +15,14 @@ urlpatterns = patterns('',
     url(r'^abrir/(?P<id>\d+)/$', 'conector.views.abrir', name='abrir'),
     url(r'^procesar/(?P<id>\d+)/$', 'conector.views.procesar', name='procesar'),
     url(r'^finalizar/(?P<id>\d+)/$', 'conector.views.finalizar', name='finalizar'),
+    
+    url(r'^verstock/(?P<id>\d+)/$', 'conector.views.verstock', name='verstock'),
+    url(r'^desechar/(?P<id>\d+)/$', 'conector.views.desechar', name='desechar'),
+    url(r'^dividir/(?P<id>\d+)/$', 'conector.views.dividir', name='dividir'),
+    
+    url(r'^otrastareas/$', 'conector.views.tareas', name='tareas'),
+    url(r'^creartarea/$', 'conector.views.tarea', name='tarea'),
+    url(r'^tarea/(?P<id>\d+)/$', 'conector.views.tarea', name='tarea'),
     # url(r'^algamarapp/', include('algamarapp.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
