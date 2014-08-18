@@ -33,7 +33,7 @@
                         <td>{{ p.product_qty|floatformat:0 }}</td>
                         <td>{{ p.prodlot_id.name }}</td>
                         <td>
-                            <a href="/verstock/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">VS</a>
+                            <a href="/verstock/{{ p.product_id.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">VS</a>
                         </td>
                         <td>
                             <a href="/desechar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">DS</a>
@@ -69,7 +69,7 @@
         {% if product.state == "confirmed" %}
             <a href="/procesar/{{ product.id }}" class="btn btn-primary btn-default pull-left" >Procesar</a>
         {% endif %}
-        
+
         {% if product.state == "in_production" %}
             <a href="/finalizar/{{ product.id }}" class="btn btn-primary btn-default pull-left" >Finalizar</a>
         {% endif %}

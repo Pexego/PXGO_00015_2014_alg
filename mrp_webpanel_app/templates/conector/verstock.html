@@ -12,7 +12,7 @@
         <title>Algamar APP</title>
 
         <!-- Bootstrap core CSS -->
-        
+
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -31,11 +31,13 @@
                         <th>Cantidad</th>
                         <th>Fecha</th>
                     </tr>
+                    {% for lot in lots %}
                     <tr>
-                        <th>{{ product.prodlot_id.name }}</th>
-                        <th>{{ product.product_id.qty_available }}  Unidad(es)</th>
-                        <th>{{ product.date }}</th>
+                        <th>{{ lot.name }}</th>
+                        <th>{{ lot.stock_available }} {{ lot.product_id.uom_id.name }}</th>
+                        <th>{{ lot.expiry_date }}</th>
                     </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>
