@@ -36,9 +36,7 @@
             </select>
             <h3>Descripción</h3>
             <p>
-                <textarea name="description" class="qwerty" id="multi">
-                    {% if tarea.name %}{{ tarea.name }}{% endif %}
-                </textarea>
+                <input type="text" name="description" class="qwerty" id="multi" value="{% if tarea.name %}{{ tarea.name }}{% endif %}" />
             </p>
             <h3>Notas</h3>
             <textarea name="notas" class="qwerty" id="multi1">

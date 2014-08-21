@@ -494,6 +494,7 @@ def tarea(request,id=None):
                 vals['product_id'] = pr_id
                 vals['note'] = note
                 tareas=tarea_obj.create(cursor,USER, vals)
+                #~ set_open(cursor, USER, [tareas[0].id])
                 user_access = Usuario.objects.get(code = codigo, end__isnull = True)
                 user_access.project = tareas[0].id
                 user_access.end = datetime.datetime.now()

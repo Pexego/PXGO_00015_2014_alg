@@ -20,25 +20,44 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <script language="JavaScript">
+            function toggle(source) {
+              checkboxes = document.getElementsByName('foo');
+              for(var i=0, n=checkboxes.length;i<n;i++) {
+                checkboxes[i].checked = source.checked;
+              }
+            }
+            function cerrarse(){
+                window.close()
+            }
+        </script>
     </head>
     <body>
         <div class="row">
             <div class="col-md-6">
-                <table class="table table-hover f" style="width:500px;">
-                    <caption class="text-left"><h3>Stock del producto {{ product.product_id.name }}</h3></caption>
-                    <tr>
-                        <th>Lote</th>
-                        <th>Cantidad</th>
-                        <th>Fecha</th>
-                    </tr>
-                    {% for lot in lots %}
-                    <tr>
-                        <th>{{ lot.name }}</th>
-                        <th>{{ lot.stock_available }} {{ lot.product_id.uom_id.name }}</th>
-                        <th>{{ lot.expiry_date }}</th>
-                    </tr>
-                    {% endfor %}
-                </table>
+                <form method="post" action=".">{% csrf_token %}
+                    <table class="table table-hover f" style="width:500px;">
+                        <caption class="text-left"><h3>Stock del producto {{ product.product_id.name }}</h3></caption>
+                        <tr>
+                            <th>Lote</th>
+                            <th>Cantidad</th>
+                            <th>Fecha</th>
+                            <th><input type="checkbox" onClick="toggle(this)" /> Todos</th>
+                        </tr>
+                        {% for lot in lots %}
+                        <tr>
+                            <th>{{ lot.name }}</th>
+                            <th>{{ lot.stock_available }} {{ lot.product_id.uom_id.name }}</th>
+                            <th>{{ lot.expiry_date }}</th>
+                            <th><input type="checkbox" name="foo" value="{{ lot.name }}{{ forloop.counter }}"></th>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                     <div class="row">
+                        <input type="submit" class="btn btn-primary btn-default pull-left" style="margin-left:2em;" value="Enviar" />&nbsp;&nbsp;&nbsp;
+                        <input type=button value="Cancelar" onclick="cerrarse()"> 
+                    </div>
+                </form>
             </div>
         </div>
     </body>
