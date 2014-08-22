@@ -208,17 +208,17 @@ def crear_producto(request):
 def procesar(request, id):
     context={}
     pr_id = int(id)
-    
+
     from erp import POOL, DB, USER
     mrp_obj = POOL.get('mrp.production')
     cursor = DB.cursor()
-    
-        
+
+
     try:
         product = mrp_obj.browse(cursor, USER, [pr_id, ])
         mrp = mrp_obj.force_production(cursor, USER, [product[0].id])
         mrp_obj.action_produce(cursor, USER, product[0].id, product[0].product_qty, "consume_produce")
-        
+
     except Exception as e:
         print "--->", e
         pass
@@ -258,7 +258,7 @@ def finalizar(request, id):
     time_obj = POOL.get('hr.analytic.timesheet')
     hr_obj = POOL.get('hr,employee')
     cursor = DB.cursor()
-    
+
     try:
         mrp = mrp_obj.browse(cursor, USER, pr_id)
         mrp_obj.action_production_end(cursor, USER, [pr_id,])
@@ -286,7 +286,7 @@ def finalizar(request, id):
             vals['amount'] = ""
             print "--->", vals
             time_obj.create(cursor, USER, vals)
-            
+
     except Exception as e:
         print "--->", e
         pass
@@ -303,27 +303,41 @@ def verstock(request, id):
 
     template = loader.get_template('conector/verstock.html')
     context={}
-    pr_id = int(id)
+    move_id = int(id)
     from erp import POOL, DB, USER
     lot_obj = POOL.get('stock.production.lot')
     prod_obj = POOL.get('product.product')
+    move_obj = POOL.get('stock.move')
     cursor = DB.cursor()
-    lot_ids = lot_obj.search(cursor, USER, [('product_id', '=', pr_id),('stock_available', '>', 0.0)])
+    move = move_obj.browse(cursor, USER, move_id)
+    lot_ids = lot_obj.search(cursor, USER, [('product_id', '=', move.product_id.id),('stock_available', '>', 0.0)])
     try:
-        lots = lot_obj.browse(cursor, USER, lot_ids)
-        lots_qty = sum([x.stock_available for x in lots])
-        product = prod_obj.browse(cursor, USER, pr_id)
-        qty_without_lot = product.qty_available - lots_qty
-        if qty_without_lot > 0:
-            lots.append({'name': 'Sin lote',
-                         'product_id': product,
-                         'stock_available': qty_without_lot,
-                         'expiry_date': ''})
+        if request.method == 'POST':
+            selected_lots = []
+            for field in  request.POST:
+                if 'foo' in field:
+                    selected_lots.append(int(request.POST[field]))
 
-        context = RequestContext(request, {
-            'lots': lots,
-        })
-        return HttpResponse(template.render(context))
+            if selected_lots:
+                print "SELECT_LOTS: ", selected_lots
+                move_obj.apply_lots_in_production(cursor, USER, [move.id], selected_lots)
+
+        else:
+            lots = lot_obj.browse(cursor, USER, lot_ids)
+            lots_qty = sum([x.stock_available for x in lots])
+            product = move.product_id
+            qty_without_lot = product.qty_available - lots_qty
+            if qty_without_lot > 0:
+                lots.append({'name': 'Sin lote',
+                             'product_id': product,
+                             'stock_available': qty_without_lot,
+                             'expiry_date': '',
+                             'id': 0})
+
+            context = RequestContext(request, {
+                'lots': lots,
+            })
+            return HttpResponse(template.render(context))
     except Exception as e:
         context = RequestContext(request, {
             'lots': [],

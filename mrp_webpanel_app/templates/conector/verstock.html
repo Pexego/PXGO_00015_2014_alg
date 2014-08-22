@@ -49,13 +49,13 @@
                             <th>{{ lot.name }}</th>
                             <th>{{ lot.stock_available }} {{ lot.product_id.uom_id.name }}</th>
                             <th>{{ lot.expiry_date }}</th>
-                            <th><input type="checkbox" name="foo" value="{{ lot.name }}{{ forloop.counter }}"></th>
+                            <th><input type="checkbox" name="foo{{ forloop.counter }}" value="{{ lot.id }}"></th>
                         </tr>
                         {% endfor %}
                     </table>
                      <div class="row">
                         <input type="submit" class="btn btn-primary btn-default pull-left" style="margin-left:2em;" value="Enviar" />&nbsp;&nbsp;&nbsp;
-                        <input type=button value="Cancelar" onclick="cerrarse()"> 
+                        <input type=button value="Cancelar" onclick="cerrarse()">
                     </div>
                 </form>
             </div>
