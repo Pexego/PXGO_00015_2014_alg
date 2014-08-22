@@ -70,7 +70,7 @@
             <a href="/procesar/{{ product.id }}" class="btn btn-primary btn-default pull-left" >Procesar</a>
         {% endif %}
 
-        {% if product.state == "in_production" %}
+        {% if product.state == "in_production" or product.state == "ready" %}
             <a href="/finalizar/{{ product.id }}" class="btn btn-primary btn-default pull-left" >Finalizar</a>
         {% endif %}
 

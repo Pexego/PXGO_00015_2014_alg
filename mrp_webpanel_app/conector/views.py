@@ -206,33 +206,26 @@ def crear_producto(request):
 
 
 def procesar(request, id):
-    print "entro en procesar producto"
     context={}
     pr_id = int(id)
-
+    
     from erp import POOL, DB, USER
-
     mrp_obj = POOL.get('mrp.production')
-
-
     cursor = DB.cursor()
-
+    
+        
     try:
         product = mrp_obj.browse(cursor, USER, [pr_id, ])
-        print "el producto", product[0].id
         mrp = mrp_obj.force_production(cursor, USER, [product[0].id])
-        print "fuerzo la orden", mrp
-        #~ mrp_obj.action_produce(cursor, USER, product[0].id, product[0].product_qty, "consume_produce", context=None):
-
-        print "inicio la produccion"
-        return procesar(request, id)
+        mrp_obj.action_produce(cursor, USER, product[0].id, product[0].product_qty, "consume_produce")
+        
     except Exception as e:
-        print "error -->", e
+        print "--->", e
         pass
     finally:
         cursor.commit()
         cursor.close()
-        return productos(request)
+        return home(request)
 
 def abrir(request, id):
 
@@ -252,7 +245,7 @@ def abrir(request, id):
     finally:
         cursor.commit()
         cursor.close()
-        return productos(request)
+        return home(request)
 
 def finalizar(request, id):
 
@@ -265,42 +258,42 @@ def finalizar(request, id):
     time_obj = POOL.get('hr.analytic.timesheet')
     hr_obj = POOL.get('hr,employee')
     cursor = DB.cursor()
-
+    
     try:
         mrp = mrp_obj.browse(cursor, USER, pr_id)
-        mrp_obj.action_production_end(cursor, USER, [pr_id,], *args)
+        mrp_obj.action_production_end(cursor, USER, [pr_id,])
         user_access = Usuario.objects.filter(project = id, end__isnull = True)
         for u in user_access:
             u.end=datetime.datetime.now()
             u.save()
-        users_time = Usuario.objects.filer(project = id )
+        users_time = Usuario.objects.filter(project = id )
         for t in users_time:
             user_ids = user_obj.search(cursor, USER, [('code', '=', codigo )], order="login ASC")
-            usere = hr_obj.browse(cursor, USER, user_ids)
-
+            usere = user_obj.browse(cursor, USER, user_ids)
+            hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
+            hr_usere = hr_obj.browse(cursor, USER, hr_ids)
             vals = {}
             vals['production_id'] = pr_id
-            vals['journal_id'] =  usere[0].journal_id
+            vals['journal_id'] =  hr_usere[0].journal_id
             vals['product_uom_id'] = ""
             vals['product_id'] = mrp[0].product_id
             vals['general_account_id'] = ""
             vals['account_id'] = ""
-            vals['date'] = ""
+            vals['date'] = t.end
             vals['unit_amount'] = ""
             vals['name'] = ""
-            vals['user_id'] = ""
+            vals['user_id'] = usere[0].id
             vals['amount'] = ""
-            #time_obj.create(cursor, USER, vals, context=None)
             print "--->", vals
-
-
+            time_obj.create(cursor, USER, vals)
+            
     except Exception as e:
         print "--->", e
         pass
     finally:
         cursor.commit()
         cursor.close()
-        return productos(request)
+        return home(request)
 
 
 def verstock(request, id):
