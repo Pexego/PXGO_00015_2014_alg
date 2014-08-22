@@ -178,13 +178,13 @@ def crear_producto(request):
         context={}
         from erp import POOL, DB, USER
         cursor = DB.cursor()
-        product_obj = POOL.get('mrp.bom')
+        product_obj = POOL.get('product.product')
         warehouse_obj = POOL.get('stock.warehouse')
         try:
-            products_ids = product_obj.search(cursor, USER, [('product_id.analytic_acc_id', '!=', False)], order="name ASC")
+            products_ids = product_obj.search(cursor, USER, [('analytic_acc_id', '!=', False),('bom_ids', '!=', False)], order="name ASC")
             products = product_obj.browse(cursor, USER, products_ids)
             warehouse_ids = warehouse_obj.search(cursor, USER, [], order="name ASC")
-            warehouses = warehouse_obj.browse(cursor, USER, products_ids)
+            warehouses = warehouse_obj.browse(cursor, USER, warehouse_ids)
             users_list = Usuario.objects.filter(end__isnull = True)
 
             context = RequestContext(request, {

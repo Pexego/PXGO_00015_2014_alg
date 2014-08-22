@@ -12,7 +12,7 @@
                     <select name="pr">
                             <option>-----</option>
                         {% for p in products %}
-                            <option value="{{ p.product_id.id }}">{{ p.name }}</option>
+                            <option value="{{ p.id }}">{{ p.name }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -39,13 +39,11 @@
                 <th>Lote</th>
                 <th></th>
             </tr>
-            {% for p in product.product_lines %}
                 <tr style="border:1px solid black;">
-                    <td>{{ p.product_id.name }}</td>
-                    <td>{{ p.product_qty }}</td>
-                    <td>{{ p.product_id.code }}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
-            {% endfor %}
         </table>
         <table style="width:45%;float:left;margin-left:4%;">
             <tr style="border:1px solid black;">
@@ -55,27 +53,12 @@
                 <th></th>
             </tr>
             <tr style="border:1px solid black;">
-                <td>{{ product.product_id.name }}</td>
-                <td>{{ product.product_qty }}</td>
-                <td>{{ product.product_id.code }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td></td>
             </tr>
         </table>
-        <div style="clear:both;"></div>
-        <div style="width:100%;margin:auto;">
-            <div style="margin:2em;padding:2em;">
-                {% if product.state == "draft" %}
-                    <button>Abrir</button>
-                {% endif %}
-                {% if product.state == "confirmed" %}
-                    <button>Procesar</button>
-                {% endif %}
-                {% if product.state == "in_production" %}
-                    <button>Finalizar</button>
-                {% endif %}
-
-            </div>
-        </div>
       </div>
     </center>
 {% endblock contenido %}
