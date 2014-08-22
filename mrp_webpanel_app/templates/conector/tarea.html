@@ -47,6 +47,7 @@
     <br /><br />
     <div class="row">
         <input type="hidden" name="state" value="{{ tarea.state }}" />
+        <input type="hidden" name="taskid" value="{{ tarea.id }}" />
         {% if tarea.state == "draft" or tarea == False %}
             <input type="submit" value="Abrir" class="btn btn-success"/>
         {% endif %}
