@@ -217,7 +217,7 @@ def procesar(request, id):
     try:
         product = mrp_obj.browse(cursor, USER, [pr_id, ])
         mrp = mrp_obj.force_production(cursor, USER, [product[0].id])
-        mrp_obj.action_produce(cursor, USER, product[0].id, product[0].product_qty, "consume_produce")
+        #mrp_obj.action_produce(cursor, USER, product[0].id, product[0].product_qty, "consume_produce")
         
     except Exception as e:
         print "--->", e
@@ -256,19 +256,21 @@ def finalizar(request, id):
     user_obj = POOL.get('res.users')
     mrp_obj = POOL.get('mrp.production')
     time_obj = POOL.get('hr.analytic.timesheet')
-    hr_obj = POOL.get('hr,employee')
+    hr_obj = POOL.get('hr.employee')
     cursor = DB.cursor()
     
     try:
         mrp = mrp_obj.browse(cursor, USER, pr_id)
+        #~ mrp_obj.action_produce(cursor, USER, mrp[0].id, mrp[0].product_qty, "consume_produce")
         mrp_obj.action_production_end(cursor, USER, [pr_id,])
         user_access = Usuario.objects.filter(project = id, end__isnull = True)
+        print "Paso hasta aqui"
         for u in user_access:
             u.end=datetime.datetime.now()
             u.save()
         users_time = Usuario.objects.filter(project = id )
         for t in users_time:
-            user_ids = user_obj.search(cursor, USER, [('code', '=', codigo )], order="login ASC")
+            user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
             usere = user_obj.browse(cursor, USER, user_ids)
             hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
             hr_usere = hr_obj.browse(cursor, USER, hr_ids)
@@ -439,7 +441,7 @@ def tareas(request):
     from erp import POOL, DB, USER
     cursor = DB.cursor()
     tarea_obj = POOL.get('hr.task')
-
+    time_obj = POOL.get('hr.analytic.timesheet')
 
     try:
         tarea_ids = tarea_obj.search(cursor, USER, [('state', 'not in', ['close','cancel'])], order="name ASC")
@@ -472,47 +474,79 @@ def tarea(request,id=None):
         description = request.POST.get("description")
         note = request.POST.get("note")
         estado = request.POST.get("state", False)
+        task_id = request.POST.get("taskid", False)
         vals = {}
 
         codigo = int(request.session.get('codigo', False))
         tarea_obj = POOL.get('hr.task')
         user_obj = POOL.get('res.users')
-
+        time_obj = POOL.get('hr.analytic.timesheet')
+        hr_obj = POOL.get('hr.employee')
+        
         try:
-            user_ids = user_obj.search(cursor, USER, [('code', '=', codigo )], order="login ASC")
-            users = user_obj.browse(cursor, USER, user_ids)
             #Si no existe la tarea, se crea.
             if not estado:
                 vals['name'] = description
                 vals['product_id'] = pr_id
                 vals['note'] = note
                 tareas=tarea_obj.create(cursor,USER, vals)
-                #~ set_open(cursor, USER, [tareas[0].id])
                 user_access = Usuario.objects.get(code = codigo, end__isnull = True)
-                user_access.project = tareas[0].id
-                user_access.end = datetime.datetime.now()
+                user_access.task = tareas
                 user_access.save()
-
             else:
-            #Si existe, se finaliza.
-                tareas_ids = tarea_obj.browse(cursor, USER, pr_id)
-                tarea_obj.set_close(cursor, USER, tareas_ids)
+            #Si existe, se finaliza o se abre, dependiendo del estado.
+                tareas_ids = tarea_obj.browse(cursor, USER, int(task_id))
+                print "--_>", tareas_ids.state
                 user_access = Usuario.objects.get(code = codigo, end__isnull = True)
-                user_access.project = pr_id
-                user_access.save()
+                if tareas_ids.state == "draft":
+                    tarea_obj.set_open(cursor, USER, [tareas_ids.id])
+                    user_access.task = task_id
+                    user_access.save()
+                else:
+                    tarea_obj.set_close(cursor, USER, [tareas_ids.id])
+                    user_access.task = task_id
+                    user_access.end = datetime.datetime.now()
+                    user_access.save()
+                    user_access = Usuario.objects.filter(task = id, end__isnull = True)
+                    print "Paso hasta aqui"
+                    for u in user_access:
+                        u.end=datetime.datetime.now()
+                        u.save()
+                    print "AQUI!!!"
+                    users_time = Usuario.objects.filter(task = id )
+                    print "User_time", users_time
+                    for t in users_time:
+                        print "--->", t
+                        user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
+                        usere = user_obj.browse(cursor, USER, user_ids)
+                        print "Obtengo a usuario",usere[0].id
+                        hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
+                        hr_usere = hr_obj.browse(cursor, USER, hr_ids)
+                        print "Y sus horas"
+                        vals = {}
+                        vals['hr_task_id'] = int(task_id)
+                        vals['journal_id'] =  hr_usere[0].journal_id.id
+                        vals['product_uom_id'] = ""
+                        vals['product_id'] = tareas_ids.product_id.id
+                        vals['general_account_id'] = ""
+                        vals['account_id'] = ""
+                        vals['date'] = t.end
+                        vals['unit_amount'] = ""
+                        vals['name'] = ""
+                        vals['user_id'] = usere[0].id
+                        vals['amount'] = ""
+                        print "--->", vals
+                        time_obj.create(cursor, USER, vals)
 
+            
         except Exception as e:
             print "--->", e
-            context = RequestContext(request, {
-                'users_list': False,
-                'products': False,
-            })
             pass
         finally:
             cursor.commit()
             cursor.close()
-            return home(request)
-
+            return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')
+            #return home(request)
     else:
 
 
