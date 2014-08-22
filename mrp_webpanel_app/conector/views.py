@@ -399,6 +399,7 @@ def dividir(request, id):
 
         try:
             product = prod_obj.browse(cursor, USER, [pr_id])
+            
             # Aqui deberia ir la funcion de Omar
             # split_in_lots(cursor, USER, ids (movimientos), lots=[], context={})
 
@@ -420,8 +421,11 @@ def dividir(request, id):
         cursor = DB.cursor()
         try:
             product = product_obj.browse(cursor, USER, [pr_id])
+            products_ids = product_obj.search(cursor, USER, [('product_id.analytic_acc_id', '!=', False)], order="name ASC")
+            products = product_obj.browse(cursor, USER, products_ids)
             context = RequestContext(request, {
                 'product': product[0],
+                'products': products,
             })
             return HttpResponse(template.render(context))
         except Exception as e:

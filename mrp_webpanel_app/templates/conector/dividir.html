@@ -24,6 +24,37 @@
             function cerrarse(){
             window.close()
             }
+            function addRow(tableID) {
+ 
+                var table = document.getElementById(tableID);
+     
+                var rowCount = table.rows.length;
+                var row = table.insertRow(rowCount);
+                //Create array of options to be added
+                //Create and append select list
+
+                var cell1 = row.insertCell(0);
+                var element1 = document.createElement("select");
+                element1.id = "product";
+                element1.name = "product";
+                cell1.appendChild(element1);
+                
+                //~ var array=new array();
+                
+                //Create and append the options
+                {% for a in products %}
+                    var option = document.createElement("option");
+                    option.value = "{{ a.id }}";
+                    option.text = "{{ a.name }}";
+                    element1.appendChild(option);
+                {% endfor %}
+                
+                var cell2 = row.insertCell(1);
+                var element2 = document.createElement("input");
+                element2.type = "text";
+                element2.name = "unidades";
+                cell2.appendChild(element2);
+            }
         </script> 
     </head>
     <body>
@@ -31,7 +62,7 @@
         <div class="row">
             <div class="col-md-6">
                 
-                <table class="table table-hover f" style="width:500px;">
+                <table class="table table-hover f" style="width:500px;" id="dataTable">
                     <caption class="text-left">
                         <h3>Dividir producto: {{ product.product_id.name }}</h3>
                         <h4>Cantidad total: {{ product.product_qty }} </h4>
@@ -40,11 +71,9 @@
                         <th>Producto</th>
                         <th>Cantidad</th>
                     </tr>
-                    <tr>
-                        <th>{{ product.product_id.name }} </th>
-                        <th><input type="text" value="" name="unidades"/>  Unidad(es)</th>
-                    </tr>
+                    
                 </table>
+                <INPUT type="button" value="Add Row" onclick="addRow('dataTable')" />
             </div>
         </div>
         <div class="row">
