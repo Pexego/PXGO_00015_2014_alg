@@ -328,7 +328,7 @@ def verstock(request, id):
             if selected_lots:
                 print "SELECT_LOTS: ", selected_lots
                 move_obj.apply_lots_in_production(cursor, USER, [move.id], selected_lots)
-
+            return HttpResponse('<script type="text/javascript">window.close()</script>')
         else:
             lots = lot_obj.browse(cursor, USER, lot_ids)
             lots_qty = sum([x.stock_available for x in lots])
