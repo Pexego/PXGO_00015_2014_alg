@@ -71,6 +71,7 @@ def selector(request):
 def productos(request):
     template = loader.get_template('conector/productos.html')
     context={}
+    oerp_ctx = {'lang': 'es_ES'}
     from erp import POOL, DB, USER
     cursor = DB.cursor()
     product_obj = POOL.get('mrp.production')
@@ -78,7 +79,7 @@ def productos(request):
 
     try:
         product_ids = product_obj.search(cursor, USER, [('state', 'not in', ['done','cancel'])], order="name ASC")
-        products = product_obj.browse(cursor, USER, product_ids, [])
+        products = product_obj.browse(cursor, USER, product_ids, context=oerp_ctx)
 
         users_list = Usuario.objects.filter(end__isnull = True)
         context = RequestContext(request, {
@@ -101,12 +102,13 @@ def productos(request):
 def producto(request,id):
     template = loader.get_template('conector/producto.html')
     context={}
+    oerp_ctx = {'lang': 'es_ES'}
     from erp import POOL, DB, USER
     cursor = DB.cursor()
 
     production_obj = POOL.get('mrp.production')
     try:
-        production = production_obj.browse(cursor, USER, [int(id)])
+        production = production_obj.browse(cursor, USER, [int(id)], context=oerp_ctx)
         users_list = Usuario.objects.filter(end__isnull = True)
         user_access = Usuario.objects.get(code = request.session['codigo'], end__isnull = True)
         user_access.project = id
@@ -128,6 +130,7 @@ def producto(request,id):
 
 
 def crear_producto(request):
+    oerp_ctx = {'lang': 'es_ES'}
     if request.method == 'POST':
         pr_id = int(request.POST.get("pr"))
         w_id = int(request.POST.get("wr"))
@@ -145,7 +148,7 @@ def crear_producto(request):
 
         try:
             user_ids = user_obj.search(cursor, USER, [('code', '=', codigo )], order="login ASC")
-            users = user_obj.browse(cursor, USER, user_ids)
+            users = user_obj.browse(cursor, USER, user_ids, context=oerp_ctx)
             product = prod_obj.browse(cursor, USER, pr_id)
             vals['date_planned'] = datetime.datetime.now()
             vals['product_id'] = pr_id
@@ -182,9 +185,9 @@ def crear_producto(request):
         warehouse_obj = POOL.get('stock.warehouse')
         try:
             products_ids = product_obj.search(cursor, USER, [('analytic_acc_id', '!=', False),('bom_ids', '!=', False)], order="name ASC")
-            products = product_obj.browse(cursor, USER, products_ids)
+            products = product_obj.browse(cursor, USER, products_ids, context=oerp_ctx)
             warehouse_ids = warehouse_obj.search(cursor, USER, [], order="name ASC")
-            warehouses = warehouse_obj.browse(cursor, USER, warehouse_ids)
+            warehouses = warehouse_obj.browse(cursor, USER, warehouse_ids, context=oerp_ctx)
             users_list = Usuario.objects.filter(end__isnull = True)
 
             context = RequestContext(request, {
@@ -212,10 +215,11 @@ def procesar(request, id):
     from erp import POOL, DB, USER
     mrp_obj = POOL.get('mrp.production')
     cursor = DB.cursor()
+    oerp_ctx = {'lang': 'es_ES'}
 
 
     try:
-        product = mrp_obj.browse(cursor, USER, [pr_id, ])
+        product = mrp_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
         mrp = mrp_obj.force_production(cursor, USER, [product[0].id])
         #mrp_obj.action_produce(cursor, USER, product[0].id, product[0].product_qty, "consume_produce")
     except Exception as e:
@@ -237,7 +241,7 @@ def abrir(request, id):
     cursor = DB.cursor()
 
     try:
-        mrp_obj.action_ready(cursor, USER, [pr_id,], *args)
+        mrp_obj.action_ready(cursor, USER, [pr_id], *args)
     except Exception as e:
         print "--->", e
         pass
@@ -251,6 +255,7 @@ def finalizar(request, id):
     context={}
     pr_id = int(id)
     codigo = int(request.session.get('codigo', False))
+    oerp_ctx = {'lang': 'es_ES'}
     from erp import POOL, DB, USER
     user_obj = POOL.get('res.users')
     mrp_obj = POOL.get('mrp.production')
@@ -270,9 +275,9 @@ def finalizar(request, id):
         users_time = Usuario.objects.filter(project = id )
         for t in users_time:
             user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
-            usere = user_obj.browse(cursor, USER, user_ids)
+            usere = user_obj.browse(cursor, USER, user_ids, context=oerp_ctx)
             hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
-            hr_usere = hr_obj.browse(cursor, USER, hr_ids)
+            hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
             vals = {}
             vals['production_id'] = pr_id
             vals['journal_id'] =  hr_usere[0].journal_id
@@ -310,7 +315,8 @@ def verstock(request, id):
     prod_obj = POOL.get('product.product')
     move_obj = POOL.get('stock.move')
     cursor = DB.cursor()
-    move = move_obj.browse(cursor, USER, move_id)
+    oerp_ctx = {'lang': 'es_ES'}
+    move = move_obj.browse(cursor, USER, move_id, context=oerp_ctx)
     lot_ids = lot_obj.search(cursor, USER, [('product_id', '=', move.product_id.id),('stock_available', '>', 0.0)])
     try:
         if request.method == 'POST':
@@ -354,6 +360,7 @@ def desechar(request, id):
     # Si no exite,creo una nuevo tiempo de trabajo
     # guardo en una session, el id del usuario para futuras busquedas
     pr_id = int(id)
+    oerp_ctx = {'lang': 'es_ES'}
     if request.method == 'POST':
         cantidad = int(request.POST.get("unidades"))
         from erp import POOL, DB, USER
@@ -361,8 +368,8 @@ def desechar(request, id):
         prod_obj = POOL.get('stock.move')
 
         try:
-            product = prod_obj.browse(cursor, USER, [pr_id])
-            prod_obj = prod_obj.action_scrap(cursor, USER, [product[0].id], cantidad, product[0].location_id.id, context=None)
+            product = prod_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
+            prod_obj = prod_obj.action_scrap(cursor, USER, [product[0].id], cantidad, product[0].location_id.id, context=oerp_ctx)
         except Exception as e:
             context = RequestContext(request, {
                 'users_list': False,
@@ -383,7 +390,7 @@ def desechar(request, id):
         product_obj = POOL.get('stock.move')
         cursor = DB.cursor()
         try:
-            product = product_obj.browse(cursor, USER, [pr_id])
+            product = product_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
             context = RequestContext(request, {
                 'product': product[0],
             })
@@ -404,17 +411,28 @@ def dividir(request, id):
     pr_id = int(id)
     template = loader.get_template('conector/dividir.html')
     context={}
+    oerp_ctx = {'lang': 'es_ES'}
+    print "pr_id: ", pr_id
     if request.method == 'POST':
-        cantidad = int(request.POST.get("unidades"))
         from erp import POOL, DB, USER
         cursor = DB.cursor()
-        prod_obj = POOL.get('stock.move')
+        move_obj = POOL.get('stock.move')
 
         try:
-            product = prod_obj.browse(cursor, USER, [pr_id])
+            updated=False
+            move = move_obj.browse(cursor, USER, pr_id)
+            for product, qty in zip(request.POST.getlist("product"), request.POST.getlist("unidades")):
+                qty = float(qty)
+                product = int(product)
+                if product == move.product_id.id and not updated:
+                    move.write({'product_qty': qty})
+                    updated = True
+                else:
+                    new_move = move_obj.copy(cursor, USER, move.id, {'product_id': product,
+                                                                     'product_qty': qty})
 
-            # Aqui deberia ir la funcion de Omar
-            # split_in_lots(cursor, USER, ids (movimientos), lots=[], context={})
+            if not updated and request.POST.get("product", False):
+                move_obj.unlink(cursor, USER, [move.id])
 
         except Exception as e:
             context = RequestContext(request, {
@@ -430,21 +448,23 @@ def dividir(request, id):
     else:
 
         from erp import POOL, DB, USER
-        product_obj = POOL.get('stock.move')
+        product_obj = POOL.get('product.product')
+        move_obj = POOL.get('stock.move')
         cursor = DB.cursor()
         try:
-            product = product_obj.browse(cursor, USER, [pr_id])
-            products_ids = product_obj.search(cursor, USER, [('product_id.analytic_acc_id', '!=', False)], order="name ASC")
-            products = product_obj.browse(cursor, USER, products_ids)
+            move = move_obj.browse(cursor, USER, [pr_id])
+            products_ids = product_obj.search(cursor, USER, [('analytic_acc_id', '!=', False),('type', '=', 'product')], order="name ASC", context=oerp_ctx)
+            products = product_obj.browse(cursor, USER, products_ids, context=oerp_ctx)
             context = RequestContext(request, {
-                'product': product[0],
+                'move': move[0],
                 'products': products,
             })
             return HttpResponse(template.render(context))
         except Exception as e:
 
             context = RequestContext(request, {
-                'product': False,
+                'move': False,
+                'products': []
             })
             return HttpResponse(template.render(context))
             pass
@@ -455,6 +475,7 @@ def dividir(request, id):
 def tareas(request):
     template = loader.get_template('conector/tareas.html')
     context={}
+    oerp_ctx = {'lang': 'es_ES'}
     from erp import POOL, DB, USER
     cursor = DB.cursor()
     tarea_obj = POOL.get('hr.task')
@@ -463,7 +484,7 @@ def tareas(request):
     try:
         tarea_ids = tarea_obj.search(cursor, USER, [('state', 'not in', ['close','cancel'])], order="name ASC")
 
-        tareas = tarea_obj.browse(cursor, USER, tarea_ids, [])
+        tareas = tarea_obj.browse(cursor, USER, tarea_ids, [], context=oerp_context)
 
         users_list = Usuario.objects.filter(end__isnull = True)
         context = RequestContext(request, {
@@ -484,6 +505,7 @@ def tareas(request):
 def tarea(request,id=None):
     template = loader.get_template('conector/tarea.html')
     context={}
+    oerp_ctx = {'lang': 'es_ES'}
     from erp import POOL, DB, USER
     cursor = DB.cursor()
     if request.method == 'POST':
@@ -512,7 +534,7 @@ def tarea(request,id=None):
                 user_access.save()
             else:
             #Si existe, se finaliza o se abre, dependiendo del estado.
-                tareas_ids = tarea_obj.browse(cursor, USER, int(task_id))
+                tareas_ids = tarea_obj.browse(cursor, USER, int(task_id), context=oerp_context)
                 print "--_>", tareas_ids.state
                 user_access = Usuario.objects.get(code = codigo, end__isnull = True)
                 if tareas_ids.state == "draft":
@@ -535,10 +557,10 @@ def tarea(request,id=None):
                     for t in users_time:
                         print "--->", t
                         user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
-                        usere = user_obj.browse(cursor, USER, user_ids)
+                        usere = user_obj.browse(cursor, USER, user_ids, context=oerp_context)
                         print "Obtengo a usuario",usere[0].id
                         hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
-                        hr_usere = hr_obj.browse(cursor, USER, hr_ids)
+                        hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_context)
                         print "Y sus horas"
                         vals = {}
                         vals['hr_task_id'] = int(task_id)
@@ -573,7 +595,7 @@ def tarea(request,id=None):
             if id != None:
                 tarea = tarea_obj.browse(cursor, USER, [int(id)])
             trabajos_ids = trabajo_obj.search(cursor, USER, [('type', '=', 'service'),('analytic_acc_id', '!=', False)], order="name ASC")
-            trabajos = trabajo_obj.browse(cursor, USER, trabajos_ids)
+            trabajos = trabajo_obj.browse(cursor, USER, trabajos_ids, context=oerp_context)
             users_list = Usuario.objects.filter(end__isnull = True)
             user_access = Usuario.objects.get(code = request.session['codigo'], end__isnull = True)
             user_access.project = id

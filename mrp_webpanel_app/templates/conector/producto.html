@@ -31,7 +31,7 @@
                     <tr>
                         <td>{{ p.product_id.name }}</td>
                         <td>{{ p.product_qty|floatformat:0 }}</td>
-                        <td>{{ p.prodlot_id.name }}</td>
+                        <td>{{ p.prodlot_id.name|default_if_none:"" }}</td>
                         <td>
                             <a href="/verstock/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">VS</a>
                         </td>
@@ -55,7 +55,7 @@
                 <tr>
                     <td>{{ p.product_id.name }}</td>
                     <td>{{ p.product_qty|floatformat:0 }}</td>
-                    <td>{{ p.prodlot_id.name }}</td>
+                    <td>{{ p.prodlot_id.name|default_if_none:"" }}</td>
                     <td><a href="/dividir/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">DV</a></td>
                 </tr>
                 {% endfor %}
