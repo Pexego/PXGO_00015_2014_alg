@@ -484,7 +484,7 @@ def tareas(request):
     try:
         tarea_ids = tarea_obj.search(cursor, USER, [('state', 'not in', ['close','cancel'])], order="name ASC")
 
-        tareas = tarea_obj.browse(cursor, USER, tarea_ids, [], context=oerp_context)
+        tareas = tarea_obj.browse(cursor, USER, tarea_ids, context=oerp_context)
 
         users_list = Usuario.objects.filter(end__isnull = True)
         context = RequestContext(request, {
