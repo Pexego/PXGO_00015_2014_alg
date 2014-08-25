@@ -484,7 +484,7 @@ def tareas(request):
     try:
         tarea_ids = tarea_obj.search(cursor, USER, [('state', 'not in', ['close','cancel'])], order="name ASC")
 
-        tareas = tarea_obj.browse(cursor, USER, tarea_ids, context=oerp_context)
+        tareas = tarea_obj.browse(cursor, USER, tarea_ids, context=oerp_ctx)
 
         users_list = Usuario.objects.filter(end__isnull = True)
         context = RequestContext(request, {
@@ -534,7 +534,7 @@ def tarea(request,id=None):
                 user_access.save()
             else:
             #Si existe, se finaliza o se abre, dependiendo del estado.
-                tareas_ids = tarea_obj.browse(cursor, USER, int(task_id), context=oerp_context)
+                tareas_ids = tarea_obj.browse(cursor, USER, int(task_id), context=oerp_ctx)
                 print "--_>", tareas_ids.state
                 user_access = Usuario.objects.get(code = codigo, end__isnull = True)
                 if tareas_ids.state == "draft":
@@ -557,10 +557,10 @@ def tarea(request,id=None):
                     for t in users_time:
                         print "--->", t
                         user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
-                        usere = user_obj.browse(cursor, USER, user_ids, context=oerp_context)
+                        usere = user_obj.browse(cursor, USER, user_ids, context=oerp_ctx)
                         print "Obtengo a usuario",usere[0].id
                         hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
-                        hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_context)
+                        hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
                         print "Y sus horas"
                         vals = {}
                         vals['hr_task_id'] = int(task_id)
@@ -595,7 +595,7 @@ def tarea(request,id=None):
             if id != None:
                 tarea = tarea_obj.browse(cursor, USER, [int(id)])
             trabajos_ids = trabajo_obj.search(cursor, USER, [('type', '=', 'service'),('analytic_acc_id', '!=', False)], order="name ASC")
-            trabajos = trabajo_obj.browse(cursor, USER, trabajos_ids, context=oerp_context)
+            trabajos = trabajo_obj.browse(cursor, USER, trabajos_ids, context=oerp_ctx)
             users_list = Usuario.objects.filter(end__isnull = True)
             user_access = Usuario.objects.get(code = request.session['codigo'], end__isnull = True)
             user_access.project = id
