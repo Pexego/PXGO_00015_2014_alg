@@ -56,6 +56,7 @@ class stock_move(orm.Model):
                         move.write({'product_qty': qty,
                                     'prodlot_id': lot.id})
                         qty = 0.0
+                        break
                     else:
                         qty -= lot.stock_available
                         nm = move_obj.copy(cr, uid, move.id,
