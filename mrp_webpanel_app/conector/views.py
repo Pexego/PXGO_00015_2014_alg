@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.template import RequestContext, loader
+from django.shortcuts import redirect
 from models import Usuario
 import datetime
 
@@ -144,7 +145,7 @@ def crear_producto(request):
         mrp_obj = POOL.get('mrp.production')
         prod_obj = POOL.get('product.product')
         user_obj = POOL.get('res.users')
-
+        mrp = 0
         try:
             user_ids = user_obj.search(cursor, USER, [('code', '=', codigo )], order="login ASC")
             users = user_obj.browse(cursor, USER, user_ids, context=oerp_ctx)
@@ -172,7 +173,7 @@ def crear_producto(request):
             cursor.commit()
             cursor.close()
 
-            return producto(request, mrp)
+            return redirect('/producto/' + str(mrp))
 
     else:
         template = loader.get_template('conector/crear_producto.html')
@@ -226,7 +227,7 @@ def procesar(request, id):
     finally:
         cursor.commit()
         cursor.close()
-        
+
         return HttpResponse('<script type="text/javascript">window.location.replace("/producto/'+id+'/");</script>')
         #return home(request)
 
@@ -268,7 +269,7 @@ def finalizar(request, id):
         mrp_obj.action_produce(cursor, USER, mrp.id, mrp.product_qty, "consume_produce")
         mrp_obj.action_production_end(cursor, USER, [mrp.id,])
         user_access = Usuario.objects.filter(project = id, end__isnull = True)
-        
+
         for u in user_access:
             u.end=datetime.datetime.now()
             u.save()
@@ -324,9 +325,9 @@ def verstock(request, id):
                 if 'foo' in field:
                     selected_lots.append(int(request.POST[field]))
 
-            if selected_lots:                
+            if selected_lots:
                 move_obj.apply_lots_in_production(cursor, USER, [move.id], selected_lots)
-            return HttpResponse('<script type="text/javascript">window.close()</script>')
+            return HttpResponse('<script type="text/javascript">opener.location.reload();window.close()</script>')
         else:
             lots = lot_obj.browse(cursor, USER, lot_ids)
             lots_qty = sum([x.stock_available for x in lots])
@@ -415,10 +416,12 @@ def dividir(request, id):
         from erp import POOL, DB, USER
         cursor = DB.cursor()
         move_obj = POOL.get('stock.move')
+        lot_obj = POOL.get('stock.production.lot')
 
         try:
             updated=False
             move = move_obj.browse(cursor, USER, pr_id)
+            new_lots = {}
             for product, qty in zip(request.POST.getlist("product"), request.POST.getlist("unidades")):
                 qty = float(qty)
                 product = int(product)
@@ -426,8 +429,18 @@ def dividir(request, id):
                     move.write({'product_qty': qty})
                     updated = True
                 else:
-                    new_move = move_obj.copy(cursor, USER, move.id, {'product_id': product,
-                                                                     'product_qty': qty})
+                    copy_vals = {'product_id': product, 'product_qty': qty}
+                    if move.prodlot_id:
+                        if move.product_id.id == product:
+                            copy_vals['prodlot_id'] = move.prodlot_id.id
+                        else:
+                            if new_lots.get(product, False):
+                                new_lot = new_lots[product]
+                            else:
+                                new_lot = lot_obj.copy(cursor, USER, move.prodlot_id.id, {'product_id': product})
+                                new_lots[product] = new_lot
+                            copy_vals['prodlot_id'] = new_lot
+                    new_move = move_obj.copy(cursor, USER, move.id, copy_vals)
 
             if not updated and request.POST.get("product", False):
                 move_obj.unlink(cursor, USER, [move.id])
@@ -442,7 +455,7 @@ def dividir(request, id):
             cursor.commit()
             cursor.close()
 
-            return HttpResponse('<script type="text/javascript">window.close()</script>')
+            return HttpResponse('<script type="text/javascript">opener.location.reload();window.close()</script>')
     else:
 
         from erp import POOL, DB, USER
@@ -530,38 +543,38 @@ def tarea(request,id=None):
                 user_access = Usuario.objects.get(code = codigo, end__isnull = True)
                 user_access.task = tareas
                 user_access.save()
-                
+
             else:
             #Si existe, se finaliza o se abre, dependiendo del estado.
                 tareas_ids = tarea_obj.browse(cursor, USER, int(task_id), context=oerp_ctx)
-                
+
                 user_access = Usuario.objects.get(code = codigo, end__isnull = True)
                 if tareas_ids.state == "draft":
                     tarea_obj.set_open(cursor, USER, [tareas_ids.id])
                     user_access.task = task_id
                     user_access.save()
-                    
+
                 else:
                     tarea_obj.set_close(cursor, USER, [tareas_ids.id])
                     user_access.task = task_id
                     user_access.end = datetime.datetime.now()
                     user_access.save()
                     user_access = Usuario.objects.filter(task = id, end__isnull = True)
-                    
+
                     for u in user_access:
                         u.end=datetime.datetime.now()
                         u.save()
-                    
+
                     users_time = Usuario.objects.filter(task = id )
-                    
+
                     for t in users_time:
-                    
+
                         user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
                         usere = user_obj.browse(cursor, USER, user_ids, context=oerp_ctx)
-                    
+
                         hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
                         hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
-                    
+
                         vals = {}
                         vals['hr_task_id'] = int(task_id)
                         vals['journal_id'] =  hr_usere[0].journal_id.id
@@ -574,17 +587,17 @@ def tarea(request,id=None):
                         vals['name'] = ""
                         vals['user_id'] = usere[0].id
                         vals['amount'] = ""
-                        
+
                         time_obj.create(cursor, USER, vals)
-                        
-                        
+
+
         except Exception as e:
             print "--->", e
             pass
         finally:
             cursor.commit()
             cursor.close()
-            return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>') 
+            return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')
             #return home(request)
     else:
 
