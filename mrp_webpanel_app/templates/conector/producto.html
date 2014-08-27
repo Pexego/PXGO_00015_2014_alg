@@ -19,47 +19,87 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <table class="table table-hover f">
-                <caption class="text-left"><h3>Productos a consumir</h3></caption>
-                <tr>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Lote</th>
-                    <th colspan="2"></th>
-                </tr>
-                {% for p in product.move_lines %}
+            {% if product.move_lines %}
+                <table class="table table-hover f">
+                    <caption class="text-left"><h3>Productos a consumir</h3></caption>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Lote</th>
+                        <th colspan="2"></th>
+                    </tr>
+                    {% for p in product.move_lines %}
+                        <tr>
+                            <td>{{ p.product_id.name }}</td>
+                            <td>{{ p.product_qty|floatformat:0 }}</td>
+                            <td>{{ p.prodlot_id.name|default_if_none:"" }}</td>
+                            <td>
+                                <a href="/verstock/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">VS</a>
+                            </td>
+                            <td>
+                                <a href="/desechar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">DS</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif  %}
+            {% if product.move_lines2 %}
+                <table class="table table-hover f">
+                    <caption class="text-left"><h3>Productos consumidos</h3></caption>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Lote</th>
+                    </tr>
+                    {% for p in product.move_lines2 %}
+                        <tr>
+                            <td>{{ p.product_id.name }}</td>
+                            <td>{{ p.product_qty|floatformat:0 }}</td>
+                            <td>{{ p.prodlot_id.name|default_if_none:"" }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            {% if product.move_created_ids %}
+                <table class="table table-hover">
+                    <caption class="text-left"><h3>Productos a fabricar</h3></caption>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Lote</th>
+                        <th></th>
+                    </tr>
+                    {% for p in product.move_created_ids %}
                     <tr>
                         <td>{{ p.product_id.name }}</td>
                         <td>{{ p.product_qty|floatformat:0 }}</td>
                         <td>{{ p.prodlot_id.name|default_if_none:"" }}</td>
-                        <td>
-                            <a href="/verstock/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">VS</a>
-                        </td>
-                        <td>
-                            <a href="/desechar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">DS</a>
-                        </td>
+                        <td><a href="/dividir/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">DV</a></td>
                     </tr>
-                {% endfor %}
-            </table>
-        </div>
-        <div class="col-md-6">
-            <table class="table table-hover">
-                <caption class="text-left"><h3>Productos finales</h3></caption>
-                <tr>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Lote</th>
-                    <th></th>
-                </tr>
-                {% for p in product.move_created_ids %}
-                <tr>
-                    <td>{{ p.product_id.name }}</td>
-                    <td>{{ p.product_qty|floatformat:0 }}</td>
-                    <td>{{ p.prodlot_id.name|default_if_none:"" }}</td>
-                    <td><a href="/dividir/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">DV</a></td>
-                </tr>
-                {% endfor %}
-            </table>
+                    {% endfor %}
+                </table>
+            {% endif %}
+            {% if product.move_created_ids2 %}
+                <table class="table table-hover">
+                    <caption class="text-left"><h3>Productos fabricados</h3></caption>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Lote</th>
+                        <th></th>
+                    </tr>
+                    {% for p in product.move_created_ids2 %}
+                    <tr>
+                        <td>{{ p.product_id.name }}</td>
+                        <td>{{ p.product_qty|floatformat:0 }}</td>
+                        <td>{{ p.prodlot_id.name|default_if_none:"" }}</td>
+                        <td><a href="/dividir/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">DV</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
         </div>
     </div>
     <div class="row">

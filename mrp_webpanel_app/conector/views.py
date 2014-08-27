@@ -12,7 +12,6 @@ def home(request):
     context={}
 
     if request.method == 'POST':
-
         from erp import POOL, DB, USER
         codigo = int(request.POST.get("code",False))
         user_obj = POOL.get('res.users')
@@ -173,10 +172,9 @@ def crear_producto(request):
             cursor.commit()
             cursor.close()
 
-            return productos(request)
+            return producto(request, mrp)
 
     else:
-        print "NO POST"
         template = loader.get_template('conector/crear_producto.html')
         context={}
         from erp import POOL, DB, USER
@@ -228,7 +226,9 @@ def procesar(request, id):
     finally:
         cursor.commit()
         cursor.close()
-        return home(request)
+        
+        return HttpResponse('<script type="text/javascript">window.location.replace("/producto/'+id+'/");</script>')
+        #return home(request)
 
 def abrir(request, id):
 
@@ -265,10 +265,10 @@ def finalizar(request, id):
 
     try:
         mrp = mrp_obj.browse(cursor, USER, pr_id)
-        #~ mrp_obj.action_produce(cursor, USER, mrp[0].id, mrp[0].product_qty, "consume_produce")
-        mrp_obj.action_production_end(cursor, USER, [pr_id,])
+        mrp_obj.action_produce(cursor, USER, mrp.id, mrp.product_qty, "consume_produce")
+        mrp_obj.action_production_end(cursor, USER, [mrp.id,])
         user_access = Usuario.objects.filter(project = id, end__isnull = True)
-        print "Paso hasta aqui"
+        
         for u in user_access:
             u.end=datetime.datetime.now()
             u.save()
@@ -290,7 +290,6 @@ def finalizar(request, id):
             vals['name'] = ""
             vals['user_id'] = usere[0].id
             vals['amount'] = ""
-            print "--->", vals
             time_obj.create(cursor, USER, vals)
 
     except Exception as e:
@@ -325,8 +324,7 @@ def verstock(request, id):
                 if 'foo' in field:
                     selected_lots.append(int(request.POST[field]))
 
-            if selected_lots:
-                print "SELECT_LOTS: ", selected_lots
+            if selected_lots:                
                 move_obj.apply_lots_in_production(cursor, USER, [move.id], selected_lots)
             return HttpResponse('<script type="text/javascript">window.close()</script>')
         else:
@@ -380,7 +378,7 @@ def desechar(request, id):
             cursor.commit()
             cursor.close()
 
-            return HttpResponse('<script type="text/javascript">window.close()</script>')
+            return HttpResponse('<script type="text/javascript">opener.location.reload();window.close();</script>')
     else:
 
         template = loader.get_template('conector/desechar.html')
@@ -412,7 +410,7 @@ def dividir(request, id):
     template = loader.get_template('conector/dividir.html')
     context={}
     oerp_ctx = {'lang': 'es_ES'}
-    print "pr_id: ", pr_id
+
     if request.method == 'POST':
         from erp import POOL, DB, USER
         cursor = DB.cursor()
@@ -532,36 +530,38 @@ def tarea(request,id=None):
                 user_access = Usuario.objects.get(code = codigo, end__isnull = True)
                 user_access.task = tareas
                 user_access.save()
+                
             else:
             #Si existe, se finaliza o se abre, dependiendo del estado.
                 tareas_ids = tarea_obj.browse(cursor, USER, int(task_id), context=oerp_ctx)
-                print "--_>", tareas_ids.state
+                
                 user_access = Usuario.objects.get(code = codigo, end__isnull = True)
                 if tareas_ids.state == "draft":
                     tarea_obj.set_open(cursor, USER, [tareas_ids.id])
                     user_access.task = task_id
                     user_access.save()
+                    
                 else:
                     tarea_obj.set_close(cursor, USER, [tareas_ids.id])
                     user_access.task = task_id
                     user_access.end = datetime.datetime.now()
                     user_access.save()
                     user_access = Usuario.objects.filter(task = id, end__isnull = True)
-                    print "Paso hasta aqui"
+                    
                     for u in user_access:
                         u.end=datetime.datetime.now()
                         u.save()
-                    print "AQUI!!!"
+                    
                     users_time = Usuario.objects.filter(task = id )
-                    print "User_time", users_time
+                    
                     for t in users_time:
-                        print "--->", t
+                    
                         user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
                         usere = user_obj.browse(cursor, USER, user_ids, context=oerp_ctx)
-                        print "Obtengo a usuario",usere[0].id
+                    
                         hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
                         hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
-                        print "Y sus horas"
+                    
                         vals = {}
                         vals['hr_task_id'] = int(task_id)
                         vals['journal_id'] =  hr_usere[0].journal_id.id
@@ -574,17 +574,17 @@ def tarea(request,id=None):
                         vals['name'] = ""
                         vals['user_id'] = usere[0].id
                         vals['amount'] = ""
-                        print "--->", vals
+                        
                         time_obj.create(cursor, USER, vals)
-
-
+                        
+                        
         except Exception as e:
             print "--->", e
             pass
         finally:
             cursor.commit()
             cursor.close()
-            return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')
+            return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>') 
             #return home(request)
     else:
 
