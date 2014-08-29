@@ -542,64 +542,72 @@ def tarea(request,id=None):
         hr_obj = POOL.get('hr.employee')
         
         try:
-            #Si no existe la tarea, se crea.
-            if not estado:
+            if request.POST.get('accion') == "Guardar":
+                tarea_id = tarea_obj.browse(cursor, USER, int(task_id), context=oerp_ctx)
                 vals['name'] = description
                 vals['product_id'] = pr_id
                 vals['note'] = note
-                tareas=tarea_obj.create(cursor,USER, vals)
-                task_id = int(tareas)
-                user_access = Usuario.objects.get(code = codigo, end__isnull = True)
-                user_access.task = tareas
-                user_access.save()
-                
-
+                tarea_obj.write(cursor, USER, [tarea_id.id], vals, context=oerp_ctx)
             else:
-            #Si existe, se finaliza o se abre, dependiendo del estado.
-                tareas_ids = tarea_obj.browse(cursor, USER, int(task_id), context=oerp_ctx)
-
-                user_access = Usuario.objects.get(code = codigo, end__isnull = True)
-                if tareas_ids.state == "draft":
-                    tarea_obj.set_open(cursor, USER, [tareas_ids.id])
-                    user_access.task = task_id
+                
+                #Si no existe la tarea, se crea.
+                if not estado:
+                    vals['name'] = description
+                    vals['product_id'] = pr_id
+                    vals['note'] = note
+                    tareas=tarea_obj.create(cursor,USER, vals)
+                    task_id = int(tareas)
+                    user_access = Usuario.objects.get(code = codigo, end__isnull = True)
+                    user_access.task = tareas
                     user_access.save()
+                    
 
                 else:
-                    tarea_obj.set_close(cursor, USER, [tareas_ids.id])
-                    user_access.task = task_id
-                    user_access.end = datetime.datetime.now()
-                    user_access.save()
-                    user_access = Usuario.objects.filter(task = id, end__isnull = True)
-                    tar = True
-                    for u in user_access:
-                        u.end=datetime.datetime.now()
-                        u.save()
+                #Si existe, se finaliza o se abre, dependiendo del estado.
+                    tareas_ids = tarea_obj.browse(cursor, USER, int(task_id), context=oerp_ctx)
 
-                    users_time = Usuario.objects.filter(task = id )
+                    user_access = Usuario.objects.get(code = codigo, end__isnull = True)
+                    if tareas_ids.state == "draft":
+                        tarea_obj.set_open(cursor, USER, [tareas_ids.id])
+                        user_access.task = task_id
+                        user_access.save()
 
-                    for t in users_time:
+                    else:
+                        tarea_obj.set_close(cursor, USER, [tareas_ids.id])
+                        user_access.task = task_id
+                        user_access.end = datetime.datetime.now()
+                        user_access.save()
+                        user_access = Usuario.objects.filter(task = id, end__isnull = True)
+                        tar = True
+                        for u in user_access:
+                            u.end=datetime.datetime.now()
+                            u.save()
 
-                        user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
-                        usere = user_obj.browse(cursor, USER, user_ids, context=oerp_ctx)
+                        users_time = Usuario.objects.filter(task = id )
 
-                        hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
-                        hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
+                        for t in users_time:
 
-                        vals = {}
-                        vals['hr_task_id'] = int(task_id)
-                        vals['journal_id'] =  hr_usere[0].journal_id.id
-                        vals['product_uom_id'] = ""
-                        vals['product_id'] = tareas_ids.product_id.id
-                        vals['general_account_id'] = ""
-                        vals['account_id'] = ""
-                        vals['date'] = t.end
-                        vals['unit_amount'] = ""
-                        vals['name'] = ""
-                        vals['user_id'] = usere[0].id
-                        vals['amount'] = ""
+                            user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
+                            usere = user_obj.browse(cursor, USER, user_ids, context=oerp_ctx)
 
-                        time_obj.create(cursor, USER, vals)
-                        
+                            hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
+                            hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
+
+                            vals = {}
+                            vals['hr_task_id'] = int(task_id)
+                            vals['journal_id'] =  hr_usere[0].journal_id.id
+                            vals['product_uom_id'] = ""
+                            vals['product_id'] = tareas_ids.product_id.id
+                            vals['general_account_id'] = ""
+                            vals['account_id'] = ""
+                            vals['date'] = t.end
+                            vals['unit_amount'] = ""
+                            vals['name'] = ""
+                            vals['user_id'] = usere[0].id
+                            vals['amount'] = ""
+
+                            time_obj.create(cursor, USER, vals)
+                            
         except Exception as e:
             return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
             pass
