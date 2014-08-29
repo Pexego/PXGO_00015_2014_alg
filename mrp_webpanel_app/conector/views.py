@@ -1,3 +1,26 @@
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2004-2014 Pexego (<http://www.pexego.es>).
+#    $Omar Castiñeira Saavedra$
+#    $Alejandro Núñez Liz$
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 from django.shortcuts import redirect
@@ -40,7 +63,7 @@ def home(request):
                 })
                 return HttpResponse(template.render(context))
         except Exception as e:
-
+            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
             context = RequestContext(request, {
                 'nouser': False,
             })
@@ -87,6 +110,7 @@ def productos(request):
             'products_list': products,
         })
     except Exception as e:
+        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
         context = RequestContext(request, {
             'users_list': False,
             'products_list': False,
@@ -118,6 +142,7 @@ def producto(request,id):
             'product': production[0],
         })
     except Exception as e:
+        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
         context = RequestContext(request, {
             'users_list': False,
             'product': False,
@@ -158,12 +183,12 @@ def crear_producto(request):
             vals['user_id'] = users[0].id
 
             mrp = mrp_obj.create(cursor, USER, vals)
-            print "creo el mrp", mrp
             wf_service.trg_validate(USER, 'mrp.production', mrp, 'button_confirm', cursor)
             user_access = Usuario.objects.get(code = codigo, end__isnull = True)
             user_access.project = mrp
             user_access.save()
         except Exception as e:
+            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
             context = RequestContext(request, {
                 'users_list': False,
                 'products': False,
@@ -195,7 +220,7 @@ def crear_producto(request):
                 'warehouses':warehouses,
             })
         except Exception as e:
-            print "--->", e
+            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
             context = RequestContext(request, {
                 'users_list': False,
                 'products': False,
@@ -222,7 +247,7 @@ def procesar(request, id):
         mrp = mrp_obj.force_production(cursor, USER, [product[0].id])
         #mrp_obj.action_produce(cursor, USER, product[0].id, product[0].product_qty, "consume_produce")
     except Exception as e:
-        print "--->", e
+        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
         pass
     finally:
         cursor.commit()
@@ -244,7 +269,7 @@ def abrir(request, id):
     try:
         mrp_obj.action_ready(cursor, USER, [pr_id], *args)
     except Exception as e:
-        print "--->", e
+        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
         pass
     finally:
         cursor.commit()
@@ -294,7 +319,7 @@ def finalizar(request, id):
             time_obj.create(cursor, USER, vals)
 
     except Exception as e:
-        print "--->", e
+        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
         pass
     finally:
         cursor.commit()
@@ -345,6 +370,7 @@ def verstock(request, id):
             })
             return HttpResponse(template.render(context))
     except Exception as e:
+        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
         context = RequestContext(request, {
             'lots': [],
         })
@@ -370,6 +396,7 @@ def desechar(request, id):
             product = prod_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
             prod_obj = prod_obj.action_scrap(cursor, USER, [product[0].id], cantidad, product[0].location_id.id, context=oerp_ctx)
         except Exception as e:
+            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
             context = RequestContext(request, {
                 'users_list': False,
                 'products': False,
@@ -395,7 +422,7 @@ def desechar(request, id):
             })
             return HttpResponse(template.render(context))
         except Exception as e:
-
+            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
             context = RequestContext(request, {
                 'product': False,
             })
@@ -446,6 +473,7 @@ def dividir(request, id):
                 move_obj.unlink(cursor, USER, [move.id])
 
         except Exception as e:
+            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
             context = RequestContext(request, {
                 'users_list': False,
                 'products': False,
@@ -472,7 +500,7 @@ def dividir(request, id):
             })
             return HttpResponse(template.render(context))
         except Exception as e:
-
+            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
             context = RequestContext(request, {
                 'move': False,
                 'products': []
@@ -503,6 +531,7 @@ def tareas(request):
             'tareas_list': tareas,
         })
     except Exception as e:
+        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
         context = RequestContext(request, {
             'users_list': False,
             'tareas_list': False,
@@ -519,7 +548,9 @@ def tarea(request,id=None):
     oerp_ctx = {'lang': 'es_ES'}
     from erp import POOL, DB, USER
     cursor = DB.cursor()
+    tar = False
     if request.method == 'POST':
+        
         pr_id = int(request.POST.get("pr"))
         description = request.POST.get("description")
         note = request.POST.get("note")
@@ -532,73 +563,86 @@ def tarea(request,id=None):
         user_obj = POOL.get('res.users')
         time_obj = POOL.get('hr.analytic.timesheet')
         hr_obj = POOL.get('hr.employee')
-
+        
         try:
-            #Si no existe la tarea, se crea.
-            if not estado:
+            if request.POST.get('accion') == "Guardar":
+                tarea_id = tarea_obj.browse(cursor, USER, int(task_id), context=oerp_ctx)
                 vals['name'] = description
                 vals['product_id'] = pr_id
                 vals['note'] = note
-                tareas=tarea_obj.create(cursor,USER, vals)
-                user_access = Usuario.objects.get(code = codigo, end__isnull = True)
-                user_access.task = tareas
-                user_access.save()
-
+                tarea_obj.write(cursor, USER, [tarea_id.id], vals, context=oerp_ctx)
             else:
-            #Si existe, se finaliza o se abre, dependiendo del estado.
-                tareas_ids = tarea_obj.browse(cursor, USER, int(task_id), context=oerp_ctx)
-
-                user_access = Usuario.objects.get(code = codigo, end__isnull = True)
-                if tareas_ids.state == "draft":
-                    tarea_obj.set_open(cursor, USER, [tareas_ids.id])
-                    user_access.task = task_id
+                
+                #Si no existe la tarea, se crea.
+                if not estado:
+                    vals['name'] = description
+                    vals['product_id'] = pr_id
+                    vals['note'] = note
+                    tareas=tarea_obj.create(cursor,USER, vals)
+                    task_id = int(tareas)
+                    user_access = Usuario.objects.get(code = codigo, end__isnull = True)
+                    user_access.task = tareas
                     user_access.save()
+                    
 
                 else:
-                    tarea_obj.set_close(cursor, USER, [tareas_ids.id])
-                    user_access.task = task_id
-                    user_access.end = datetime.datetime.now()
-                    user_access.save()
-                    user_access = Usuario.objects.filter(task = id, end__isnull = True)
+                #Si existe, se finaliza o se abre, dependiendo del estado.
+                    tareas_ids = tarea_obj.browse(cursor, USER, int(task_id), context=oerp_ctx)
 
-                    for u in user_access:
-                        u.end=datetime.datetime.now()
-                        u.save()
+                    user_access = Usuario.objects.get(code = codigo, end__isnull = True)
+                    if tareas_ids.state == "draft":
+                        tarea_obj.set_open(cursor, USER, [tareas_ids.id])
+                        user_access.task = task_id
+                        user_access.save()
 
-                    users_time = Usuario.objects.filter(task = id )
+                    else:
+                        tarea_obj.set_close(cursor, USER, [tareas_ids.id])
+                        user_access.task = task_id
+                        user_access.end = datetime.datetime.now()
+                        user_access.save()
+                        user_access = Usuario.objects.filter(task = id, end__isnull = True)
+                        tar = True
+                        for u in user_access:
+                            u.end=datetime.datetime.now()
+                            u.save()
 
-                    for t in users_time:
+                        users_time = Usuario.objects.filter(task = id )
 
-                        user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
-                        usere = user_obj.browse(cursor, USER, user_ids, context=oerp_ctx)
+                        for t in users_time:
 
-                        hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
-                        hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
+                            user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
+                            usere = user_obj.browse(cursor, USER, user_ids, context=oerp_ctx)
 
-                        vals = {}
-                        vals['hr_task_id'] = int(task_id)
-                        vals['journal_id'] =  hr_usere[0].journal_id.id
-                        vals['product_uom_id'] = ""
-                        vals['product_id'] = tareas_ids.product_id.id
-                        vals['general_account_id'] = ""
-                        vals['account_id'] = ""
-                        vals['date'] = t.end
-                        vals['unit_amount'] = ""
-                        vals['name'] = ""
-                        vals['user_id'] = usere[0].id
-                        vals['amount'] = ""
+                            hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
+                            hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
 
-                        time_obj.create(cursor, USER, vals)
+                            vals = {}
+                            vals['hr_task_id'] = int(task_id)
+                            vals['journal_id'] =  hr_usere[0].journal_id.id
+                            vals['product_uom_id'] = ""
+                            vals['product_id'] = tareas_ids.product_id.id
+                            vals['general_account_id'] = ""
+                            vals['account_id'] = ""
+                            vals['date'] = t.end
+                            vals['unit_amount'] = ""
+                            vals['name'] = ""
+                            vals['user_id'] = usere[0].id
+                            vals['amount'] = ""
 
-
+                            time_obj.create(cursor, USER, vals)
+                            
         except Exception as e:
-            print "--->", e
+            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
             pass
         finally:
             cursor.commit()
             cursor.close()
-            return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')
+            
             #return home(request)
+            if tar == False:
+                return HttpResponse('<script type="text/javascript">window.location.replace("/tarea/'+str(task_id)+'/");</script>')
+            else:
+                return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')
     else:
 
 
@@ -626,7 +670,7 @@ def tarea(request,id=None):
                     'trabajos':trabajos,
                 })
         except Exception as e:
-            print "-->", e
+            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
             context = RequestContext(request, {
                 'users_list': False,
                 'tarea': False,

@@ -41,7 +41,7 @@
                 <input type="text" name="description" class="qwerty" id="multi" value="{% if tarea.name %}{{ tarea.name }}{% endif %}" />
             </p>
             <h3>Notas</h3>
-            <textarea name="notas" class="qwerty" id="multi1">
+            <textarea name="note" class="qwerty" id="multi1">
                 {% if tarea.note %}{{ tarea.note }}{% endif %}
             </textarea>
         </div>
@@ -51,12 +51,13 @@
         <input type="hidden" name="state" value="{{ tarea.state }}" />
         <input type="hidden" name="taskid" value="{{ tarea.id }}" />
         {% if tarea.state == "draft" or tarea == False %}
-            <input type="submit" value="Abrir" class="btn btn-success"/>
+            <input type="submit" value="Abrir" name="accion" class="btn btn-success"/>
         {% endif %}
         {% if tarea.state == "open" %}
-            <input type="submit" value="Finalizar" class="btn btn-success"/>
+            <input type="submit" value="Finalizar" name="accion" class="btn btn-success"/>
         {% endif %}
-
+        <input type="submit" value="Guardar" name="accion" class="btn btn-primary"/>
+        
     </div>
         </form>
 </div>
