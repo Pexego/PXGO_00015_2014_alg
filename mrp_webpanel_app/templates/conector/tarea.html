@@ -50,13 +50,18 @@
     <div class="row">
         <input type="hidden" name="state" value="{{ tarea.state }}" />
         <input type="hidden" name="taskid" value="{{ tarea.id }}" />
-        {% if tarea.state == "draft" or tarea == False %}
+        {% if tarea == False %}
+            <input type="submit" value="Iniciar" name="accion" class="btn btn-success"/>
+        {% endif %}
+        {% if tarea.state == "draft" %}
             <input type="submit" value="Abrir" name="accion" class="btn btn-success"/>
+            <input type="submit" value="Guardar" name="accion" class="btn btn-primary"/>
         {% endif %}
         {% if tarea.state == "open" %}
             <input type="submit" value="Finalizar" name="accion" class="btn btn-success"/>
+            <input type="submit" value="Guardar" name="accion" class="btn btn-primary"/>
         {% endif %}
-        <input type="submit" value="Guardar" name="accion" class="btn btn-primary"/>
+        
         
     </div>
         </form>

@@ -24,4 +24,13 @@ from django.contrib import admin
 
 from models import *
 
-admin.site.register(Usuario)
+class UsuarioAdmin(admin.ModelAdmin):
+    """
+        Admin for Residencia
+    """
+    list_display = ('code', 'project', 'task', 'start', 'end')
+    
+    list_filter = ('code', )
+    search_fields = ['code',]
+
+admin.site.register(Usuario, UsuarioAdmin)

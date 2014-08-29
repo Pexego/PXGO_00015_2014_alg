@@ -25,7 +25,13 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 from django.shortcuts import redirect
 from models import Usuario
-import datetime
+import datetime,time
+
+
+def timestamp(date):
+    return time.mktime(date.timetuple())/3600
+
+
 
 def home(request):
     # Busco usuario,si exite,para el tiempo y crea nuevo tiempo de trabajo
@@ -300,25 +306,29 @@ def finalizar(request, id):
             u.save()
         users_time = Usuario.objects.filter(project = id )
         for t in users_time:
+            
             user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
-            usere = user_obj.browse(cursor, USER, user_ids, context=oerp_ctx)
+            usere = user_obj.browse(cursor, USER, user_ids)
+                            
             hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
             hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
+                            
             vals = {}
             vals['production_id'] = pr_id
-            vals['journal_id'] =  hr_usere[0].journal_id
-            vals['product_uom_id'] = ""
-            vals['product_id'] = mrp[0].product_id
-            vals['general_account_id'] = ""
-            vals['account_id'] = ""
+            vals['journal_id'] =  hr_usere[0].journal_id.id
+            vals['product_uom_id'] = mrp.product_id.uom_id.id
+            vals['product_id'] = mrp.product_id.id
+            vals['general_account_id'] = False
+            vals['account_id'] = mrp.product_id.analytic_acc_id.id
             vals['date'] = t.end
-            vals['unit_amount'] = ""
-            vals['name'] = ""
+            vals['unit_amount'] = timestamp(t.start) - timestamp(t.end)
+            vals['name'] = mrp.name
             vals['user_id'] = usere[0].id
-            vals['amount'] = ""
-            time_obj.create(cursor, USER, vals)
+            vals['amount'] = hr_usere[0].product_id.standard_price * vals['unit_amount']
+            time_obj.create(cursor, USER, vals, context=oerp_ctx)
 
     except Exception as e:
+        print "-->", e
         return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
         pass
     finally:
@@ -596,53 +606,56 @@ def tarea(request,id=None):
                         user_access.save()
 
                     else:
+                        
                         tarea_obj.set_close(cursor, USER, [tareas_ids.id])
+                        tar = True
+                        
                         user_access.task = task_id
                         user_access.end = datetime.datetime.now()
                         user_access.save()
+                        
                         user_access = Usuario.objects.filter(task = id, end__isnull = True)
-                        tar = True
                         for u in user_access:
                             u.end=datetime.datetime.now()
                             u.save()
-
+                        
                         users_time = Usuario.objects.filter(task = id )
 
                         for t in users_time:
-
+                            
                             user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
-                            usere = user_obj.browse(cursor, USER, user_ids, context=oerp_ctx)
-
+                            usere = user_obj.browse(cursor, USER, user_ids)
+                            
                             hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
                             hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
-
+                            
                             vals = {}
-                            vals['hr_task_id'] = int(task_id)
+                            vals['hr_task_id'] = tareas_ids.id
                             vals['journal_id'] =  hr_usere[0].journal_id.id
-                            vals['product_uom_id'] = ""
+                            vals['product_uom_id'] = tareas_ids.product_id.uom_id.id
                             vals['product_id'] = tareas_ids.product_id.id
-                            vals['general_account_id'] = ""
-                            vals['account_id'] = ""
+                            vals['general_account_id'] = False
+                            vals['account_id'] = tareas_ids.product_id.analytic_acc_id.id
                             vals['date'] = t.end
-                            vals['unit_amount'] = ""
-                            vals['name'] = ""
+                            vals['unit_amount'] = timestamp(t.start) - timestamp(t.end)
+                            vals['name'] = tareas_ids.name
                             vals['user_id'] = usere[0].id
-                            vals['amount'] = ""
-
-                            time_obj.create(cursor, USER, vals)
+                            vals['amount'] = hr_usere[0].product_id.standard_price * vals['unit_amount']
+                            time_obj.create(cursor, USER, vals, context=oerp_ctx)
                             
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
+            print "--------------------------#### ", e
+            return HttpResponse('<script type="text/javascript">alert(Error message: '+unicode(e).replace("\"","|")+'");</script>')
             pass
         finally:
             cursor.commit()
             cursor.close()
             
             #return home(request)
-            if tar == False:
-                return HttpResponse('<script type="text/javascript">window.location.replace("/tarea/'+str(task_id)+'/");</script>')
-            else:
-                return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')
+        if tar == False:
+            return HttpResponse('<script type="text/javascript">window.location.replace("/tarea/'+str(task_id)+'/");</script>')
+        else:
+            return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')
     else:
 
 
@@ -655,7 +668,7 @@ def tarea(request,id=None):
             trabajos = trabajo_obj.browse(cursor, USER, trabajos_ids, context=oerp_ctx)
             users_list = Usuario.objects.filter(end__isnull = True)
             user_access = Usuario.objects.get(code = request.session['codigo'], end__isnull = True)
-            user_access.project = id
+            user_access.task = id
             user_access.save()
             if id != None:
                 context = RequestContext(request, {
