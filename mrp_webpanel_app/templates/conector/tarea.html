@@ -18,8 +18,8 @@
             var newWindow = window.open('/static/kg_mov.html', 'name', 'height=500,width=600');
             //document.write(document.getElementById('kg_mov').value);
             //~ document.getElementById('kg_mov').value = newWindow;
-            
-            
+
+
         }
     </script>
 {% endblock js %}
@@ -66,12 +66,11 @@
             <input type="submit" value="Guardar" name="accion" class="btn btn-primary"/>
         {% endif %}
         {% if tarea.state == "open" %}
-            <input type="submit" value="Finalizar" name="accion" class="btn btn-success"/>
+            <input type="button" value="Finalizar" name="accion" class="btn btn-success" onclick="popupUploadForm()"/>
             <input type="submit" value="Guardar" name="accion" class="btn btn-primary"/>
-            <input type="button" value="Upload Certificates" onclick="popupUploadForm()"/>
         {% endif %}
-        
-        
+
+
     </div>
         </form>
 </div>
