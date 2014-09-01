@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^producto/(?P<id>\d+)/$', 'conector.views.producto', name='producto'),
     url(r'^productos/$', 'conector.views.productos', name='productos'),
     url(r'^crear_productos/$', 'conector.views.crear_producto', name='crear'),
+    url(r'^salir/$', 'conector.views.salir', name='salir'),
     
     url(r'^abrir/(?P<id>\d+)/$', 'conector.views.abrir', name='abrir'),
     url(r'^procesar/(?P<id>\d+)/$', 'conector.views.procesar', name='procesar'),

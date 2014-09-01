@@ -26,7 +26,7 @@ from django.template import RequestContext, loader
 from django.shortcuts import redirect
 from models import Usuario
 import datetime,time
-
+from django.utils import timezone
 
 def timestamp(date):
     return time.mktime(date.timetuple())/3600
@@ -53,7 +53,7 @@ def home(request):
                 try:
 
                     user_access= Usuario.objects.get(code = codigo, end__isnull = True)
-                    user_access.end = datetime.datetime.now()
+                    user_access.end = timezone.now()
                     user_access.save()
                     user_access = Usuario(code=codigo, name = users[0].name )
                     user_access.save()
@@ -66,12 +66,14 @@ def home(request):
             else:
                 context = RequestContext(request, {
                     'nouser': False,
+                    'inicio': True,
                 })
                 return HttpResponse(template.render(context))
         except Exception as e:
             return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
             context = RequestContext(request, {
                 'nouser': False,
+                'inicio': True,
             })
             return HttpResponse(template.render(context))
             pass
@@ -83,6 +85,7 @@ def home(request):
 
         context = RequestContext(request, {
                 'nouser': True,
+                'inicio': True,
             })
         return HttpResponse(template.render(context))
 
@@ -181,7 +184,7 @@ def crear_producto(request):
             user_ids = user_obj.search(cursor, USER, [('code', '=', codigo )], order="login ASC")
             users = user_obj.browse(cursor, USER, user_ids, context=oerp_ctx)
             product = prod_obj.browse(cursor, USER, pr_id)
-            vals['date_planned'] = datetime.datetime.now()
+            vals['date_planned'] = timezone.now()
             vals['product_id'] = pr_id
             vals['product_qty'] = qty
             vals['warehouse_id'] = w_id
@@ -302,7 +305,7 @@ def finalizar(request, id):
         user_access = Usuario.objects.filter(project = id, end__isnull = True)
 
         for u in user_access:
-            u.end=datetime.datetime.now()
+            u.end=timezone.now()
             u.save()
         users_time = Usuario.objects.filter(project = id )
         for t in users_time:
@@ -321,7 +324,7 @@ def finalizar(request, id):
             vals['general_account_id'] = False
             vals['account_id'] = mrp.product_id.analytic_acc_id.id
             vals['date'] = t.end
-            vals['unit_amount'] = timestamp(t.start) - timestamp(t.end)
+            vals['unit_amount'] = timestamp(t.end) - timestamp(t.start)
             vals['name'] = mrp.name
             vals['user_id'] = usere[0].id
             vals['amount'] = hr_usere[0].product_id.standard_price * vals['unit_amount']
@@ -566,6 +569,7 @@ def tarea(request,id=None):
         note = request.POST.get("note")
         estado = request.POST.get("state", False)
         task_id = request.POST.get("taskid", False)
+        kg_mov = request.POST.get("kg_mov", False)
         vals = {}
 
         codigo = int(request.session.get('codigo', False))
@@ -606,17 +610,15 @@ def tarea(request,id=None):
                         user_access.save()
 
                     else:
-
-                        tarea_obj.set_close(cursor, USER, [tareas_ids.id])
                         tar = True
 
                         user_access.task = task_id
-                        user_access.end = datetime.datetime.now()
+                        user_access.end = timezone.now()
                         user_access.save()
 
                         user_access = Usuario.objects.filter(task = id, end__isnull = True)
                         for u in user_access:
-                            u.end=datetime.datetime.now()
+                            u.end=timezone.now()
                             u.save()
 
                         users_time = Usuario.objects.filter(task = id )
@@ -637,14 +639,20 @@ def tarea(request,id=None):
                             vals['general_account_id'] = False
                             vals['account_id'] = tareas_ids.product_id.analytic_acc_id.id
                             vals['date'] = t.end
-                            vals['unit_amount'] = timestamp(t.start) - timestamp(t.end)
+                            vals['unit_amount'] = timestamp(t.end) - timestamp(t.start)
                             vals['name'] = tareas_ids.name
                             vals['user_id'] = usere[0].id
                             vals['amount'] = hr_usere[0].product_id.standard_price * vals['unit_amount']
                             time_obj.create(cursor, USER, vals, context=oerp_ctx)
+                        
+                        vals['name'] = description
+                        vals['product_id'] = pr_id
+                        vals['note'] = note
+                        vals['kg_moved'] = kg_mov
+                        tarea_obj.write(cursor, USER, [tareas_ids.id], vals, context=oerp_ctx)
+                        tarea_obj.set_close(cursor, USER, [tareas_ids.id])
 
         except Exception as e:
-            print "--------------------------#### ", e
             return HttpResponse('<script type="text/javascript">alert(Error message: '+unicode(e).replace("\"","|")+'");</script>')
             pass
         finally:
@@ -694,3 +702,37 @@ def tarea(request,id=None):
             return HttpResponse(template.render(context))
             cursor.commit()
             cursor.close()
+
+
+def salir(request):
+    # Busco usuario,si exite,para el tiempo y borro sesion
+
+    template = loader.get_template('conector/index.html')
+    context={}
+    codigo = int(request.session.get('codigo', False))
+    from erp import POOL, DB, USER
+    user_obj = POOL.get('res.users')
+    cursor = DB.cursor()
+    try:
+        user_ids = user_obj.search(cursor, USER, [('code', '=', codigo )], order="login ASC")
+        users = user_obj.browse(cursor, USER, user_ids)
+        if users:
+            user_access= Usuario.objects.get(code = codigo, end__isnull = True)
+            user_access.end = timezone.now()
+            user_access.save()
+            del request.session['codigo']
+        else:
+            context = RequestContext(request, {
+                'nouser': False,
+            })
+            return HttpResponse(template.render(context))
+    except Exception as e:
+        return HttpResponse('<script type="text/javascript">alert("Error message: '+unicode(e)+'");</script>')
+        context = RequestContext(request, {
+            'nouser': False,
+        })
+        pass
+    finally:
+        cursor.commit()
+        cursor.close()
+    return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')

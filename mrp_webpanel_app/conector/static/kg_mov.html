@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>KG movidos</title>
+        <script>
+        
+        function cerrarse(){
+            //Pone el campo del Form1 de la página padre con el nuevo valor
+            window.opener.document.formula.kg_mov.value=document.getElementById("kg").value;
+            //Cierra b
+            window.opener.document.forms['formula'].submit();
+            window.close();
+        }
+        </script>
+    
+    </head>
+    <body>
+        <br /><br />
+        <h2>KG movidos</h2>
+        <div class="row">
+                <form action="#" method="post">
+                    <input type="text" name="kg" id="kg">
+                    <input type="button" value="Guardar" onclick="cerrarse()">
+                </form>
+        </div>    
+    </body>
+</html>

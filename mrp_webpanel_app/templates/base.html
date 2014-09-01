@@ -39,7 +39,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Usuarios:</a>
+              {% if not inicio %}<a class="navbar-brand" href="#">Usuarios:</a>{% endif %}
             </div>
             {% block menu %}
                 <div class="navbar-collapse collapse">
@@ -50,8 +50,11 @@
                             {% endfor %}
                         </ul>
                     {% endif %}
+                     &nbsp;&nbsp;&nbsp;
+                    {% if not inicio %}<a href="/salir/" class="btn btn-primary btn-default" style="float:right;margin-right:2em;" >Salir</a>{% endif %}
                 </div>
             {% endblock menu %}
+           
           </div>
         </div>
 

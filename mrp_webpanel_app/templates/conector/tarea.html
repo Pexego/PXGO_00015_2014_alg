@@ -14,6 +14,13 @@
             $('#multi').keyboard({ layout: 'international' });
             $('#multi1').keyboard({ layout: 'international' });
         });
+        function popupUploadForm(){
+            var newWindow = window.open('/static/kg_mov.html', 'name', 'height=500,width=600');
+            //document.write(document.getElementById('kg_mov').value);
+            //~ document.getElementById('kg_mov').value = newWindow;
+            
+            
+        }
     </script>
 {% endblock js %}
 
@@ -21,7 +28,7 @@
 {% block contenido %}
 
     <div class="row">
-        <form method="post" action=".">{% csrf_token %}
+        <form method="post" action="." name="formula">{% csrf_token %}
         <div class="col-md-6">
 
             <h2>Trabajo</h2>
@@ -49,6 +56,7 @@
     <br /><br />
     <div class="row">
         <input type="hidden" name="state" value="{{ tarea.state }}" />
+        <input type="hidden" name="kg_mov" value="0" />
         <input type="hidden" name="taskid" value="{{ tarea.id }}" />
         {% if tarea == False %}
             <input type="submit" value="Iniciar" name="accion" class="btn btn-success"/>
@@ -60,6 +68,7 @@
         {% if tarea.state == "open" %}
             <input type="submit" value="Finalizar" name="accion" class="btn btn-success"/>
             <input type="submit" value="Guardar" name="accion" class="btn btn-primary"/>
+            <input type="button" value="Upload Certificates" onclick="popupUploadForm()"/>
         {% endif %}
         
         
