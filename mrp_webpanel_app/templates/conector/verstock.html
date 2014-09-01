@@ -44,6 +44,7 @@
                             <th>Fecha</th>
                             <th><input type="checkbox" onClick="toggle(this)" /> Todos</th>
                         </tr>
+                        {% if lots %}
                         {% for lot in lots %}
                         <tr>
                             <th>{{ lot.name }}</th>
@@ -52,6 +53,7 @@
                             <th><input type="checkbox" name="foo{{ forloop.counter }}" value="{{ lot.id }}"></th>
                         </tr>
                         {% endfor %}
+                        {% endif %}
                     </table>
                      <div class="row">
                         <input type="submit" class="btn btn-primary btn-default pull-left" style="margin-left:2em;" value="Enviar" />&nbsp;&nbsp;&nbsp;

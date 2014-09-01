@@ -306,13 +306,13 @@ def finalizar(request, id):
             u.save()
         users_time = Usuario.objects.filter(project = id )
         for t in users_time:
-            
+
             user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
             usere = user_obj.browse(cursor, USER, user_ids)
-                            
+
             hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
             hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
-                            
+
             vals = {}
             vals['production_id'] = pr_id
             vals['journal_id'] =  hr_usere[0].journal_id.id
@@ -560,7 +560,7 @@ def tarea(request,id=None):
     cursor = DB.cursor()
     tar = False
     if request.method == 'POST':
-        
+
         pr_id = int(request.POST.get("pr"))
         description = request.POST.get("description")
         note = request.POST.get("note")
@@ -573,7 +573,7 @@ def tarea(request,id=None):
         user_obj = POOL.get('res.users')
         time_obj = POOL.get('hr.analytic.timesheet')
         hr_obj = POOL.get('hr.employee')
-        
+
         try:
             if request.POST.get('accion') == "Guardar":
                 tarea_id = tarea_obj.browse(cursor, USER, int(task_id), context=oerp_ctx)
@@ -582,7 +582,7 @@ def tarea(request,id=None):
                 vals['note'] = note
                 tarea_obj.write(cursor, USER, [tarea_id.id], vals, context=oerp_ctx)
             else:
-                
+
                 #Si no existe la tarea, se crea.
                 if not estado:
                     vals['name'] = description
@@ -593,7 +593,7 @@ def tarea(request,id=None):
                     user_access = Usuario.objects.get(code = codigo, end__isnull = True)
                     user_access.task = tareas
                     user_access.save()
-                    
+
 
                 else:
                 #Si existe, se finaliza o se abre, dependiendo del estado.
@@ -606,29 +606,29 @@ def tarea(request,id=None):
                         user_access.save()
 
                     else:
-                        
+
                         tarea_obj.set_close(cursor, USER, [tareas_ids.id])
                         tar = True
-                        
+
                         user_access.task = task_id
                         user_access.end = datetime.datetime.now()
                         user_access.save()
-                        
+
                         user_access = Usuario.objects.filter(task = id, end__isnull = True)
                         for u in user_access:
                             u.end=datetime.datetime.now()
                             u.save()
-                        
+
                         users_time = Usuario.objects.filter(task = id )
 
                         for t in users_time:
-                            
+
                             user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
                             usere = user_obj.browse(cursor, USER, user_ids)
-                            
+
                             hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
                             hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
-                            
+
                             vals = {}
                             vals['hr_task_id'] = tareas_ids.id
                             vals['journal_id'] =  hr_usere[0].journal_id.id
@@ -642,7 +642,7 @@ def tarea(request,id=None):
                             vals['user_id'] = usere[0].id
                             vals['amount'] = hr_usere[0].product_id.standard_price * vals['unit_amount']
                             time_obj.create(cursor, USER, vals, context=oerp_ctx)
-                            
+
         except Exception as e:
             print "--------------------------#### ", e
             return HttpResponse('<script type="text/javascript">alert(Error message: '+unicode(e).replace("\"","|")+'");</script>')
@@ -650,7 +650,7 @@ def tarea(request,id=None):
         finally:
             cursor.commit()
             cursor.close()
-            
+
             #return home(request)
         if tar == False:
             return HttpResponse('<script type="text/javascript">window.location.replace("/tarea/'+str(task_id)+'/");</script>')
