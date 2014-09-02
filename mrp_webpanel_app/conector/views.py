@@ -31,8 +31,6 @@ from django.utils import timezone
 def timestamp(date):
     return time.mktime(date.timetuple())/3600
 
-
-
 def home(request):
     # Busco usuario,si exite,para el tiempo y crea nuevo tiempo de trabajo
     # Si no exite,creo una nuevo tiempo de trabajo
@@ -43,10 +41,12 @@ def home(request):
 
     if request.method == 'POST':
         from erp import POOL, DB, USER
-        codigo = int(request.POST.get("code",False))
         user_obj = POOL.get('res.users')
         cursor = DB.cursor()
         try:
+            codigo = int(request.POST.get("code",False))
+            
+        
             user_ids = user_obj.search(cursor, USER, [('code', '=', codigo )], order="login ASC")
             users = user_obj.browse(cursor, USER, user_ids)
             if users:
@@ -70,12 +70,7 @@ def home(request):
                 })
                 return HttpResponse(template.render(context))
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
-            context = RequestContext(request, {
-                'nouser': False,
-                'inicio': True,
-            })
-            return HttpResponse(template.render(context))
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/");</script>')
             pass
         finally:
 
@@ -119,11 +114,7 @@ def productos(request):
             'products_list': products,
         })
     except Exception as e:
-        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
-        context = RequestContext(request, {
-            'users_list': False,
-            'products_list': False,
-        })
+        return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/productos/");</script>')
         pass
     finally:
         return HttpResponse(template.render(context))
@@ -151,11 +142,7 @@ def producto(request,id):
             'product': production[0],
         })
     except Exception as e:
-        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
-        context = RequestContext(request, {
-            'users_list': False,
-            'product': False,
-        })
+        return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
         pass
     finally:
         return HttpResponse(template.render(context))
@@ -197,11 +184,7 @@ def crear_producto(request):
             user_access.project = mrp
             user_access.save()
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
-            context = RequestContext(request, {
-                'users_list': False,
-                'products': False,
-            })
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/crear_productos/");</script>')
             pass
         finally:
             cursor.commit()
@@ -229,11 +212,7 @@ def crear_producto(request):
                 'warehouses':warehouses,
             })
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
-            context = RequestContext(request, {
-                'users_list': False,
-                'products': False,
-            })
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/crear_productos/");</script>')
             pass
         finally:
             return HttpResponse(template.render(context))
@@ -243,53 +222,47 @@ def crear_producto(request):
 
 def procesar(request, id):
     context={}
-    pr_id = int(id)
-
     from erp import POOL, DB, USER
     mrp_obj = POOL.get('mrp.production')
     cursor = DB.cursor()
     oerp_ctx = {'lang': 'es_ES'}
 
-
     try:
+        pr_id = int(id)
         product = mrp_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
         mrp = mrp_obj.force_production(cursor, USER, [product[0].id])
         #mrp_obj.action_produce(cursor, USER, product[0].id, product[0].product_qty, "consume_produce")
     except Exception as e:
-        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
+        return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
         pass
     finally:
         cursor.commit()
         cursor.close()
-
         return HttpResponse('<script type="text/javascript">window.location.replace("/producto/'+id+'/");</script>')
-        #return home(request)
+    
 
 def abrir(request, id):
 
     context={}
-    pr_id = int(id)
-
     from erp import POOL, DB, USER
 
     mrp_obj = POOL.get('mrp.production')
     cursor = DB.cursor()
 
     try:
+        pr_id = int(id)
         mrp_obj.action_ready(cursor, USER, [pr_id], *args)
     except Exception as e:
-        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
+        return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
         pass
     finally:
         cursor.commit()
         cursor.close()
-        return home(request)
+        return HttpResponse('<script type="text/javascript">window.location.replace("/producto/'+id+'/");</script>')
 
 def finalizar(request, id):
 
     context={}
-    pr_id = int(id)
-    codigo = int(request.session.get('codigo', False))
     oerp_ctx = {'lang': 'es_ES'}
     from erp import POOL, DB, USER
     user_obj = POOL.get('res.users')
@@ -299,6 +272,8 @@ def finalizar(request, id):
     cursor = DB.cursor()
 
     try:
+        pr_id = int(id)
+        codigo = int(request.session.get('codigo', False))
         mrp = mrp_obj.browse(cursor, USER, pr_id)
         mrp_obj.action_produce(cursor, USER, mrp.id, mrp.product_qty, "consume_produce")
         mrp_obj.action_production_end(cursor, USER, [mrp.id,])
@@ -334,8 +309,7 @@ def finalizar(request, id):
             time_obj.create(cursor, USER, vals, context=oerp_ctx)
 
     except Exception as e:
-        
-        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
+        return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
         pass
     finally:
         cursor.commit()
@@ -369,6 +343,7 @@ def verstock(request, id):
             if selected_lots:
                 move_obj.apply_lots_in_production(cursor, USER, [move.id], selected_lots)
             return HttpResponse('<script type="text/javascript">opener.location.reload();window.close()</script>')
+            
         else:
             lots = lot_obj.browse(cursor, USER, lot_ids)
             lots_qty = sum([x.stock_available for x in lots])
@@ -386,21 +361,14 @@ def verstock(request, id):
             })
             return HttpResponse(template.render(context))
     except Exception as e:
-        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
-        context = RequestContext(request, {
-            'lots': [],
-        })
-        return HttpResponse(template.render(context))
+        return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
         pass
     finally:
         cursor.commit()
         cursor.close()
 
 def desechar(request, id):
-    # Busco usuario,si exite,para el tiempo y crea nuevo tiempo de trabajo
-    # Si no exite,creo una nuevo tiempo de trabajo
-    # guardo en una session, el id del usuario para futuras busquedas
-    pr_id = int(id)
+    
     oerp_ctx = {'lang': 'es_ES'}
     if request.method == 'POST':
         cantidad = int(request.POST.get("unidades"))
@@ -409,14 +377,11 @@ def desechar(request, id):
         prod_obj = POOL.get('stock.move')
 
         try:
+            pr_id = int(id)
             product = prod_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
             prod_obj = prod_obj.action_scrap(cursor, USER, [product[0].id], cantidad, product[0].location_id.id, context=oerp_ctx)
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
-            context = RequestContext(request, {
-                'users_list': False,
-                'products': False,
-            })
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
             pass
         finally:
             cursor.commit()
@@ -438,11 +403,8 @@ def desechar(request, id):
             })
             return HttpResponse(template.render(context))
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
-            context = RequestContext(request, {
-                'product': False,
-            })
-            return HttpResponse(template.render(context))
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
+            
             pass
         finally:
             cursor.commit()
@@ -450,7 +412,7 @@ def desechar(request, id):
 
 def dividir(request, id):
     # Una vez recibido el post, tengo que llamar a alguna funcion que me pase omar.
-    pr_id = int(id)
+    
     template = loader.get_template('conector/dividir.html')
     context={}
     oerp_ctx = {'lang': 'es_ES'}
@@ -462,6 +424,7 @@ def dividir(request, id):
         lot_obj = POOL.get('stock.production.lot')
 
         try:
+            pr_id = int(id)
             updated=False
             move = move_obj.browse(cursor, USER, pr_id)
             new_lots = {}
@@ -489,11 +452,7 @@ def dividir(request, id):
                 move_obj.unlink(cursor, USER, [move.id])
 
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
-            context = RequestContext(request, {
-                'users_list': False,
-                'products': False,
-            })
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
             pass
         finally:
             cursor.commit()
@@ -516,12 +475,7 @@ def dividir(request, id):
             })
             return HttpResponse(template.render(context))
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
-            context = RequestContext(request, {
-                'move': False,
-                'products': []
-            })
-            return HttpResponse(template.render(context))
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
             pass
         finally:
             cursor.commit()
@@ -547,11 +501,7 @@ def tareas(request):
             'tareas_list': tareas,
         })
     except Exception as e:
-        return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
-        context = RequestContext(request, {
-            'users_list': False,
-            'tareas_list': False,
-        })
+        return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/tareas/");</script>')
         pass
     finally:
         return HttpResponse(template.render(context))
@@ -656,7 +606,7 @@ def tarea(request,id=None):
                         tarea_obj.set_close(cursor, USER, [tareas_ids.id])
 
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">alert(Error message: '+unicode(e).replace("\"","|")+'");</script>')
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/tarea/'+id+'/");</script>')
             pass
         finally:
             cursor.commit()
@@ -694,12 +644,7 @@ def tarea(request,id=None):
                     'trabajos':trabajos,
                 })
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
-            context = RequestContext(request, {
-                'users_list': False,
-                'tarea': False,
-                'trabajos':False,
-            })
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/tarea/'+id+'/");</script>')
             pass
         finally:
             return HttpResponse(template.render(context))
@@ -730,10 +675,7 @@ def salir(request):
             })
             return HttpResponse(template.render(context))
     except Exception as e:
-        return HttpResponse('<script type="text/javascript">alert("Error message: '+unicode(e)+'");</script>')
-        context = RequestContext(request, {
-            'nouser': False,
-        })
+        return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/");</script>')
         pass
     finally:
         cursor.commit()
