@@ -302,22 +302,24 @@ def finalizar(request, id):
         mrp = mrp_obj.browse(cursor, USER, pr_id)
         mrp_obj.action_produce(cursor, USER, mrp.id, mrp.product_qty, "consume_produce")
         mrp_obj.action_production_end(cursor, USER, [mrp.id,])
-        user_access = Usuario.objects.filter(project = id, end__isnull = True)
-
+        user_access = Usuario.objects.filter(project =  mrp.id, end__isnull = True)
+        
         for u in user_access:
             u.end=timezone.now()
             u.save()
-        users_time = Usuario.objects.filter(project = id )
-        for t in users_time:
+        users_time = Usuario.objects.filter(project = mrp.id )
 
+        for t in users_time:
+        
             user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
             usere = user_obj.browse(cursor, USER, user_ids)
-
+        
             hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
             hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
-
+        
             vals = {}
-            vals['production_id'] = pr_id
+
+            vals['production_id'] =  mrp.id
             vals['journal_id'] =  hr_usere[0].journal_id.id
             vals['product_uom_id'] = mrp.product_id.uom_id.id
             vals['product_id'] = mrp.product_id.id
@@ -328,16 +330,17 @@ def finalizar(request, id):
             vals['name'] = mrp.name
             vals['user_id'] = usere[0].id
             vals['amount'] = hr_usere[0].product_id.standard_price * vals['unit_amount']
+
             time_obj.create(cursor, USER, vals, context=oerp_ctx)
 
     except Exception as e:
-        print "-->", e
+        
         return HttpResponse('<script type="text/javascript">alert("Error message: '+e+'");</script>')
         pass
     finally:
         cursor.commit()
         cursor.close()
-        return home(request)
+        return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')
 
 
 def verstock(request, id):
