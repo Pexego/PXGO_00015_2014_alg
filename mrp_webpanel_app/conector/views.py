@@ -82,9 +82,9 @@ def home(request):
             cursor.commit()
             cursor.close()
     else:
-
+        users_list = Usuario.objects.filter(end__isnull = True)
         context = RequestContext(request, {
-                'nouser': True,
+                'users_list': users_list,
                 'inicio': True,
             })
         return HttpResponse(template.render(context))
