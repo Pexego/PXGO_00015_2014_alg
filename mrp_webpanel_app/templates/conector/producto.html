@@ -6,9 +6,11 @@
 
      <div class="row">
         <div class="col-md-6">
-            <div style="float:left;margin:2em;padding:2em;border:1px solid black;">{{ product.product_id.name }}</div>
-            <div style="float:left;margin:2em;padding:2em;border:1px solid black;">{{ product.product_qty }}</div>
-            <div style="float:left;margin:2em;padding:2em;border:1px solid black;">{{ product.warehouse_id }}</div>
+            <ul class="list-group" style="text-align:left;">
+                <li class="list-group-item"><strong>Producto:</strong> {{ product.product_id.name }}</li>
+                <li class="list-group-item"><strong>Cantidad:</strong> {{ product.product_qty }} unidades</li>
+                <li class="list-group-item"><strong>Almacen:</strong> {{ product.warehouse_id.name }}</li>
+            </ul>
         </div>
         <div class="col-md-6">
             <div style="float:left;margin-left:12em;padding:2em;">
@@ -26,7 +28,7 @@
                         <th>Producto</th>
                         <th>Cantidad</th>
                         <th>Lote</th>
-                        <th colspan="2"></th>
+                        <th colspan="3"></th>
                     </tr>
                     {% for p in product.move_lines %}
                         <tr>
@@ -78,7 +80,7 @@
                     <tr>
                         <td>{{ p.product_id.name }}</td>
                         <td>{{ p.product_qty|floatformat:0 }}</td>
-                        <td>{{ p.prodlot_id.name|default_if_none:"" }} { p.prodlot_id.lote.expiry_date }}</td>
+                        <td>{{ p.prodlot_id.name|default_if_none:"" }} {{ p.prodlot_id.expiry_date }}</td>
                         <td><a href="/dividir/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">DV</a></td>
                     </tr>
                     {% endfor %}

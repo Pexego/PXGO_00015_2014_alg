@@ -6,30 +6,34 @@
     <br /><br />
     <center>
      <div class="row">
-        <div style="width:100%;margin:auto;">
             <form method="post" action=".">{% csrf_token %}
-                <div style="float:left;margin:1em;padding:1.8em;border:1px solid black;">
-                    <select name="pr">
-                            <option>-----</option>
-                        {% for p in products %}
-                            <option value="{{ p.id }}">{{ p.name }}</option>
-                        {% endfor %}
-                    </select>
+                <div class="col-md-6">
+                    <ul class="list-group" style="text-align:left;">
+                        <li class="list-group-item"><strong>Producto: </strong>
+                            <select name="pr" class="form-control" style="width: 50%;display:inline;">
+                                <option>-----</option>
+                                {% for p in products %}
+                                    <option value="{{ p.id }}">{{ p.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </li>
+                        <li class="list-group-item"><strong>Cantidad: </strong>
+                            <input type="number" value="0" name="qty" required="required" min="1" class="form-control" style="width: 50%;display:inline;"/>
+                        </li>
+                        <li class="list-group-item"><strong>Almacén: </strong>
+                            <select name="wr" class="form-control" style="width: 50%;display:inline;">
+                                {% for w in warehouses %}
+                                    <option value="{{ w.id }}" {% if forloop.counter0 == 0 %} selected{% endif %}>{{ w.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </li>
+                    </ul>
                 </div>
-                <div style="float:left;margin:1em;padding:1.7em;border:1px solid black;">
-                    <input type="number" value="0" name="qty" required="required" min="1"/>
+                <div class="col-md-6">
+                    <input type="submit" value="calcular" class="btn btn-success"/>
                 </div>
-                <div style="float:left;margin:1em;padding:2em;border:1px solid black;">
-                    <select name="wr">
-                        {% for w in warehouses %}
-                            <option value="{{ w.id }}" {% if forloop.counter0 == 0 %} selected{% endif %}>{{ w.name }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-
-                <input type="submit" value="calcular" class="btn btn-success"/>
             </form>
-        </div>
+        
         <div style="clear:both;"></div>
         <table style="width:45%;float:left;margin:auto;">
             <tr style="border:1px solid black;">
