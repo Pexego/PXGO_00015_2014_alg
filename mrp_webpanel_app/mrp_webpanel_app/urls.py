@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^verstock/(?P<id>\d+)/$', 'conector.views.verstock', name='verstock'),
     url(r'^desechar/(?P<id>\d+)/$', 'conector.views.desechar', name='desechar'),
     url(r'^dividir/(?P<id>\d+)/$', 'conector.views.dividir', name='dividir'),
+    url(r'^reciclar/(?P<id>\d+)/$', 'conector.views.reciclar', name='reciclar'),
     
     url(r'^otrastareas/$', 'conector.views.tareas', name='tareas'),
     url(r'^creartarea/$', 'conector.views.tarea', name='tarea'),

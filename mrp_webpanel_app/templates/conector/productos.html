@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load staticfiles %}
-
+{% load mrp_webpanel_app_tag %}
 {% block contenido %}
      <div class="row">
         <a href="/crear_productos/" class="btn btn-primary btn-default pull-left" >Crear</a>
@@ -23,7 +23,7 @@
                         <td>{{ product.date_planned }}</td>
                         <td>{{ product.product_qty }}</td>
                         <td></td>
-                        <td>{{ product.state }}</td>
+                        <td>{{ product.state|traduccion }}</td>
                     </tr>
                 {% endfor %}
             </table>

@@ -91,6 +91,7 @@ def selector(request):
 
     context = RequestContext(request, {
             'users_list': users_list,
+            'codigo': request.session['codigo'],
     })
     return HttpResponse(template.render(context))
 
@@ -102,7 +103,7 @@ def productos(request):
     from erp import POOL, DB, USER
     cursor = DB.cursor()
     product_obj = POOL.get('mrp.production')
-
+    
 
     try:
         product_ids = product_obj.search(cursor, USER, [('state', 'not in', ['done','cancel'])], order="name ASC")
@@ -112,6 +113,8 @@ def productos(request):
         context = RequestContext(request, {
             'users_list': users_list,
             'products_list': products,
+            'codigo': request.session['codigo'],
+    
         })
     except Exception as e:
         return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/productos/");</script>')
@@ -140,6 +143,7 @@ def producto(request,id):
         context = RequestContext(request, {
             'users_list': users_list,
             'product': production[0],
+            'codigo': request.session['codigo'],
         })
     except Exception as e:
         return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
@@ -210,6 +214,7 @@ def crear_producto(request):
                 'users_list': users_list,
                 'products': products,
                 'warehouses':warehouses,
+                'codigo': request.session['codigo'],
             })
         except Exception as e:
             return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/crear_productos/");</script>')
@@ -358,6 +363,7 @@ def verstock(request, id):
 
             context = RequestContext(request, {
                 'lots': lots,
+                
             })
             return HttpResponse(template.render(context))
     except Exception as e:
@@ -499,6 +505,7 @@ def tareas(request):
         context = RequestContext(request, {
             'users_list': users_list,
             'tareas_list': tareas,
+            'codigo': request.session['codigo'],
         })
     except Exception as e:
         return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/tareas/");</script>')
@@ -636,12 +643,14 @@ def tarea(request,id=None):
                     'users_list': users_list,
                     'tarea': tarea[0],
                     'trabajos':trabajos,
+                    'codigo': request.session['codigo'],
                 })
             else:
                 context = RequestContext(request, {
                     'users_list': users_list,
                     'tarea': False,
                     'trabajos':trabajos,
+                    'codigo': request.session['codigo'],
                 })
         except Exception as e:
             return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/tarea/'+id+'/");</script>')
@@ -681,3 +690,47 @@ def salir(request):
         cursor.commit()
         cursor.close()
     return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')
+
+
+def reciclar(request, id):
+    
+    oerp_ctx = {'lang': 'es_ES'}
+    if request.method == 'POST':
+        cantidad = int(request.POST.get("unidades"))
+        from erp import POOL, DB, USER
+        cursor = DB.cursor()
+        prod_obj = POOL.get('stock.move')
+
+        try:
+            pr_id = int(id)
+            product = prod_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
+            prod_obj = prod_obj.action_scrap(cursor, USER, [product[0].id], cantidad, product[0].location_id.id, context=oerp_ctx)
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+
+            return HttpResponse('<script type="text/javascript">opener.location.reload();window.close();</script>')
+    else:
+
+        template = loader.get_template('conector/desechar.html')
+        context={}
+
+        from erp import POOL, DB, USER
+        product_obj = POOL.get('stock.move')
+        cursor = DB.cursor()
+        try:
+            product = product_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
+            context = RequestContext(request, {
+                'product': product[0],
+            })
+            return HttpResponse(template.render(context))
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
+            
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
