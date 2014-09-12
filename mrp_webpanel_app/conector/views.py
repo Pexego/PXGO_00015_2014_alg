@@ -374,16 +374,16 @@ def verstock(request, id):
         cursor.close()
 
 def desechar(request, id):
-    
+    pr_id = int(id)
     oerp_ctx = {'lang': 'es_ES'}
     if request.method == 'POST':
         cantidad = int(request.POST.get("unidades"))
         from erp import POOL, DB, USER
         cursor = DB.cursor()
         prod_obj = POOL.get('stock.move')
-
+        
         try:
-            pr_id = int(id)
+            
             product = prod_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
             prod_obj = prod_obj.action_scrap(cursor, USER, [product[0].id], cantidad, product[0].location_id.id, context=oerp_ctx)
         except Exception as e:
@@ -422,7 +422,7 @@ def dividir(request, id):
     template = loader.get_template('conector/dividir.html')
     context={}
     oerp_ctx = {'lang': 'es_ES'}
-
+    pr_id = int(id)
     if request.method == 'POST':
         from erp import POOL, DB, USER
         cursor = DB.cursor()
@@ -430,7 +430,7 @@ def dividir(request, id):
         lot_obj = POOL.get('stock.production.lot')
 
         try:
-            pr_id = int(id)
+            
             updated=False
             move = move_obj.browse(cursor, USER, pr_id)
             new_lots = {}
@@ -691,35 +691,37 @@ def salir(request):
         cursor.close()
     return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')
 
-
-def reciclar(request, id):
+def actualizar_cantidad(request, id):
     
+    template = loader.get_template('conector/actualizar_cantidad.html')
+    context={}
     oerp_ctx = {'lang': 'es_ES'}
+    pr_id = int(id)
     if request.method == 'POST':
-        cantidad = int(request.POST.get("unidades"))
         from erp import POOL, DB, USER
+        cantidad = int(request.POST.get("unidades"))
         cursor = DB.cursor()
-        prod_obj = POOL.get('stock.move')
-
+        mrp_obj = POOL.get('mrp.production')
+        change_obj = POOL.get('change.production.qty')
+        
         try:
-            pr_id = int(id)
-            product = prod_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
-            prod_obj = prod_obj.action_scrap(cursor, USER, [product[0].id], cantidad, product[0].location_id.id, context=oerp_ctx)
+            mrp = mrp_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
+            print mrp
+            change_obj._update_product_to_produce(cursor, USER, mrp[0], cantidad)
+
         except Exception as e:
+            print 
             return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
             pass
         finally:
             cursor.commit()
             cursor.close()
 
-            return HttpResponse('<script type="text/javascript">opener.location.reload();window.close();</script>')
+        return HttpResponse('<script type="text/javascript">opener.location.reload();window.close()</script>')
     else:
 
-        template = loader.get_template('conector/desechar.html')
-        context={}
-
         from erp import POOL, DB, USER
-        product_obj = POOL.get('stock.move')
+        product_obj = POOL.get('mrp.production')
         cursor = DB.cursor()
         try:
             product = product_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
@@ -734,3 +736,7 @@ def reciclar(request, id):
         finally:
             cursor.commit()
             cursor.close()
+            
+def reciclar(request, id):
+    
+  return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')

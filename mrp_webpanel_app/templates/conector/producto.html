@@ -8,7 +8,11 @@
         <div class="col-md-6">
             <ul class="list-group" style="text-align:left;">
                 <li class="list-group-item"><strong>Producto:</strong> {{ product.product_id.name }}</li>
-                <li class="list-group-item"><strong>Cantidad:</strong> {{ product.product_qty }} unidades</li>
+                <li class="list-group-item"><strong>Cantidad:</strong> {{ product.product_qty }} unidades 
+                    {% if product.state == "confirmed" %}
+                        <a href="/actualizar_cantidad/{{ product.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;" class="btn btn-warning" >Actualizar</a>
+                    {% endif %}
+                </li>
                 <li class="list-group-item"><strong>Almacen:</strong> {{ product.warehouse_id.name }}</li>
             </ul>
         </div>
