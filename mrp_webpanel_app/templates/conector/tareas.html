@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load staticfiles %}
-
+{% load mrp_webpanel_app_tag %}
 {% block contenido %}
      <div class="row">
         <a href="/creartarea/" class="btn btn-primary btn-default pull-left" >Crear</a>
@@ -19,7 +19,7 @@
                         <td><a href="/tarea/{{tarea.id}}/">{{ tarea.product_id.name }}</a></td>
                         <td>{{ tarea.date }}</td>
                         <td>{{ tarea.name }}</td>
-                        <td>{{ tarea.state }}</td>
+                        <td>{{ tarea.state|traduccion }}</td>
                     </tr>
                 {% endfor %}
             </table>
