@@ -367,7 +367,7 @@ def verstock(request, id):
             })
             return HttpResponse(template.render(context))
     except Exception as e:
-        return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
+        return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
         pass
     finally:
         cursor.commit()
@@ -387,7 +387,7 @@ def desechar(request, id):
             product = prod_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
             prod_obj = prod_obj.action_scrap(cursor, USER, [product[0].id], cantidad, product[0].location_id.id, context=oerp_ctx)
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
             pass
         finally:
             cursor.commit()
@@ -409,7 +409,7 @@ def desechar(request, id):
             })
             return HttpResponse(template.render(context))
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
             
             pass
         finally:
@@ -458,7 +458,7 @@ def dividir(request, id):
                 move_obj.unlink(cursor, USER, [move.id])
 
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
             pass
         finally:
             cursor.commit()
@@ -703,15 +703,44 @@ def actualizar_cantidad(request, id):
         cursor = DB.cursor()
         mrp_obj = POOL.get('mrp.production')
         change_obj = POOL.get('change.production.qty')
+        bom_obj = POOL.get('mrp.bom')
+        move_obj = POOL.get('stock.move')
         
         try:
             mrp = mrp_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
-            print mrp
-            change_obj._update_product_to_produce(cursor, USER, mrp[0], cantidad)
+            mrp_obj.write(cursor, USER, [mrp[0].id], {'product_qty': cantidad})
+            mrp_obj.action_compute(cursor, USER, [mrp[0].id])
+            for move in mrp[0].move_lines:
+                
+                bom_point = mrp[0].bom_id
+                bom_id = mrp[0].bom_id.id
+                if not bom_point:
+                    bom_id = bom_obj._bom_find(cursor, USER, mrp[0].product_id.id, mrp[0].product_uom.id)
+                    
+                    if not bom_id:
+                        raise osv.except_osv(_('Error!'), _("Cannot find bill of material for this product."))
+                    mrp_obj.write(cursor, USER, [mrp[0].id], {'bom_id': bom_id})
+                    bom_point = bom_obj.browse(cursor, USER, [bom_id])[0]
+                    
+                if not bom_id:
+                    raise osv.except_osv(_('Error!'), _("Cannot find bill of material for this product."))
 
+                factor = mrp[0].product_qty * mrp[0].product_uom.factor / bom_point.product_uom.factor
+                product_details, workcenter_details = \
+                    bom_obj._bom_explode(cursor, USER, bom_point, factor / bom_point.product_qty, [])
+                product_move = dict((mv.product_id.id, mv.id) for mv in mrp[0].picking_id.move_lines)
+                for r in product_details:
+                    if r['product_id'] == move.product_id.id:
+                        move_obj.write(cursor, USER, [move.id], {'product_qty': r['product_qty']})
+                    if r['product_id'] in product_move:
+                        move_obj.write(cursor, USER, [product_move[r['product_id']]], {'product_qty': r['product_qty']})
+            if mrp[0].move_prod_id:
+                move_obj.write(cursor, USER, [mrp[0].move_prod_id.id], {'product_qty' : cantidad})
+            change_obj._update_product_to_produce(cursor, USER, mrp[0], cantidad, context=context)
+                
         except Exception as e:
             print 
-            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
             pass
         finally:
             cursor.commit()
@@ -730,7 +759,7 @@ def actualizar_cantidad(request, id):
             })
             return HttpResponse(template.render(context))
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
             
             pass
         finally:
