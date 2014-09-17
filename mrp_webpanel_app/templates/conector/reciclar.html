@@ -32,22 +32,21 @@
             <div class="col-md-6">
 
                 <table class="table table-hover f" style="width:500px;">
-                    <caption class="text-left"><h3>Actualizar cantidad producto</h3></caption>
+                    <caption class="text-left"><h3>Reciclado producto</h3></caption>
                     <tr>
                         <th>Producto</th>
                         <th>Cantidad</th>
                     </tr>
                     <tr>
-                        <th>{{ product.product_id.name }}</th>
-                        
+                        <th>{{ product.product_id.name }} </th>
                         <th><input type="number" value="{{ product.product_qty|floatformat:2 }}" name="unidades"/>  Unidad(es)</th>
                     </tr>
                 </table>
             </div>
         </div>
         <div class="row">
-            <input type="submit" class="btn btn-primary btn-default pull-left" style="margin-left:2em;" value="Actualizar" />
-            <input type=button value="Cancelar" onclick="cerrarse()">
+            <input type="submit" class="btn btn-primary btn-default pull-left" style="margin-left:2em;" value="Reciclar" />
+            <input type=button class="btn btn-primary btn-default pull-left" value="Cancelar" onclick="cerrarse()">
         </div>
         </form>
     </body>

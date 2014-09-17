@@ -204,7 +204,7 @@ def crear_producto(request):
         product_obj = POOL.get('product.product')
         warehouse_obj = POOL.get('stock.warehouse')
         try:
-            products_ids = product_obj.search(cursor, USER, [('analytic_acc_id', '!=', False),('bom_ids', '!=', False)], order="name ASC")
+            products_ids = product_obj.search(cursor, USER, [('analytic_acc_id', '!=', False),('bom_ids', '!=', False), ('bom_ids.bom_id','=',False)], order="name ASC")
             products = product_obj.browse(cursor, USER, products_ids, context=oerp_ctx)
             warehouse_ids = warehouse_obj.search(cursor, USER, [], order="name ASC")
             warehouses = warehouse_obj.browse(cursor, USER, warehouse_ids, context=oerp_ctx)
@@ -373,7 +373,7 @@ def verstock(request, id):
         cursor.commit()
         cursor.close()
 
-def desechar(request, id):
+def reciclar(request, id):
     pr_id = int(id)
     oerp_ctx = {'lang': 'es_ES'}
     if request.method == 'POST':
@@ -396,7 +396,7 @@ def desechar(request, id):
             return HttpResponse('<script type="text/javascript">opener.location.reload();window.close();</script>')
     else:
 
-        template = loader.get_template('conector/desechar.html')
+        template = loader.get_template('conector/reciclar.html')
         context={}
 
         from erp import POOL, DB, USER
@@ -473,7 +473,7 @@ def dividir(request, id):
         cursor = DB.cursor()
         try:
             move = move_obj.browse(cursor, USER, [pr_id])
-            products_ids = product_obj.search(cursor, USER, [('analytic_acc_id', '!=', False),('type', '=', 'product')], order="name ASC", context=oerp_ctx)
+            products_ids = product_obj.search(cursor, USER, [('analytic_acc_id', '!=', False),('bom_ids', '!=', False), ('bom_ids.bom_id','=',False),('type', '=', 'product')], order="name ASC", context=oerp_ctx)
             products = product_obj.browse(cursor, USER, products_ids, context=oerp_ctx)
             context = RequestContext(request, {
                 'move': move[0],
@@ -766,6 +766,46 @@ def actualizar_cantidad(request, id):
             cursor.commit()
             cursor.close()
             
-def reciclar(request, id):
-    
-  return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')
+def desechar(request, id):
+    pr_id = int(id)
+    oerp_ctx = {'lang': 'es_ES'}
+    if request.method == 'POST':
+        cantidad = int(request.POST.get("unidades"))
+        from erp import POOL, DB, USER
+        cursor = DB.cursor()
+        prod_obj = POOL.get('stock.move')
+        location_obj = POOL.get('stock.location')
+        try:
+            
+            product = prod_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
+            scraped_location = location_obj.search(cursor, USER, [('scrap_location','=',True)])
+            prod_obj = prod_obj.action_scrap(cursor, USER, [product[0].id], cantidad, scraped_location[0].id, context=oerp_ctx)
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+
+            return HttpResponse('<script type="text/javascript">opener.location.reload();window.close();</script>')
+    else:
+
+        template = loader.get_template('conector/desechar.html')
+        context={}
+
+        from erp import POOL, DB, USER
+        product_obj = POOL.get('stock.move')
+        cursor = DB.cursor()
+        try:
+            product = product_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
+            context = RequestContext(request, {
+                'product': product[0],
+            })
+            return HttpResponse(template.render(context))
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+            
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()

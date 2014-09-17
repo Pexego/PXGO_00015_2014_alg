@@ -1,0 +1,1351 @@
+[01/Sep/2014 11:23:36] "GET / HTTP/1.1" 200 2427
+[01/Sep/2014 11:23:36] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[01/Sep/2014 11:23:36] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[01/Sep/2014 11:23:36] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/db/models/fields/__init__.py:903: RuntimeWarning: DateTimeField Usuario.end received a naive datetime (2014-09-01 09:23:40.563086) while time zone support is active.
+  RuntimeWarning)
+
+[01/Sep/2014 09:23:40] "POST / HTTP/1.1" 200 2782
+[01/Sep/2014 09:23:42] "GET /productos/ HTTP/1.1" 200 6439
+[01/Sep/2014 09:23:43] "GET /producto/78/ HTTP/1.1" 200 5058
+[01/Sep/2014 09:23:46] "GET /verstock/644 HTTP/1.1" 301 0
+No handlers could be found for logger "openerp.osv.orm.browse_record.stock.production.lot"
+[01/Sep/2014 09:23:46] "GET /verstock/644/ HTTP/1.1" 200 3506
+[01/Sep/2014 09:24:51] "GET /producto/78/ HTTP/1.1" 200 5058
+[01/Sep/2014 09:24:51] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[01/Sep/2014 09:24:51] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[01/Sep/2014 09:24:51] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[01/Sep/2014 09:24:53] "GET /verstock/644 HTTP/1.1" 301 0
+[01/Sep/2014 09:24:53] "GET /verstock/644/ HTTP/1.1" 200 3506
+Validating models...
+
+0 errors found
+September 01, 2014 - 11:23:19
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[01/Sep/2014 14:34:04] "GET / HTTP/1.1" 200 2454
+[01/Sep/2014 14:34:04] "GET / HTTP/1.1" 200 2454
+[01/Sep/2014 12:34:10] "POST / HTTP/1.1" 200 2957
+[01/Sep/2014 12:34:10] "GET /static/img/produc.jpg HTTP/1.1" 304 0
+[01/Sep/2014 12:34:10] "GET /static/img/otras.jpg HTTP/1.1" 304 0
+[01/Sep/2014 12:34:12] "GET /salir/ HTTP/1.1" 200 69
+[01/Sep/2014 12:34:12] "GET / HTTP/1.1" 200 2454
+Validating models...
+
+0 errors found
+September 01, 2014 - 14:33:28
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[02/Sep/2014 10:36:38] "GET / HTTP/1.1" 200 2500
+[02/Sep/2014 08:36:44] "POST / HTTP/1.1" 200 3099
+[02/Sep/2014 08:36:44] "GET /static/img/produc.jpg HTTP/1.1" 304 0
+[02/Sep/2014 08:36:44] "GET /static/img/otras.jpg HTTP/1.1" 304 0
+[02/Sep/2014 08:36:46] "GET /salir/ HTTP/1.1" 200 69
+[02/Sep/2014 08:36:47] "GET / HTTP/1.1" 200 2500
+[02/Sep/2014 10:12:01] "GET / HTTP/1.1" 200 2500
+[03/Sep/2014 10:44:27] "GET / HTTP/1.1" 200 2500
+[03/Sep/2014 08:44:32] "POST / HTTP/1.1" 200 3099
+[03/Sep/2014 08:44:32] "GET /static/img/produc.jpg HTTP/1.1" 304 0
+[03/Sep/2014 08:44:32] "GET /static/img/otras.jpg HTTP/1.1" 304 0
+[03/Sep/2014 08:44:33] "GET /productos/ HTTP/1.1" 200 7486
+[03/Sep/2014 08:44:37] "GET /producto/81/ HTTP/1.1" 200 5393
+[03/Sep/2014 08:44:40] "GET /producto/28/ HTTP/1.1" 200 5389
+No handlers could be found for logger "openerp.sql_db"
+[03/Sep/2014 08:44:42] "GET /producto/29/ HTTP/1.1" 200 5377
+[03/Sep/2014 08:44:45] "GET /producto/30/ HTTP/1.1" 200 5377
+[03/Sep/2014 08:44:53] "GET /producto/52/ HTTP/1.1" 200 5648
+[03/Sep/2014 08:44:55] "GET /producto/67/ HTTP/1.1" 200 5367
+[03/Sep/2014 08:44:57] "GET /verstock/587 HTTP/1.1" 301 0
+[03/Sep/2014 08:44:57] "GET /verstock/587/ HTTP/1.1" 200 2908
+[03/Sep/2014 08:45:01] "GET /producto/81/ HTTP/1.1" 200 5393
+[03/Sep/2014 08:45:03] "GET /verstock/655 HTTP/1.1" 301 0
+[03/Sep/2014 08:45:03] "GET /verstock/655/ HTTP/1.1" 200 4087
+[03/Sep/2014 08:45:08] "GET /producto/80/ HTTP/1.1" 200 5385
+[03/Sep/2014 08:45:10] "GET /verstock/652 HTTP/1.1" 301 0
+[03/Sep/2014 08:45:11] "GET /verstock/652/ HTTP/1.1" 200 4087
+[03/Sep/2014 08:45:25] "GET /producto/81/ HTTP/1.1" 200 5393
+[03/Sep/2014 08:45:32] "GET /producto/81/ HTTP/1.1" 200 5393
+[03/Sep/2014 08:45:34] "GET /producto/80/ HTTP/1.1" 200 5385
+[03/Sep/2014 08:45:41] "GET /productos/ HTTP/1.1" 200 7486
+[03/Sep/2014 08:45:41] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 08:45:41] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 08:45:41] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 08:46:19] "GET /producto/68/ HTTP/1.1" 200 5381
+[03/Sep/2014 08:46:43] "GET /verstock/590 HTTP/1.1" 301 0
+[03/Sep/2014 08:46:44] "GET /verstock/590/ HTTP/1.1" 200 4087
+[03/Sep/2014 08:47:07] "GET /dividir/589 HTTP/1.1" 301 0
+[03/Sep/2014 08:47:07] "GET /dividir/589/ HTTP/1.1" 200 7711
+[03/Sep/2014 08:47:29] "GET /producto/81/ HTTP/1.1" 200 5393
+[03/Sep/2014 08:52:03] "GET /productos/ HTTP/1.1" 200 7844
+[03/Sep/2014 08:52:03] "GET /productos/ HTTP/1.1" 200 7844
+[03/Sep/2014 08:52:05] "GET /crear_productos/ HTTP/1.1" 200 6584
+[03/Sep/2014 08:52:17] "POST /crear_productos/ HTTP/1.1" 302 0
+[03/Sep/2014 08:52:17] "GET /producto/85 HTTP/1.1" 301 0
+[03/Sep/2014 08:52:18] "GET /producto/85/ HTTP/1.1" 200 3501
+[03/Sep/2014 08:52:22] "GET /producto/85/ HTTP/1.1" 200 3501
+[03/Sep/2014 08:52:22] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 08:52:22] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 08:52:22] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 08:54:01] "GET /productos/ HTTP/1.1" 200 7844
+[03/Sep/2014 08:54:01] "GET /productos/ HTTP/1.1" 200 7844
+[03/Sep/2014 08:54:12] "GET /crear_productos/ HTTP/1.1" 200 6584
+[03/Sep/2014 08:54:37] "POST /crear_productos/ HTTP/1.1" 302 0
+[03/Sep/2014 08:54:37] "GET /producto/86 HTTP/1.1" 301 0
+[03/Sep/2014 08:54:37] "GET /producto/86/ HTTP/1.1" 200 5362
+[03/Sep/2014 08:54:45] "GET /verstock/673 HTTP/1.1" 301 0
+[03/Sep/2014 08:54:46] "GET /verstock/673/ HTTP/1.1" 200 3508
+[03/Sep/2014 08:54:54] "POST /verstock/673/ HTTP/1.1" 200 79
+[03/Sep/2014 08:54:54] "GET /producto/86/ HTTP/1.1" 200 5373
+[03/Sep/2014 08:54:55] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 08:54:55] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 08:54:55] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 08:55:06] "GET /abrir/86 HTTP/1.1" 301 0
+[03/Sep/2014 08:55:07] "GET /abrir/86/ HTTP/1.1" 200 2732
+[03/Sep/2014 08:55:10] "POST /abrir/86/ HTTP/1.1" 200 3099
+[03/Sep/2014 08:55:12] "GET /productos/ HTTP/1.1" 200 8209
+[03/Sep/2014 08:55:13] "GET /producto/86/ HTTP/1.1" 200 5373
+[03/Sep/2014 08:56:49] "GET /productos/ HTTP/1.1" 200 8209
+[03/Sep/2014 08:56:49] "GET /productos/ HTTP/1.1" 200 8209
+[03/Sep/2014 08:56:51] "GET /crear_productos/ HTTP/1.1" 200 6584
+[03/Sep/2014 08:57:00] "POST /crear_productos/ HTTP/1.1" 302 0
+[03/Sep/2014 08:57:00] "GET /producto/87 HTTP/1.1" 301 0
+[03/Sep/2014 08:57:01] "GET /producto/87/ HTTP/1.1" 200 5385
+[03/Sep/2014 08:57:03] "GET /verstock/676 HTTP/1.1" 301 0
+[03/Sep/2014 08:57:03] "GET /verstock/676/ HTTP/1.1" 200 4087
+[03/Sep/2014 08:57:06] "POST /verstock/676/ HTTP/1.1" 200 79
+[03/Sep/2014 08:57:06] "GET /producto/87/ HTTP/1.1" 200 5390
+[03/Sep/2014 08:57:06] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 08:57:06] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 08:57:06] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 08:57:08] "GET /finalizar/87 HTTP/1.1" 301 0
+[03/Sep/2014 08:57:09] "GET /finalizar/87/ HTTP/1.1" 200 2500
+[03/Sep/2014 08:57:12] "POST /finalizar/87/ HTTP/1.1" 200 3099
+[03/Sep/2014 08:57:14] "GET /productos/ HTTP/1.1" 200 8209
+Validating models...
+
+0 errors found
+September 03, 2014 - 10:44:13
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+--> unsupported operand type(s) for *: 'NoneType' and 'float'
+--> unsupported operand type(s) for *: 'NoneType' and 'float'
+Exception psycopg2.OperationalError: 'server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request.\n' in <bound method Cursor.__del__ of <openerp.sql_db.Cursor object at 0x7fc149a42f10>> ignored
+[03/Sep/2014 10:12:15] "GET /productos/ HTTP/1.1" 200 8574
+[03/Sep/2014 10:12:16] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 10:12:16] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 10:12:16] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 10:12:24] "GET /producto/89/ HTTP/1.1" 200 5386
+[03/Sep/2014 10:12:30] "GET /salir/ HTTP/1.1" 200 69
+[03/Sep/2014 10:12:31] "GET / HTTP/1.1" 200 2500
+Validating models...
+
+0 errors found
+September 03, 2014 - 11:46:41
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+No handlers could be found for logger "openerp.sql_db"
+[03/Sep/2014 13:18:57] "GET / HTTP/1.1" 200 2500
+[03/Sep/2014 11:19:10] "POST / HTTP/1.1" 200 3099
+[03/Sep/2014 11:19:14] "POST / HTTP/1.1" 200 3099
+[03/Sep/2014 11:19:19] "GET /static/img/produc.jpg HTTP/1.1" 304 0
+[03/Sep/2014 11:19:19] "GET /static/img/otras.jpg HTTP/1.1" 304 0
+[03/Sep/2014 11:20:00] "GET /productos/ HTTP/1.1" 200 9656
+[03/Sep/2014 11:20:02] "GET /producto/92/ HTTP/1.1" 200 5386
+[03/Sep/2014 11:20:10] "GET /finalizar/92 HTTP/1.1" 301 0
+No handlers could be found for logger "openerp.sql_db"
+[03/Sep/2014 11:20:11] "GET /finalizar/92/ HTTP/1.1" 200 2500
+[03/Sep/2014 11:20:14] "POST /finalizar/92/ HTTP/1.1" 200 3099
+[03/Sep/2014 11:20:15] "GET /productos/ HTTP/1.1" 200 9298
+[03/Sep/2014 11:21:16] "GET /crear_productos/ HTTP/1.1" 200 6584
+[03/Sep/2014 11:21:30] "POST /crear_productos/ HTTP/1.1" 302 0
+[03/Sep/2014 11:21:30] "GET /producto/93 HTTP/1.1" 301 0
+[03/Sep/2014 11:21:31] "GET /producto/93/ HTTP/1.1" 200 5386
+[03/Sep/2014 11:21:39] "GET /verstock/721 HTTP/1.1" 301 0
+[03/Sep/2014 11:21:39] "GET /verstock/721/ HTTP/1.1" 200 3508
+[03/Sep/2014 11:21:43] "POST /verstock/721/ HTTP/1.1" 200 79
+[03/Sep/2014 11:21:44] "GET /producto/93/ HTTP/1.1" 200 5386
+[03/Sep/2014 11:21:44] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 11:21:44] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 11:21:44] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 11:21:49] "GET /verstock/721/ HTTP/1.1" 200 3508
+[03/Sep/2014 11:21:52] "POST /verstock/721/ HTTP/1.1" 200 79
+[03/Sep/2014 11:21:52] "GET /producto/93/ HTTP/1.1" 200 5386
+[03/Sep/2014 11:21:53] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 11:21:53] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 11:21:53] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 11:21:54] "GET /verstock/721/ HTTP/1.1" 200 3508
+[03/Sep/2014 11:21:56] "POST /verstock/721/ HTTP/1.1" 200 79
+[03/Sep/2014 11:21:57] "GET /producto/93/ HTTP/1.1" 200 5386
+[03/Sep/2014 11:21:57] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 11:21:57] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 11:21:57] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 11:22:42] "GET /finalizar/93 HTTP/1.1" 301 0
+[03/Sep/2014 11:22:42] "GET /finalizar/93/ HTTP/1.1" 200 2500
+[03/Sep/2014 11:23:17] "POST /finalizar/93/ HTTP/1.1" 200 3099
+[03/Sep/2014 11:23:18] "GET /productos/ HTTP/1.1" 200 9298
+[03/Sep/2014 11:23:19] "GET /crear_productos/ HTTP/1.1" 200 6584
+[03/Sep/2014 11:23:26] "POST /crear_productos/ HTTP/1.1" 302 0
+[03/Sep/2014 11:23:27] "GET /producto/94 HTTP/1.1" 301 0
+[03/Sep/2014 11:23:27] "GET /producto/94/ HTTP/1.1" 200 5372
+[03/Sep/2014 11:23:43] "GET /verstock/724 HTTP/1.1" 301 0
+[03/Sep/2014 11:23:43] "GET /verstock/724/ HTTP/1.1" 200 2908
+[03/Sep/2014 11:23:51] "POST /verstock/724/ HTTP/1.1" 200 79
+[03/Sep/2014 11:23:51] "GET /producto/94/ HTTP/1.1" 200 5382
+[03/Sep/2014 11:23:52] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 11:23:52] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 11:23:52] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 11:23:56] "GET /procesar/94 HTTP/1.1" 301 0
+[03/Sep/2014 11:23:56] "GET /procesar/94/ HTTP/1.1" 200 81
+[03/Sep/2014 11:23:56] "GET /producto/94/ HTTP/1.1" 200 5382
+[03/Sep/2014 11:23:58] "GET /procesar/94/ HTTP/1.1" 200 81
+[03/Sep/2014 11:23:58] "GET /producto/94/ HTTP/1.1" 200 5382
+[03/Sep/2014 11:24:07] "GET /productos/ HTTP/1.1" 200 9666
+[03/Sep/2014 11:24:07] "GET /productos/ HTTP/1.1" 200 9666
+[03/Sep/2014 11:24:08] "GET /crear_productos/ HTTP/1.1" 200 6584
+[03/Sep/2014 11:24:23] "POST /crear_productos/ HTTP/1.1" 302 0
+[03/Sep/2014 11:24:23] "GET /producto/95 HTTP/1.1" 301 0
+[03/Sep/2014 11:24:23] "GET /producto/95/ HTTP/1.1" 200 5386
+[03/Sep/2014 11:24:42] "GET /finalizar/95 HTTP/1.1" 301 0
+[03/Sep/2014 11:24:43] "GET /finalizar/95/ HTTP/1.1" 200 2500
+[03/Sep/2014 11:25:27] "POST /finalizar/95/ HTTP/1.1" 200 3099
+[03/Sep/2014 11:25:41] "GET /productos/ HTTP/1.1" 200 9666
+[03/Sep/2014 11:31:42] "GET / HTTP/1.1" 200 2732
+[03/Sep/2014 11:31:43] "GET / HTTP/1.1" 200 2732
+[03/Sep/2014 11:31:46] "POST / HTTP/1.1" 200 3099
+[03/Sep/2014 11:31:48] "GET /otrastareas/ HTTP/1.1" 200 3788
+[03/Sep/2014 11:31:50] "GET /creartarea/ HTTP/1.1" 200 4688
+[03/Sep/2014 11:31:50] "GET /static/keyboard/js/jquery.keyboard.js HTTP/1.1" 304 0
+[03/Sep/2014 11:31:50] "GET /static/keyboard/css/keyboard.css HTTP/1.1" 304 0
+[03/Sep/2014 11:32:04] "POST /creartarea/ HTTP/1.1" 200 77
+[03/Sep/2014 11:32:05] "GET /tarea/5/ HTTP/1.1" 200 4829
+[03/Sep/2014 11:32:22] "POST /tarea/5/ HTTP/1.1" 200 77
+[03/Sep/2014 11:32:23] "GET /tarea/5/ HTTP/1.1" 200 4869
+[03/Sep/2014 11:32:24] "POST /tarea/5/ HTTP/1.1" 200 77
+[03/Sep/2014 11:32:25] "GET /tarea/5/ HTTP/1.1" 200 4900
+[03/Sep/2014 11:32:27] "GET /static/kg_mov.html HTTP/1.1" 200 755
+[03/Sep/2014 11:32:43] "POST /tarea/5/ HTTP/1.1" 200 69
+[03/Sep/2014 11:32:43] "GET / HTTP/1.1" 200 2500
+[03/Sep/2014 11:33:30] "POST / HTTP/1.1" 200 3099
+[03/Sep/2014 11:33:32] "GET /otrastareas/ HTTP/1.1" 200 3788
+[03/Sep/2014 11:33:42] "GET /creartarea/ HTTP/1.1" 200 4688
+[03/Sep/2014 11:34:09] "POST /creartarea/ HTTP/1.1" 200 77
+[03/Sep/2014 11:34:10] "GET /tarea/6/ HTTP/1.1" 200 4828
+[03/Sep/2014 11:35:37] "GET / HTTP/1.1" 200 2732
+[03/Sep/2014 11:35:41] "POST / HTTP/1.1" 200 3201
+[03/Sep/2014 11:35:42] "GET /otrastareas/ HTTP/1.1" 200 4149
+[03/Sep/2014 11:35:45] "GET /tarea/6/ HTTP/1.1" 200 4930
+[03/Sep/2014 11:37:58] "GET / HTTP/1.1" 200 2834
+[03/Sep/2014 11:38:03] "POST / HTTP/1.1" 200 3201
+[03/Sep/2014 11:38:09] "GET /productos/ HTTP/1.1" 200 9768
+[03/Sep/2014 11:38:12] "GET /producto/94/ HTTP/1.1" 200 5484
+[03/Sep/2014 11:39:12] "GET /producto/94/ HTTP/1.1" 200 5484
+[03/Sep/2014 11:39:39] "GET / HTTP/1.1" 200 2834
+[03/Sep/2014 11:39:44] "POST / HTTP/1.1" 200 3201
+[03/Sep/2014 11:39:49] "GET /otrastareas/ HTTP/1.1" 200 4149
+[03/Sep/2014 11:39:51] "GET /tarea/6/ HTTP/1.1" 200 4930
+[03/Sep/2014 11:39:57] "POST /tarea/6/ HTTP/1.1" 200 77
+[03/Sep/2014 11:39:58] "GET /tarea/6/ HTTP/1.1" 200 4961
+[03/Sep/2014 11:40:03] "POST /tarea/6/ HTTP/1.1" 200 69
+[03/Sep/2014 11:40:03] "GET / HTTP/1.1" 200 2732
+[03/Sep/2014 11:41:22] "POST / HTTP/1.1" 200 3099
+[03/Sep/2014 11:41:24] "GET /salir/ HTTP/1.1" 200 69
+[03/Sep/2014 11:41:25] "GET / HTTP/1.1" 200 2500
+[03/Sep/2014 17:32:14] "GET / HTTP/1.1" 200 2734
+[03/Sep/2014 17:32:56] "GET / HTTP/1.1" 200 2734
+[03/Sep/2014 17:32:56] "GET / HTTP/1.1" 200 2734
+[03/Sep/2014 15:33:05] "POST / HTTP/1.1" 200 3201
+[03/Sep/2014 15:33:05] "GET /static/img/produc.jpg HTTP/1.1" 304 0
+[03/Sep/2014 15:33:05] "GET /static/img/otras.jpg HTTP/1.1" 304 0
+[03/Sep/2014 15:33:07] "GET /salir/ HTTP/1.1" 200 69
+[03/Sep/2014 15:33:07] "GET / HTTP/1.1" 200 2734
+[03/Sep/2014 15:39:12] "POST / HTTP/1.1" 200 3101
+[03/Sep/2014 15:39:16] "GET /productos/ HTTP/1.1" 200 9668
+[03/Sep/2014 15:39:25] "GET /crear_productos/ HTTP/1.1" 200 6586
+Internal Server Error: /crear_productos/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 170, in crear_producto
+    w_id = int(request.POST.get("wr"))
+ValueError: invalid literal for int() with base 10: '-----'
+No handlers could be found for logger "openerp.sql_db"
+[03/Sep/2014 15:39:39] "POST /crear_productos/ HTTP/1.1" 500 62730
+[03/Sep/2014 15:39:48] "POST /crear_productos/ HTTP/1.1" 302 0
+[03/Sep/2014 15:39:48] "GET /producto/100 HTTP/1.1" 301 0
+[03/Sep/2014 15:39:49] "GET /producto/100/ HTTP/1.1" 200 6084
+[03/Sep/2014 15:40:52] "GET /verstock/809 HTTP/1.1" 301 0
+[03/Sep/2014 15:40:52] "GET /verstock/809/ HTTP/1.1" 200 3508
+[03/Sep/2014 15:41:13] "GET /desechar/809 HTTP/1.1" 301 0
+[03/Sep/2014 15:41:13] "GET /desechar/809/ HTTP/1.1" 200 1927
+[03/Sep/2014 15:41:20] "POST /desechar/809/ HTTP/1.1" 200 80
+[03/Sep/2014 15:41:20] "GET /producto/100/ HTTP/1.1" 200 6685
+[03/Sep/2014 15:41:20] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 15:41:20] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:41:20] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:41:31] "GET / HTTP/1.1" 200 2734
+[03/Sep/2014 15:41:36] "POST / HTTP/1.1" 200 3201
+[03/Sep/2014 15:41:37] "GET /productos/ HTTP/1.1" 200 10143
+[03/Sep/2014 15:41:42] "GET /producto/100/ HTTP/1.1" 200 6785
+[03/Sep/2014 15:41:54] "GET /salir/ HTTP/1.1" 200 69
+[03/Sep/2014 15:41:54] "GET / HTTP/1.1" 200 2734
+[03/Sep/2014 15:42:03] "POST / HTTP/1.1" 200 3101
+[03/Sep/2014 15:42:04] "GET /productos/ HTTP/1.1" 200 10043
+[03/Sep/2014 15:42:07] "GET /producto/100/ HTTP/1.1" 200 6685
+[03/Sep/2014 15:42:24] "GET /salir/ HTTP/1.1" 200 69
+[03/Sep/2014 15:42:24] "GET / HTTP/1.1" 200 2500
+[03/Sep/2014 15:42:32] "POST / HTTP/1.1" 200 3099
+[03/Sep/2014 15:42:33] "GET /productos/ HTTP/1.1" 200 10041
+[03/Sep/2014 15:42:42] "GET /crear_productos/ HTTP/1.1" 200 6584
+[03/Sep/2014 15:43:36] "GET /salir/ HTTP/1.1" 200 69
+[03/Sep/2014 15:43:37] "GET / HTTP/1.1" 200 2500
+[03/Sep/2014 15:43:40] "POST / HTTP/1.1" 200 3099
+[03/Sep/2014 15:43:41] "GET /productos/ HTTP/1.1" 200 10405
+[03/Sep/2014 15:43:51] "GET /producto/101/ HTTP/1.1" 200 7479
+[03/Sep/2014 15:44:03] "GET /dividir/812 HTTP/1.1" 301 0
+[03/Sep/2014 15:44:03] "GET /dividir/812/ HTTP/1.1" 200 7713
+[03/Sep/2014 15:44:09] "POST /dividir/812/ HTTP/1.1" 200 79
+[03/Sep/2014 15:44:09] "GET /producto/101/ HTTP/1.1" 200 7479
+[03/Sep/2014 15:44:09] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 15:44:09] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:44:09] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:44:12] "GET /dividir/812/ HTTP/1.1" 200 7713
+[03/Sep/2014 15:44:18] "POST /dividir/812/ HTTP/1.1" 200 79
+[03/Sep/2014 15:44:18] "GET /producto/101/ HTTP/1.1" 200 7479
+[03/Sep/2014 15:44:18] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 15:44:18] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:44:18] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:44:21] "GET /dividir/812/ HTTP/1.1" 200 7713
+[03/Sep/2014 15:44:27] "GET /finalizar/101 HTTP/1.1" 301 0
+[03/Sep/2014 15:44:28] "GET /finalizar/101/ HTTP/1.1" 200 2500
+[03/Sep/2014 15:44:38] "POST /finalizar/101/ HTTP/1.1" 200 3101
+[03/Sep/2014 15:44:39] "GET /productos/ HTTP/1.1" 200 10043
+[03/Sep/2014 15:44:43] "GET /producto/100/ HTTP/1.1" 200 6685
+[03/Sep/2014 15:45:07] "GET /finalizar/100 HTTP/1.1" 301 0
+[03/Sep/2014 15:45:08] "GET /finalizar/100/ HTTP/1.1" 200 2734
+[03/Sep/2014 15:45:51] "POST /finalizar/100/ HTTP/1.1" 200 3099
+[03/Sep/2014 15:45:53] "GET /otrastareas/ HTTP/1.1" 200 3788
+[03/Sep/2014 15:45:56] "GET /creartarea/ HTTP/1.1" 200 4688
+[03/Sep/2014 15:46:06] "POST /creartarea/ HTTP/1.1" 200 77
+[03/Sep/2014 15:46:06] "GET /tarea/8/ HTTP/1.1" 200 4829
+[03/Sep/2014 15:46:19] "POST /tarea/8/ HTTP/1.1" 200 77
+[03/Sep/2014 15:46:20] "GET /tarea/8/ HTTP/1.1" 200 4860
+[03/Sep/2014 15:47:12] "POST /tarea/8/ HTTP/1.1" 200 69
+[03/Sep/2014 15:47:12] "GET / HTTP/1.1" 200 2500
+[03/Sep/2014 15:48:20] "POST / HTTP/1.1" 200 3101
+[03/Sep/2014 15:48:21] "GET /productos/ HTTP/1.1" 200 9668
+[03/Sep/2014 15:48:31] "GET /producto/94/ HTTP/1.1" 200 5384
+[03/Sep/2014 15:48:34] "GET /procesar/94 HTTP/1.1" 301 0
+[03/Sep/2014 15:48:34] "GET /procesar/94/ HTTP/1.1" 200 81
+[03/Sep/2014 15:48:35] "GET /producto/94/ HTTP/1.1" 200 5384
+[03/Sep/2014 15:48:36] "GET /procesar/94/ HTTP/1.1" 200 81
+[03/Sep/2014 15:48:36] "GET /producto/94/ HTTP/1.1" 200 5384
+[03/Sep/2014 15:50:56] "GET /salir/ HTTP/1.1" 200 69
+[03/Sep/2014 15:50:56] "GET / HTTP/1.1" 200 2500
+[03/Sep/2014 15:55:58] "POST / HTTP/1.1" 200 3101
+[03/Sep/2014 15:55:59] "GET /productos/ HTTP/1.1" 200 9668
+[03/Sep/2014 15:56:00] "GET /crear_productos/ HTTP/1.1" 200 6586
+Internal Server Error: /crear_productos/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 170, in crear_producto
+    w_id = int(request.POST.get("wr"))
+ValueError: invalid literal for int() with base 10: '-----'
+[03/Sep/2014 15:56:07] "POST /crear_productos/ HTTP/1.1" 500 62724
+Internal Server Error: /crear_productos/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 170, in crear_producto
+    w_id = int(request.POST.get("wr"))
+ValueError: invalid literal for int() with base 10: '-----'
+[03/Sep/2014 15:56:11] "POST /crear_productos/ HTTP/1.1" 500 62724
+[03/Sep/2014 15:56:17] "POST /crear_productos/ HTTP/1.1" 302 0
+[03/Sep/2014 15:56:17] "GET /producto/102 HTTP/1.1" 301 0
+[03/Sep/2014 15:56:17] "GET /producto/102/ HTTP/1.1" 200 5386
+[03/Sep/2014 15:56:30] "GET /dividir/822 HTTP/1.1" 301 0
+[03/Sep/2014 15:56:30] "GET /dividir/822/ HTTP/1.1" 200 7707
+[03/Sep/2014 15:57:04] "POST /crear_productos/ HTTP/1.1" 302 0
+[03/Sep/2014 15:57:04] "GET /producto/103 HTTP/1.1" 301 0
+[03/Sep/2014 15:57:04] "GET /producto/103/ HTTP/1.1" 200 5388
+[03/Sep/2014 15:57:06] "GET /dividir/825 HTTP/1.1" 301 0
+[03/Sep/2014 15:57:06] "GET /dividir/825/ HTTP/1.1" 200 7708
+[03/Sep/2014 15:57:13] "POST /dividir/825/ HTTP/1.1" 200 79
+[03/Sep/2014 15:57:13] "GET /producto/103/ HTTP/1.1" 200 5388
+[03/Sep/2014 15:57:13] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 15:57:13] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:57:13] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:57:15] "GET /dividir/825/ HTTP/1.1" 200 7708
+[03/Sep/2014 15:57:31] "POST /dividir/825/ HTTP/1.1" 200 79
+[03/Sep/2014 15:57:31] "GET /producto/103/ HTTP/1.1" 200 5388
+[03/Sep/2014 15:57:31] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 15:57:31] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:57:31] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:57:33] "GET /dividir/825/ HTTP/1.1" 200 7708
+[03/Sep/2014 15:58:31] "GET /desechar/826 HTTP/1.1" 301 0
+[03/Sep/2014 15:58:31] "GET /desechar/826/ HTTP/1.1" 200 1926
+[03/Sep/2014 15:58:37] "POST /desechar/826/ HTTP/1.1" 200 80
+[03/Sep/2014 15:58:37] "GET /producto/103/ HTTP/1.1" 200 5989
+[03/Sep/2014 15:58:37] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 15:58:37] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:58:37] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:58:41] "GET /verstock/826 HTTP/1.1" 301 0
+[03/Sep/2014 15:58:41] "GET /verstock/826/ HTTP/1.1" 200 3508
+[03/Sep/2014 15:58:48] "POST /verstock/826/ HTTP/1.1" 200 79
+[03/Sep/2014 15:58:48] "GET /producto/103/ HTTP/1.1" 200 5978
+[03/Sep/2014 15:58:48] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 15:58:48] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:58:48] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:58:50] "GET /verstock/826/ HTTP/1.1" 200 3508
+[03/Sep/2014 15:58:52] "POST /verstock/826/ HTTP/1.1" 200 79
+[03/Sep/2014 15:58:53] "GET /producto/103/ HTTP/1.1" 200 5989
+[03/Sep/2014 15:58:53] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 15:58:53] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 15:58:53] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 16:33:24] "GET / HTTP/1.1" 200 2734
+[03/Sep/2014 16:33:24] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[03/Sep/2014 16:33:24] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[03/Sep/2014 16:33:24] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[03/Sep/2014 16:33:30] "GET / HTTP/1.1" 200 2734
+[03/Sep/2014 16:35:32] "POST / HTTP/1.1" 200 3101
+[03/Sep/2014 16:35:32] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[03/Sep/2014 16:35:32] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[03/Sep/2014 16:38:08] "POST / HTTP/1.1" 200 3101
+[03/Sep/2014 16:38:39] "POST / HTTP/1.1" 200 3101
+[03/Sep/2014 16:38:47] "GET /productos/ HTTP/1.1" 200 10770
+[03/Sep/2014 16:39:10] "GET /producto/104/ HTTP/1.1" 200 5396
+[03/Sep/2014 16:39:22] "GET /verstock/835 HTTP/1.1" 301 0
+[03/Sep/2014 16:39:22] "GET /verstock/835/ HTTP/1.1" 200 2610
+[03/Sep/2014 16:39:37] "GET / HTTP/1.1" 200 2734
+[03/Sep/2014 16:39:45] "POST / HTTP/1.1" 200 3201
+[03/Sep/2014 16:39:47] "GET /productos/ HTTP/1.1" 200 10870
+[03/Sep/2014 16:39:51] "GET /producto/104/ HTTP/1.1" 200 5496
+[03/Sep/2014 16:40:05] "GET /desechar/835 HTTP/1.1" 301 0
+[03/Sep/2014 16:40:05] "GET /desechar/835/ HTTP/1.1" 200 1926
+[03/Sep/2014 16:40:24] "GET /salir/ HTTP/1.1" 200 69
+[03/Sep/2014 16:40:24] "GET / HTTP/1.1" 200 2734
+[03/Sep/2014 16:40:36] "POST / HTTP/1.1" 200 3201
+[03/Sep/2014 16:40:37] "GET /productos/ HTTP/1.1" 200 10870
+[03/Sep/2014 16:40:40] "GET /producto/104/ HTTP/1.1" 200 5496
+[03/Sep/2014 16:40:41] "GET /finalizar/104 HTTP/1.1" 301 0
+[03/Sep/2014 16:40:42] "GET /finalizar/104/ HTTP/1.1" 200 2500
+[03/Sep/2014 16:40:54] "POST /finalizar/104/ HTTP/1.1" 200 3099
+[03/Sep/2014 16:40:55] "GET /productos/ HTTP/1.1" 200 10405
+[03/Sep/2014 16:41:01] "GET /crear_productos/ HTTP/1.1" 200 6800
+[03/Sep/2014 16:41:24] "POST /crear_productos/ HTTP/1.1" 302 0
+[03/Sep/2014 16:41:24] "GET /producto/105 HTTP/1.1" 301 0
+[03/Sep/2014 16:41:24] "GET /producto/105/ HTTP/1.1" 200 6777
+[03/Sep/2014 16:41:47] "GET /verstock/838 HTTP/1.1" 301 0
+[03/Sep/2014 16:41:47] "GET /verstock/838/ HTTP/1.1" 200 3508
+[03/Sep/2014 16:41:59] "POST /verstock/838/ HTTP/1.1" 200 79
+[03/Sep/2014 16:41:59] "GET /producto/105/ HTTP/1.1" 200 6777
+[03/Sep/2014 16:42:00] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 16:42:00] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 16:42:00] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 16:42:55] "GET /dividir/837 HTTP/1.1" 301 0
+[03/Sep/2014 16:42:55] "GET /dividir/837/ HTTP/1.1" 200 8188
+[03/Sep/2014 16:43:24] "GET /finalizar/105 HTTP/1.1" 301 0
+[03/Sep/2014 16:43:25] "GET /finalizar/105/ HTTP/1.1" 200 2500
+[03/Sep/2014 16:43:30] "POST /finalizar/105/ HTTP/1.1" 200 3099
+[03/Sep/2014 16:43:32] "GET /productos/ HTTP/1.1" 200 10405
+[03/Sep/2014 16:43:43] "GET /crear_productos/ HTTP/1.1" 200 6800
+[03/Sep/2014 16:43:58] "POST /crear_productos/ HTTP/1.1" 302 0
+[03/Sep/2014 16:43:58] "GET /producto/106 HTTP/1.1" 301 0
+[03/Sep/2014 16:43:58] "GET /producto/106/ HTTP/1.1" 200 5375
+[03/Sep/2014 16:44:01] "GET /verstock/845 HTTP/1.1" 301 0
+[03/Sep/2014 16:44:01] "GET /verstock/845/ HTTP/1.1" 200 2908
+[03/Sep/2014 16:44:06] "GET /verstock/845/ HTTP/1.1" 200 2908
+[03/Sep/2014 16:44:16] "POST /verstock/845/ HTTP/1.1" 200 79
+[03/Sep/2014 16:44:16] "GET /producto/106/ HTTP/1.1" 200 5385
+[03/Sep/2014 16:44:16] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[03/Sep/2014 16:44:17] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[03/Sep/2014 16:44:17] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[03/Sep/2014 16:44:41] "GET / HTTP/1.1" 200 2732
+[03/Sep/2014 16:44:47] "POST / HTTP/1.1" 200 3201
+[03/Sep/2014 16:44:48] "GET /productos/ HTTP/1.1" 200 10872
+[03/Sep/2014 16:44:55] "GET /producto/106/ HTTP/1.1" 200 5487
+[03/Sep/2014 16:45:55] "GET /salir/ HTTP/1.1" 200 69
+[03/Sep/2014 16:45:55] "GET / HTTP/1.1" 200 2732
+[03/Sep/2014 16:46:02] "POST / HTTP/1.1" 200 3201
+[03/Sep/2014 16:46:08] "GET /productos/ HTTP/1.1" 200 10872
+[03/Sep/2014 16:46:11] "GET /producto/106/ HTTP/1.1" 200 5487
+[04/Sep/2014 09:47:18] "GET / HTTP/1.1" 200 2834
+[04/Sep/2014 09:47:18] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[04/Sep/2014 09:47:18] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[04/Sep/2014 09:47:18] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[04/Sep/2014 09:47:26] "POST / HTTP/1.1" 200 3201
+[04/Sep/2014 09:47:27] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[04/Sep/2014 09:47:27] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[04/Sep/2014 09:47:29] "GET /productos/ HTTP/1.1" 200 10872
+[04/Sep/2014 09:47:35] "GET /producto/106/ HTTP/1.1" 200 5487
+[04/Sep/2014 09:48:04] "GET / HTTP/1.1" 200 2834
+[04/Sep/2014 09:48:04] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[04/Sep/2014 09:48:04] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[04/Sep/2014 09:48:04] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[04/Sep/2014 11:11:46] "GET / HTTP/1.1" 200 2834
+[04/Sep/2014 11:11:46] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[04/Sep/2014 11:11:46] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[04/Sep/2014 11:11:46] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[04/Sep/2014 11:11:57] "POST / HTTP/1.1" 200 3201
+[04/Sep/2014 11:11:57] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[04/Sep/2014 11:11:57] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[04/Sep/2014 11:12:03] "GET /productos/ HTTP/1.1" 200 10872
+[04/Sep/2014 11:12:11] "GET /crear_productos/ HTTP/1.1" 200 6902
+[04/Sep/2014 14:22:37] "GET / HTTP/1.1" 200 2834
+[04/Sep/2014 14:22:37] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[04/Sep/2014 14:22:37] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[04/Sep/2014 14:22:37] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 46, in home
+    codigo = int(request.POST.get("code",False))
+ValueError: invalid literal for int() with base 10: 'PILI'
+[04/Sep/2014 14:22:41] "POST / HTTP/1.1" 500 62350
+[04/Sep/2014 14:22:47] "POST / HTTP/1.1" 200 3201
+[04/Sep/2014 14:22:47] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[04/Sep/2014 14:22:47] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 46, in home
+    codigo = int(request.POST.get("code",False))
+ValueError: invalid literal for int() with base 10: 'PILI'
+[04/Sep/2014 14:22:53] "POST / HTTP/1.1" 500 62775
+[04/Sep/2014 14:23:28] "POST / HTTP/1.1" 200 2561
+[04/Sep/2014 14:23:33] "POST / HTTP/1.1" 200 3201
+[04/Sep/2014 14:23:34] "GET /productos/ HTTP/1.1" 200 10872
+[04/Sep/2014 14:23:35] "GET /crear_productos/ HTTP/1.1" 200 6902
+[04/Sep/2014 14:23:36] "GET / HTTP/1.1" 200 2834
+[04/Sep/2014 14:23:42] "POST / HTTP/1.1" 200 2561
+[04/Sep/2014 14:24:20] "POST / HTTP/1.1" 200 2561
+[04/Sep/2014 14:24:25] "POST / HTTP/1.1" 200 2561
+[04/Sep/2014 14:24:29] "POST / HTTP/1.1" 200 3201
+[04/Sep/2014 14:24:30] "GET /productos/ HTTP/1.1" 200 10872
+[04/Sep/2014 14:26:41] "GET /crear_productos/ HTTP/1.1" 200 6902
+[04/Sep/2014 14:26:43] "GET / HTTP/1.1" 200 2834
+[04/Sep/2014 14:26:47] "POST / HTTP/1.1" 200 2561
+[04/Sep/2014 14:27:13] "GET / HTTP/1.1" 200 2834
+[04/Sep/2014 14:27:17] "POST / HTTP/1.1" 200 2561
+[04/Sep/2014 14:27:26] "GET / HTTP/1.1" 200 2834
+[04/Sep/2014 14:27:43] "POST / HTTP/1.1" 200 2561
+[04/Sep/2014 14:30:09] "GET / HTTP/1.1" 200 2834
+[04/Sep/2014 14:30:12] "POST / HTTP/1.1" 200 2561
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 46, in home
+    codigo = int(request.POST.get("code",False))
+ValueError: invalid literal for int() with base 10: 'PILI'
+[04/Sep/2014 14:30:15] "POST / HTTP/1.1" 500 62775
+[04/Sep/2014 14:30:26] "POST / HTTP/1.1" 200 3201
+[04/Sep/2014 14:31:31] "GET /productos/ HTTP/1.1" 200 10872
+[04/Sep/2014 14:31:33] "GET / HTTP/1.1" 200 2834
+[04/Sep/2014 14:31:37] "POST / HTTP/1.1" 200 2561
+[04/Sep/2014 14:31:42] "POST / HTTP/1.1" 200 2561
+[04/Sep/2014 15:26:49] "POST / HTTP/1.1" 200 2561
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 46, in home
+    codigo = int(request.POST.get("code",False))
+ValueError: invalid literal for int() with base 10: 'pili'
+[04/Sep/2014 15:29:17] "POST / HTTP/1.1" 500 62775
+[04/Sep/2014 15:29:23] "POST / HTTP/1.1" 200 2561
+[04/Sep/2014 15:29:30] "POST / HTTP/1.1" 200 2561
+[04/Sep/2014 15:29:34] "POST / HTTP/1.1" 200 2561
+[04/Sep/2014 15:29:39] "POST / HTTP/1.1" 200 3201
+[04/Sep/2014 15:29:39] "GET /productos/ HTTP/1.1" 200 10872
+[04/Sep/2014 16:41:40] "GET /salir/ HTTP/1.1" 200 69
+[04/Sep/2014 16:41:40] "GET / HTTP/1.1" 200 2734
+[04/Sep/2014 16:41:47] "POST / HTTP/1.1" 200 3201
+[04/Sep/2014 16:41:51] "GET /productos/ HTTP/1.1" 200 11240
+[04/Sep/2014 16:42:10] "GET /producto/107/ HTTP/1.1" 200 5487
+[04/Sep/2014 16:42:44] "GET /salir/ HTTP/1.1" 200 69
+[04/Sep/2014 16:42:44] "GET / HTTP/1.1" 200 2734
+[04/Sep/2014 16:42:52] "POST / HTTP/1.1" 200 3101
+[04/Sep/2014 16:42:55] "GET /salir/ HTTP/1.1" 200 69
+[04/Sep/2014 16:42:55] "GET / HTTP/1.1" 200 2500
+[04/Sep/2014 16:43:00] "POST / HTTP/1.1" 200 3101
+[04/Sep/2014 16:43:04] "GET /productos/ HTTP/1.1" 200 11140
+[04/Sep/2014 16:43:16] "POST / HTTP/1.1" 200 3201
+[04/Sep/2014 16:43:19] "GET /salir/ HTTP/1.1" 200 69
+[04/Sep/2014 16:43:19] "GET / HTTP/1.1" 200 2734
+[04/Sep/2014 16:43:25] "POST / HTTP/1.1" 200 3101
+[04/Sep/2014 16:43:27] "GET /productos/ HTTP/1.1" 200 11140
+[04/Sep/2014 16:43:33] "GET /crear_productos/ HTTP/1.1" 200 6802
+[04/Sep/2014 16:43:51] "POST /crear_productos/ HTTP/1.1" 302 0
+[04/Sep/2014 16:43:51] "GET /producto/108 HTTP/1.1" 301 0
+[04/Sep/2014 16:43:51] "GET /producto/108/ HTTP/1.1" 200 6086
+[04/Sep/2014 16:44:08] "GET /verstock/857 HTTP/1.1" 301 0
+[04/Sep/2014 16:44:09] "GET /verstock/857/ HTTP/1.1" 200 2908
+[04/Sep/2014 16:44:22] "POST /verstock/857/ HTTP/1.1" 200 79
+[04/Sep/2014 16:44:22] "GET /producto/108/ HTTP/1.1" 200 6086
+[04/Sep/2014 16:44:22] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[04/Sep/2014 16:44:22] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[04/Sep/2014 16:44:22] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[04/Sep/2014 16:44:27] "GET / HTTP/1.1" 200 2734
+[04/Sep/2014 16:44:36] "POST / HTTP/1.1" 200 3201
+[04/Sep/2014 16:44:39] "GET /productos/ HTTP/1.1" 200 11610
+[04/Sep/2014 16:44:43] "GET /producto/108/ HTTP/1.1" 200 6186
+[04/Sep/2014 16:45:41] "GET /finalizar/108 HTTP/1.1" 301 0
+[04/Sep/2014 16:45:42] "GET /finalizar/108/ HTTP/1.1" 200 2500
+[05/Sep/2014 06:46:22] "GET / HTTP/1.1" 200 2500
+[05/Sep/2014 06:46:22] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[05/Sep/2014 06:46:22] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[05/Sep/2014 06:46:22] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[05/Sep/2014 06:46:25] "POST / HTTP/1.1" 200 3101
+[05/Sep/2014 06:46:25] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[05/Sep/2014 06:46:25] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[05/Sep/2014 06:46:33] "GET /productos/ HTTP/1.1" 200 11140
+[05/Sep/2014 06:46:37] "GET /producto/107/ HTTP/1.1" 200 5387
+[05/Sep/2014 06:47:12] "GET /producto/107/ HTTP/1.1" 200 5387
+[05/Sep/2014 08:56:02] "GET / HTTP/1.1" 200 2734
+[05/Sep/2014 08:56:03] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[05/Sep/2014 08:56:10] "POST / HTTP/1.1" 200 3201
+[05/Sep/2014 08:56:10] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[05/Sep/2014 08:56:10] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[05/Sep/2014 08:56:14] "GET /productos/ HTTP/1.1" 200 11240
+[05/Sep/2014 08:56:23] "GET / HTTP/1.1" 200 2834
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 46, in home
+    codigo = int(request.POST.get("code",False))
+ValueError: invalid literal for int() with base 10: ''
+[05/Sep/2014 08:56:27] "POST / HTTP/1.1" 500 61449
+[05/Sep/2014 09:10:42] "GET / HTTP/1.1" 200 2834
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 46, in home
+    codigo = int(request.POST.get("code",False))
+ValueError: invalid literal for int() with base 10: ''
+[05/Sep/2014 09:10:45] "POST / HTTP/1.1" 500 61449
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 46, in home
+    codigo = int(request.POST.get("code",False))
+ValueError: invalid literal for int() with base 10: ''
+[05/Sep/2014 09:11:26] "POST / HTTP/1.1" 500 61449
+[05/Sep/2014 09:11:34] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[05/Sep/2014 09:11:34] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 46, in home
+    codigo = int(request.POST.get("code",False))
+ValueError: invalid literal for int() with base 10: ''
+[05/Sep/2014 09:11:52] "POST / HTTP/1.1" 500 61449
+[05/Sep/2014 09:52:38] "GET /salir/ HTTP/1.1" 200 69
+[05/Sep/2014 09:52:38] "GET / HTTP/1.1" 200 2732
+[05/Sep/2014 09:52:43] "POST / HTTP/1.1" 200 3201
+[05/Sep/2014 09:52:43] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[05/Sep/2014 09:52:43] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[05/Sep/2014 09:52:44] "GET /productos/ HTTP/1.1" 200 11240
+[05/Sep/2014 09:52:47] "GET /crear_productos/ HTTP/1.1" 200 6902
+[05/Sep/2014 09:53:04] "POST /crear_productos/ HTTP/1.1" 302 0
+[05/Sep/2014 09:53:04] "GET /producto/109 HTTP/1.1" 301 0
+[05/Sep/2014 09:53:04] "GET /producto/109/ HTTP/1.1" 200 6186
+[05/Sep/2014 09:53:48] "GET /desechar/865 HTTP/1.1" 301 0
+[05/Sep/2014 09:53:49] "GET /desechar/865/ HTTP/1.1" 200 1925
+[05/Sep/2014 09:57:04] "GET /salir/ HTTP/1.1" 200 69
+[05/Sep/2014 09:57:05] "GET / HTTP/1.1" 200 2732
+[05/Sep/2014 09:57:08] "POST / HTTP/1.1" 200 3201
+[05/Sep/2014 09:57:09] "GET /productos/ HTTP/1.1" 200 11610
+[05/Sep/2014 10:01:09] "GET / HTTP/1.1" 200 2834
+[05/Sep/2014 10:01:16] "POST / HTTP/1.1" 200 2561
+[05/Sep/2014 10:02:57] "POST / HTTP/1.1" 200 2561
+[05/Sep/2014 10:03:03] "POST / HTTP/1.1" 200 2561
+[05/Sep/2014 10:04:32] "POST / HTTP/1.1" 200 2561
+[05/Sep/2014 10:08:19] "POST / HTTP/1.1" 200 3292
+[05/Sep/2014 10:08:24] "GET /productos/ HTTP/1.1" 200 11701
+[05/Sep/2014 11:12:11] "GET / HTTP/1.1" 200 2925
+[05/Sep/2014 11:12:16] "POST / HTTP/1.1" 200 3387
+[05/Sep/2014 11:12:18] "GET /productos/ HTTP/1.1" 200 11796
+[05/Sep/2014 11:12:23] "GET /producto/107/ HTTP/1.1" 200 5673
+[05/Sep/2014 11:12:26] "GET /procesar/107 HTTP/1.1" 301 0
+[05/Sep/2014 11:12:26] "GET /procesar/107/ HTTP/1.1" 200 82
+[05/Sep/2014 11:12:27] "GET /producto/107/ HTTP/1.1" 200 5673
+[05/Sep/2014 11:12:29] "GET /procesar/107/ HTTP/1.1" 200 82
+[05/Sep/2014 11:12:29] "GET /producto/107/ HTTP/1.1" 200 5673
+[05/Sep/2014 11:12:31] "GET /procesar/107/ HTTP/1.1" 200 82
+[05/Sep/2014 11:12:31] "GET /producto/107/ HTTP/1.1" 200 5673
+[05/Sep/2014 11:12:32] "GET /salir/ HTTP/1.1" 200 69
+[05/Sep/2014 11:12:32] "GET / HTTP/1.1" 200 2925
+[05/Sep/2014 11:12:37] "POST / HTTP/1.1" 200 3292
+[05/Sep/2014 11:12:38] "GET /productos/ HTTP/1.1" 200 11701
+[05/Sep/2014 11:12:48] "GET /producto/109/ HTTP/1.1" 200 6277
+[05/Sep/2014 11:12:50] "GET /finalizar/109 HTTP/1.1" 301 0
+[05/Sep/2014 11:12:51] "GET /finalizar/109/ HTTP/1.1" 200 2823
+[05/Sep/2014 11:12:56] "POST /finalizar/109/ HTTP/1.1" 200 3285
+[05/Sep/2014 11:12:56] "GET /productos/ HTTP/1.1" 200 11324
+[05/Sep/2014 11:12:59] "GET /producto/107/ HTTP/1.1" 200 5571
+[05/Sep/2014 11:13:01] "GET /procesar/107/ HTTP/1.1" 200 82
+[05/Sep/2014 11:13:01] "GET /producto/107/ HTTP/1.1" 200 5571
+[05/Sep/2014 11:13:10] "GET /salir/ HTTP/1.1" 200 69
+[05/Sep/2014 11:13:10] "GET / HTTP/1.1" 200 2823
+[05/Sep/2014 11:13:51] "POST / HTTP/1.1" 200 3285
+[05/Sep/2014 11:13:52] "GET /productos/ HTTP/1.1" 200 11324
+[05/Sep/2014 11:14:18] "GET /producto/107/ HTTP/1.1" 200 5571
+[05/Sep/2014 11:14:33] "GET /verstock/854 HTTP/1.1" 301 0
+[05/Sep/2014 11:14:33] "GET /verstock/854/ HTTP/1.1" 200 2911
+[05/Sep/2014 11:14:36] "POST /verstock/854/ HTTP/1.1" 200 79
+[05/Sep/2014 11:14:37] "GET /producto/107/ HTTP/1.1" 200 6953
+[05/Sep/2014 11:14:37] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[05/Sep/2014 11:14:37] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[05/Sep/2014 11:14:37] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[05/Sep/2014 11:14:49] "GET /procesar/107/ HTTP/1.1" 200 82
+[05/Sep/2014 11:14:50] "GET /producto/107/ HTTP/1.1" 200 6953
+[05/Sep/2014 11:40:11] "GET /procesar/107/ HTTP/1.1" 200 82
+[05/Sep/2014 11:40:12] "GET /producto/107/ HTTP/1.1" 200 6964
+[05/Sep/2014 11:40:15] "GET /procesar/107/ HTTP/1.1" 200 82
+[05/Sep/2014 11:40:16] "GET /producto/107/ HTTP/1.1" 200 6964
+[05/Sep/2014 11:40:17] "GET /procesar/107/ HTTP/1.1" 200 82
+[05/Sep/2014 11:40:17] "GET /producto/107/ HTTP/1.1" 200 6964
+[05/Sep/2014 11:40:26] "GET / HTTP/1.1" 200 2918
+[05/Sep/2014 11:40:30] "POST / HTTP/1.1" 200 3387
+[05/Sep/2014 11:40:31] "GET /productos/ HTTP/1.1" 200 11426
+[05/Sep/2014 11:40:37] "GET /producto/107/ HTTP/1.1" 200 7066
+[05/Sep/2014 11:40:39] "GET /procesar/107/ HTTP/1.1" 200 82
+[05/Sep/2014 11:40:39] "GET /producto/107/ HTTP/1.1" 200 7066
+[05/Sep/2014 11:40:42] "GET /salir/ HTTP/1.1" 200 69
+[05/Sep/2014 11:40:42] "GET / HTTP/1.1" 200 2918
+[05/Sep/2014 11:40:48] "POST / HTTP/1.1" 200 3285
+[05/Sep/2014 11:40:49] "GET /productos/ HTTP/1.1" 200 11324
+[05/Sep/2014 11:40:53] "GET /producto/107/ HTTP/1.1" 200 6964
+[05/Sep/2014 11:40:55] "GET /salir/ HTTP/1.1" 200 69
+[05/Sep/2014 11:40:55] "GET / HTTP/1.1" 200 2818
+[05/Sep/2014 11:41:13] "POST / HTTP/1.1" 200 3185
+[05/Sep/2014 11:41:16] "GET /salir/ HTTP/1.1" 200 69
+[05/Sep/2014 11:41:16] "GET / HTTP/1.1" 200 2723
+[05/Sep/2014 11:41:57] "POST / HTTP/1.1" 200 3090
+[05/Sep/2014 11:42:01] "GET /salir/ HTTP/1.1" 200 69
+[05/Sep/2014 11:42:01] "GET / HTTP/1.1" 200 2500
+[05/Sep/2014 11:42:06] "POST / HTTP/1.1" 200 3101
+[05/Sep/2014 11:42:07] "GET /productos/ HTTP/1.1" 200 11140
+[05/Sep/2014 11:42:15] "GET /producto/107/ HTTP/1.1" 200 6780
+[05/Sep/2014 11:42:17] "GET /procesar/107/ HTTP/1.1" 200 82
+[05/Sep/2014 11:42:18] "GET /producto/107/ HTTP/1.1" 200 6780
+[05/Sep/2014 11:42:19] "GET /procesar/107/ HTTP/1.1" 200 82
+[05/Sep/2014 11:42:19] "GET /producto/107/ HTTP/1.1" 200 6780
+[05/Sep/2014 11:42:22] "GET /salir/ HTTP/1.1" 200 69
+[05/Sep/2014 11:42:22] "GET / HTTP/1.1" 200 2500
+[09/Sep/2014 06:47:21] "GET / HTTP/1.1" 200 2500
+[09/Sep/2014 06:47:21] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[09/Sep/2014 06:47:21] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[09/Sep/2014 06:47:21] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[09/Sep/2014 06:47:24] "POST / HTTP/1.1" 200 3101
+[09/Sep/2014 06:47:25] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[09/Sep/2014 06:47:25] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[09/Sep/2014 06:47:26] "GET /productos/ HTTP/1.1" 200 11140
+[09/Sep/2014 06:47:30] "GET /salir/ HTTP/1.1" 200 69
+[09/Sep/2014 06:47:30] "GET / HTTP/1.1" 200 2500
+[09/Sep/2014 06:47:35] "POST / HTTP/1.1" 200 3090
+[09/Sep/2014 06:47:37] "GET /productos/ HTTP/1.1" 200 11129
+[09/Sep/2014 06:47:38] "GET / HTTP/1.1" 200 2723
+[09/Sep/2014 06:47:41] "POST / HTTP/1.1" 200 3192
+[09/Sep/2014 06:47:45] "GET /salir/ HTTP/1.1" 200 69
+[09/Sep/2014 06:47:46] "GET / HTTP/1.1" 200 2723
+[09/Sep/2014 06:53:33] "GET /salir/ HTTP/1.1" 200 2805
+[09/Sep/2014 06:53:33] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[09/Sep/2014 06:53:33] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[09/Sep/2014 06:53:33] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[09/Sep/2014 06:53:34] "GET / HTTP/1.1" 200 2723
+[09/Sep/2014 06:53:34] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[09/Sep/2014 06:53:34] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[09/Sep/2014 06:53:34] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[09/Sep/2014 07:09:34] "GET / HTTP/1.1" 200 2723
+[09/Sep/2014 07:09:38] "POST / HTTP/1.1" 200 3192
+[09/Sep/2014 07:09:42] "GET /salir/ HTTP/1.1" 200 69
+[09/Sep/2014 07:09:42] "GET / HTTP/1.1" 200 2723
+[09/Sep/2014 07:09:48] "POST / HTTP/1.1" 200 2561
+[09/Sep/2014 07:09:52] "POST / HTTP/1.1" 200 3192
+[09/Sep/2014 07:49:53] "GET /productos/ HTTP/1.1" 200 11231
+[09/Sep/2014 07:49:55] "GET /crear_productos/ HTTP/1.1" 200 6891
+[09/Sep/2014 07:50:04] "GET /crear_productos/ HTTP/1.1" 200 6891
+[09/Sep/2014 07:50:20] "POST /crear_productos/ HTTP/1.1" 302 0
+[09/Sep/2014 07:50:20] "GET /producto/110 HTTP/1.1" 301 0
+[09/Sep/2014 07:50:20] "GET /producto/110/ HTTP/1.1" 200 6181
+[09/Sep/2014 07:50:30] "GET /verstock/881 HTTP/1.1" 301 0
+[09/Sep/2014 07:50:30] "GET /verstock/881/ HTTP/1.1" 200 3213
+[09/Sep/2014 07:50:37] "POST /verstock/881/ HTTP/1.1" 200 79
+[09/Sep/2014 07:50:37] "GET /producto/110/ HTTP/1.1" 200 6182
+[09/Sep/2014 07:50:37] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[09/Sep/2014 07:50:37] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[09/Sep/2014 07:50:37] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[09/Sep/2014 07:50:41] "GET /verstock/883 HTTP/1.1" 301 0
+[09/Sep/2014 07:50:41] "GET /verstock/883/ HTTP/1.1" 200 3213
+[09/Sep/2014 07:50:47] "GET /verstock/881/ HTTP/1.1" 200 3213
+[09/Sep/2014 07:50:59] "GET /finalizar/110 HTTP/1.1" 301 0
+[09/Sep/2014 07:50:59] "GET /finalizar/110/ HTTP/1.1" 200 2723
+[09/Sep/2014 07:51:04] "POST /finalizar/110/ HTTP/1.1" 200 3192
+[09/Sep/2014 07:51:05] "GET /productos/ HTTP/1.1" 200 11231
+[10/Sep/2014 19:09:40] "GET / HTTP/1.1" 200 2825
+[10/Sep/2014 17:09:48] "POST / HTTP/1.1" 200 3292
+[10/Sep/2014 17:09:59] "GET /productos/ HTTP/1.1" 200 11339
+[10/Sep/2014 17:10:20] "GET /producto/28/ HTTP/1.1" 200 5590
+[10/Sep/2014 17:14:31] "GET /productos/ HTTP/1.1" 200 11339
+[10/Sep/2014 17:14:44] "GET /salir/ HTTP/1.1" 200 69
+[10/Sep/2014 17:14:45] "GET / HTTP/1.1" 200 2825
+[10/Sep/2014 22:52:43] "GET / HTTP/1.1" 200 2825
+[10/Sep/2014 22:52:43] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[10/Sep/2014 22:52:44] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[10/Sep/2014 22:52:44] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+No handlers could be found for logger "openerp.sql_db"
+[10/Sep/2014 22:52:51] "POST / HTTP/1.1" 200 3292
+[10/Sep/2014 22:52:51] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[10/Sep/2014 22:52:52] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[10/Sep/2014 22:52:52] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[10/Sep/2014 22:52:52] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[10/Sep/2014 22:52:52] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[10/Sep/2014 22:52:55] "GET /otrastareas/ HTTP/1.1" 200 3981
+[10/Sep/2014 22:52:55] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[10/Sep/2014 22:52:56] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[10/Sep/2014 22:52:56] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[10/Sep/2014 22:52:59] "GET /tarea/2/ HTTP/1.1" 200 4990
+[10/Sep/2014 22:52:59] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[10/Sep/2014 22:52:59] "GET /static/keyboard/css/keyboard.css HTTP/1.1" 200 4470
+[10/Sep/2014 22:52:59] "GET /static/keyboard/js/jquery.keyboard.js HTTP/1.1" 200 65153
+[10/Sep/2014 22:53:00] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[10/Sep/2014 22:53:00] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[10/Sep/2014 22:53:12] "GET /salir/ HTTP/1.1" 200 69
+[10/Sep/2014 22:53:12] "GET / HTTP/1.1" 200 2825
+[10/Sep/2014 22:53:12] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[10/Sep/2014 22:53:13] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[10/Sep/2014 22:53:13] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[11/Sep/2014 06:03:00] "GET / HTTP/1.1" 200 2825
+[11/Sep/2014 06:03:00] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[11/Sep/2014 06:03:00] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[11/Sep/2014 06:03:00] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[11/Sep/2014 06:03:04] "POST / HTTP/1.1" 200 3192
+[11/Sep/2014 06:03:04] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[11/Sep/2014 06:03:04] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[11/Sep/2014 06:03:05] "GET /productos/ HTTP/1.1" 200 11239
+[11/Sep/2014 06:03:10] "GET /crear_productos/ HTTP/1.1" 200 6896
+[11/Sep/2014 07:09:31] "GET / HTTP/1.1" 200 2825
+[11/Sep/2014 07:09:32] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[11/Sep/2014 07:09:32] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[11/Sep/2014 07:09:32] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[11/Sep/2014 07:09:35] "POST / HTTP/1.1" 200 3192
+[11/Sep/2014 07:09:35] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[11/Sep/2014 07:09:35] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[11/Sep/2014 07:09:36] "GET /productos/ HTTP/1.1" 200 11239
+[11/Sep/2014 07:09:38] "GET / HTTP/1.1" 200 2825
+[11/Sep/2014 07:09:44] "POST / HTTP/1.1" 200 3192
+[11/Sep/2014 07:09:47] "GET /productos/ HTTP/1.1" 200 11239
+[11/Sep/2014 07:09:51] "GET /crear_productos/ HTTP/1.1" 200 6896
+[11/Sep/2014 07:10:08] "GET /salir/ HTTP/1.1" 200 69
+[11/Sep/2014 07:10:08] "GET / HTTP/1.1" 200 2734
+[11/Sep/2014 07:10:12] "POST / HTTP/1.1" 200 3101
+[11/Sep/2014 07:10:14] "GET /salir/ HTTP/1.1" 200 69
+[11/Sep/2014 07:10:14] "GET / HTTP/1.1" 200 2500
+[11/Sep/2014 08:07:54] "GET / HTTP/1.1" 200 2500
+[11/Sep/2014 08:07:54] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[11/Sep/2014 08:07:54] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[11/Sep/2014 08:07:54] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[11/Sep/2014 08:08:03] "POST / HTTP/1.1" 200 3101
+[11/Sep/2014 08:08:03] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[11/Sep/2014 08:08:03] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[11/Sep/2014 08:08:05] "GET /productos/ HTTP/1.1" 200 11148
+[11/Sep/2014 08:08:08] "GET /crear_productos/ HTTP/1.1" 200 6805
+[11/Sep/2014 08:08:14] "GET /productos/ HTTP/1.1" 200 11148
+[11/Sep/2014 08:08:14] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[11/Sep/2014 08:08:14] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[11/Sep/2014 08:08:14] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[12/Sep/2014 05:52:09] "GET / HTTP/1.1" 200 2734
+[12/Sep/2014 05:52:09] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[12/Sep/2014 05:52:09] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[12/Sep/2014 05:52:09] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[12/Sep/2014 05:52:12] "POST / HTTP/1.1" 200 3101
+[12/Sep/2014 05:52:13] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[12/Sep/2014 05:52:13] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[12/Sep/2014 05:52:14] "GET /productos/ HTTP/1.1" 200 11148
+[12/Sep/2014 05:52:17] "GET /crear_productos/ HTTP/1.1" 200 6805
+Internal Server Error: /crear_productos/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 170, in crear_producto
+    w_id = int(request.POST.get("wr"))
+ValueError: invalid literal for int() with base 10: '-----'
+[12/Sep/2014 05:52:24] "POST /crear_productos/ HTTP/1.1" 500 61817
+Internal Server Error: /crear_productos/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 170, in crear_producto
+    w_id = int(request.POST.get("wr"))
+ValueError: invalid literal for int() with base 10: '-----'
+[12/Sep/2014 05:52:48] "POST /crear_productos/ HTTP/1.1" 500 61817
+[12/Sep/2014 05:52:54] "POST /crear_productos/ HTTP/1.1" 302 0
+[12/Sep/2014 05:52:54] "GET /producto/111 HTTP/1.1" 301 0
+[12/Sep/2014 05:52:54] "GET /producto/111/ HTTP/1.1" 200 5384
+[12/Sep/2014 08:20:40] "GET /salir/ HTTP/1.1" 200 2805
+[12/Sep/2014 08:20:40] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[12/Sep/2014 08:20:40] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[12/Sep/2014 08:20:40] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[12/Sep/2014 08:20:42] "GET /salir/ HTTP/1.1" 200 2805
+[12/Sep/2014 08:20:46] "POST /salir/ HTTP/1.1" 200 2805
+[12/Sep/2014 08:20:49] "POST /salir/ HTTP/1.1" 200 2805
+[12/Sep/2014 08:20:51] "POST /salir/ HTTP/1.1" 200 2805
+[12/Sep/2014 08:20:54] "GET / HTTP/1.1" 200 2734
+[12/Sep/2014 08:21:00] "POST / HTTP/1.1" 200 3101
+[12/Sep/2014 08:21:00] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[12/Sep/2014 08:21:00] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[12/Sep/2014 08:21:26] "GET /productos/ HTTP/1.1" 200 11512
+[12/Sep/2014 08:21:28] "GET /crear_productos/ HTTP/1.1" 200 6805
+[12/Sep/2014 11:19:28] "GET / HTTP/1.1" 200 2734
+[12/Sep/2014 11:19:28] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[12/Sep/2014 11:19:28] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[12/Sep/2014 11:19:28] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[12/Sep/2014 11:19:31] "POST / HTTP/1.1" 200 3101
+[12/Sep/2014 11:19:31] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[12/Sep/2014 11:19:31] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[12/Sep/2014 11:19:33] "GET /productos/ HTTP/1.1" 200 11512
+[12/Sep/2014 11:19:37] "GET /crear_productos/ HTTP/1.1" 200 6805
+[12/Sep/2014 11:19:44] "POST /crear_productos/ HTTP/1.1" 302 0
+[12/Sep/2014 11:19:44] "GET /producto/112 HTTP/1.1" 301 0
+[12/Sep/2014 11:19:44] "GET /producto/112/ HTTP/1.1" 200 3507
+[12/Sep/2014 11:19:47] "GET /abrir/112 HTTP/1.1" 301 0
+[12/Sep/2014 11:19:47] "GET /abrir/112/ HTTP/1.1" 200 2734
+[12/Sep/2014 11:19:52] "POST /abrir/112/ HTTP/1.1" 200 2561
+[12/Sep/2014 11:19:58] "POST /abrir/112/ HTTP/1.1" 200 2561
+[12/Sep/2014 11:20:01] "POST /abrir/112/ HTTP/1.1" 200 2561
+[12/Sep/2014 11:20:05] "POST /abrir/112/ HTTP/1.1" 200 3201
+[12/Sep/2014 11:20:07] "GET /productos/ HTTP/1.1" 200 11983
+[12/Sep/2014 11:20:08] "GET /crear_productos/ HTTP/1.1" 200 6905
+Internal Server Error: /crear_productos/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 170, in crear_producto
+    w_id = int(request.POST.get("wr"))
+ValueError: invalid literal for int() with base 10: '-----'
+[12/Sep/2014 11:20:15] "POST /crear_productos/ HTTP/1.1" 500 61823
+[12/Sep/2014 11:20:19] "POST /crear_productos/ HTTP/1.1" 302 0
+[12/Sep/2014 11:20:19] "GET /producto/113 HTTP/1.1" 301 0
+[12/Sep/2014 11:20:20] "GET /producto/113/ HTTP/1.1" 200 6176
+[12/Sep/2014 11:20:24] "GET /dividir/888 HTTP/1.1" 301 0
+[12/Sep/2014 11:20:24] "GET /dividir/888/ HTTP/1.1" 200 8198
+[12/Sep/2014 11:20:30] "GET /desechar/889 HTTP/1.1" 301 0
+[12/Sep/2014 11:20:30] "GET /desechar/889/ HTTP/1.1" 200 1925
+[12/Sep/2014 11:20:38] "GET /verstock/889 HTTP/1.1" 301 0
+[12/Sep/2014 11:20:38] "GET /verstock/889/ HTTP/1.1" 200 3211
+[15/Sep/2014 10:57:43] "GET / HTTP/1.1" 200 2834
+[15/Sep/2014 10:57:43] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[15/Sep/2014 10:57:43] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[15/Sep/2014 10:57:43] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+Exception psycopg2.OperationalError: 'server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request.\n' in <bound method Cursor.__del__ of <openerp.sql_db.Cursor object at 0x7f37e184ca50>> ignored
+[15/Sep/2014 10:57:46] "POST / HTTP/1.1" 200 3201
+[15/Sep/2014 10:57:46] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[15/Sep/2014 10:57:46] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[15/Sep/2014 10:57:48] "GET /productos/ HTTP/1.1" 200 12353
+[15/Sep/2014 10:57:51] "GET /crear_productos/ HTTP/1.1" 200 6905
+[15/Sep/2014 10:57:59] "POST /crear_productos/ HTTP/1.1" 302 0
+[15/Sep/2014 10:57:59] "GET /producto/114 HTTP/1.1" 301 0
+[15/Sep/2014 10:57:59] "GET /producto/114/ HTTP/1.1" 200 3607
+[15/Sep/2014 10:58:02] "GET /abrir/114 HTTP/1.1" 301 0
+[15/Sep/2014 10:58:02] "GET /abrir/114/ HTTP/1.1" 200 2834
+Internal Server Error: /abrir/114/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 286, in abrir
+    return home(request)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 46, in home
+    codigo = int(request.POST.get("code",False))
+ValueError: invalid literal for int() with base 10: ''
+[15/Sep/2014 10:58:04] "POST /abrir/114/ HTTP/1.1" 500 71424
+[15/Sep/2014 14:21:25] "GET / HTTP/1.1" 200 2834
+[15/Sep/2014 14:21:25] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[15/Sep/2014 14:21:25] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[15/Sep/2014 14:21:25] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[15/Sep/2014 14:21:32] "POST / HTTP/1.1" 200 2561
+[15/Sep/2014 14:21:35] "POST / HTTP/1.1" 200 2561
+[15/Sep/2014 14:21:40] "POST / HTTP/1.1" 200 2561
+[15/Sep/2014 14:21:43] "POST / HTTP/1.1" 200 3292
+[15/Sep/2014 14:21:43] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[15/Sep/2014 14:21:43] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[15/Sep/2014 14:21:45] "GET /productos/ HTTP/1.1" 200 12815
+[15/Sep/2014 14:21:54] "GET /producto/113/ HTTP/1.1" 200 6267
+[15/Sep/2014 14:22:13] "GET /procesar/113 HTTP/1.1" 301 0
+[15/Sep/2014 14:22:15] "GET /procesar/113/ HTTP/1.1" 200 82
+[15/Sep/2014 14:22:15] "GET /producto/113/ HTTP/1.1" 200 6269
+[15/Sep/2014 14:30:28] "GET /finalizar/113 HTTP/1.1" 301 0
+[15/Sep/2014 14:30:30] "GET /salir/ HTTP/1.1" 200 103
+[15/Sep/2014 14:30:30] "GET /finalizar/113/ HTTP/1.1" 200 2734
+[15/Sep/2014 14:30:36] "GET / HTTP/1.1" 200 2734
+[15/Sep/2014 14:30:39] "POST / HTTP/1.1" 200 3101
+[15/Sep/2014 14:30:40] "GET /productos/ HTTP/1.1" 200 12254
+[15/Sep/2014 14:30:41] "GET /crear_productos/ HTTP/1.1" 200 6805
+[16/Sep/2014 09:18:25] "GET / HTTP/1.1" 200 2734
+[16/Sep/2014 09:18:25] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[16/Sep/2014 09:18:25] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[16/Sep/2014 09:18:25] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[16/Sep/2014 09:18:28] "POST / HTTP/1.1" 200 3101
+[16/Sep/2014 09:18:28] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[16/Sep/2014 09:18:28] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[16/Sep/2014 09:18:29] "GET /productos/ HTTP/1.1" 200 12259
+[16/Sep/2014 14:25:36] "GET / HTTP/1.1" 200 2734
+[16/Sep/2014 14:25:36] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[16/Sep/2014 14:25:36] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[16/Sep/2014 14:25:36] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[16/Sep/2014 14:25:39] "POST / HTTP/1.1" 200 3101
+[16/Sep/2014 14:25:39] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[16/Sep/2014 14:25:39] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[16/Sep/2014 14:25:41] "GET /productos/ HTTP/1.1" 200 12259
+[16/Sep/2014 14:25:44] "GET /crear_productos/ HTTP/1.1" 200 6816
+[16/Sep/2014 14:25:52] "POST /crear_productos/ HTTP/1.1" 302 0
+[16/Sep/2014 14:25:52] "GET /producto/115 HTTP/1.1" 301 0
+[16/Sep/2014 14:25:52] "GET /producto/115/ HTTP/1.1" 200 5393
+[16/Sep/2014 15:23:49] "GET / HTTP/1.1" 200 2734
+[16/Sep/2014 15:23:50] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[16/Sep/2014 15:23:50] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[16/Sep/2014 15:23:50] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[16/Sep/2014 15:23:54] "POST / HTTP/1.1" 200 3101
+[16/Sep/2014 15:23:54] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[16/Sep/2014 15:23:54] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[16/Sep/2014 15:23:56] "GET /productos/ HTTP/1.1" 200 12632
+Validating models...
+
+0 errors found
+September 10, 2014 - 19:09:24
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Exception psycopg2.OperationalError: 'server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request.\n' in <bound method Cursor.__del__ of <openerp.sql_db.Cursor object at 0x7f37e192e710>> ignored
+Exception psycopg2.OperationalError: 'server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request.\n' in <bound method Cursor.__del__ of <openerp.sql_db.Cursor object at 0x7f37e188e5d0>> ignored
+[16/Sep/2014 17:59:44] "GET / HTTP/1.1" 200 2642
+[16/Sep/2014 17:59:44] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[16/Sep/2014 17:59:50] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[16/Sep/2014 17:59:50] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[16/Sep/2014 17:59:50] "GET /static/img/algamar.png HTTP/1.1" 200 22737
+[16/Sep/2014 15:59:58] "POST / HTTP/1.1" 200 3258
+[16/Sep/2014 15:59:59] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[16/Sep/2014 15:59:59] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[16/Sep/2014 16:00:00] "GET /productos/ HTTP/1.1" 200 12934
+No handlers could be found for logger "openerp.osv.orm.browse_record.stock.production.lot"
+[16/Sep/2014 16:00:04] "GET /producto/28/ HTTP/1.1" 200 6100
+[16/Sep/2014 16:00:08] "GET /actualizar_cantidad/28 HTTP/1.1" 301 0
+[16/Sep/2014 16:00:08] "GET /actualizar_cantidad/28/ HTTP/1.1" 200 1970
+[16/Sep/2014 16:00:13] "POST /actualizar_cantidad/28/ HTTP/1.1" 200 79
+[16/Sep/2014 16:00:13] "GET /producto/28/ HTTP/1.1" 200 6100
+[16/Sep/2014 16:00:14] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[16/Sep/2014 16:00:14] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[16/Sep/2014 16:00:14] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[16/Sep/2014 16:00:14] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[16/Sep/2014 16:00:21] "GET /reciclar/171 HTTP/1.1" 301 0
+[16/Sep/2014 16:00:21] "GET /reciclar/171/ HTTP/1.1" 200 69
+[16/Sep/2014 16:00:21] "GET / HTTP/1.1" 200 2876
+[16/Sep/2014 16:00:27] "GET /verstock/171 HTTP/1.1" 301 0
+[16/Sep/2014 16:00:27] "GET /verstock/171/ HTTP/1.1" 200 2912
+[16/Sep/2014 16:00:39] "GET /desechar/171 HTTP/1.1" 301 0
+[16/Sep/2014 16:00:39] "GET /desechar/171/ HTTP/1.1" 200 1927
+[16/Sep/2014 16:00:47] "GET /verstock/171/ HTTP/1.1" 200 2912
+[16/Sep/2014 16:00:53] "GET /reciclar/171/ HTTP/1.1" 200 69
+[16/Sep/2014 16:00:53] "GET / HTTP/1.1" 200 2876
+[16/Sep/2014 16:00:53] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[16/Sep/2014 16:01:00] "GET /dividir/170 HTTP/1.1" 301 0
+[16/Sep/2014 16:01:00] "GET /dividir/170/ HTTP/1.1" 200 8221
+[16/Sep/2014 16:01:24] "GET / HTTP/1.1" 200 2876
+[16/Sep/2014 16:01:27] "POST / HTTP/1.1" 200 2703
+[16/Sep/2014 16:02:35] "POST / HTTP/1.1" 200 3258
+[16/Sep/2014 16:02:37] "GET /static/img/algamar.png HTTP/1.1" 200 22737
+[16/Sep/2014 16:02:40] "GET /productos/ HTTP/1.1" 200 12934
+[16/Sep/2014 16:02:44] "GET /producto/28/ HTTP/1.1" 200 6100
+[16/Sep/2014 16:02:52] "GET /reciclar/171/ HTTP/1.1" 200 69
+[16/Sep/2014 16:02:53] "GET / HTTP/1.1" 200 2876
+[16/Sep/2014 16:02:59] "GET /reciclar/171/ HTTP/1.1" 200 69
+[16/Sep/2014 16:03:00] "GET / HTTP/1.1" 200 2876
+[16/Sep/2014 16:03:27] "GET /dividir/170/ HTTP/1.1" 200 8221
+[16/Sep/2014 16:04:47] "GET / HTTP/1.1" 200 2876
+[16/Sep/2014 16:04:50] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[16/Sep/2014 16:06:49] "POST / HTTP/1.1" 200 3360
+[16/Sep/2014 16:06:49] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[16/Sep/2014 16:06:59] "GET / HTTP/1.1" 200 2978
+[16/Sep/2014 16:07:02] "POST / HTTP/1.1" 200 3360
+[16/Sep/2014 16:07:13] "GET /productos/ HTTP/1.1" 200 13036
+[16/Sep/2014 16:07:16] "GET /producto/28/ HTTP/1.1" 200 6202
+[16/Sep/2014 16:07:19] "GET /reciclar/171/ HTTP/1.1" 200 69
+[16/Sep/2014 16:07:19] "GET / HTTP/1.1" 200 2978
+[16/Sep/2014 16:08:17] "GET / HTTP/1.1" 200 2978
+[16/Sep/2014 16:08:18] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[16/Sep/2014 16:08:22] "POST / HTTP/1.1" 200 3360
+[16/Sep/2014 16:08:23] "GET /productos/ HTTP/1.1" 200 13036
+[16/Sep/2014 16:08:26] "GET /producto/28/ HTTP/1.1" 200 6202
+[16/Sep/2014 16:08:36] "GET /producto/29/ HTTP/1.1" 200 6190
+[16/Sep/2014 16:08:40] "GET /reciclar/174 HTTP/1.1" 301 0
+[16/Sep/2014 16:08:40] "GET /reciclar/174/ HTTP/1.1" 200 69
+[16/Sep/2014 16:08:41] "GET / HTTP/1.1" 200 2978
+[16/Sep/2014 16:08:49] "POST / HTTP/1.1" 200 3360
+[16/Sep/2014 16:13:47] "GET /salir/ HTTP/1.1" 200 69
+[16/Sep/2014 16:13:47] "GET / HTTP/1.1" 200 2878
+[16/Sep/2014 16:13:47] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[16/Sep/2014 16:13:50] "POST / HTTP/1.1" 200 3260
+[16/Sep/2014 16:13:53] "GET /otrastareas/ HTTP/1.1" 200 3958
+[16/Sep/2014 16:13:55] "GET /tarea/3/ HTTP/1.1" 200 4989
+[16/Sep/2014 16:13:56] "GET /static/keyboard/css/keyboard.css HTTP/1.1" 200 4470
+[16/Sep/2014 16:13:56] "GET /static/keyboard/js/jquery.keyboard.js HTTP/1.1" 200 65153
+[16/Sep/2014 16:15:10] "POST /tarea/3/ HTTP/1.1" 200 77
+[16/Sep/2014 16:15:10] "GET /tarea/3/ HTTP/1.1" 200 5019
+[16/Sep/2014 16:15:13] "GET /salir/ HTTP/1.1" 200 69
+[16/Sep/2014 16:15:13] "GET / HTTP/1.1" 200 2642
+[16/Sep/2014 16:15:58] "POST / HTTP/1.1" 200 3258
+[16/Sep/2014 16:15:59] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[16/Sep/2014 16:16:02] "GET /productos/ HTTP/1.1" 200 12934
+[16/Sep/2014 16:16:04] "GET /producto/28/ HTTP/1.1" 200 6100
+[16/Sep/2014 16:16:06] "GET /actualizar_cantidad/28/ HTTP/1.1" 200 1970
+[16/Sep/2014 16:16:11] "POST /actualizar_cantidad/28/ HTTP/1.1" 200 79
+[16/Sep/2014 16:16:11] "GET /producto/28/ HTTP/1.1" 200 6100
+[16/Sep/2014 16:16:12] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[16/Sep/2014 16:16:12] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[16/Sep/2014 16:16:12] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[16/Sep/2014 16:16:12] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[16/Sep/2014 16:16:23] "GET /crear_productos/ HTTP/1.1" 200 7676
+[16/Sep/2014 16:16:47] "POST /crear_productos/ HTTP/1.1" 302 0
+[16/Sep/2014 16:16:47] "GET /producto/116 HTTP/1.1" 301 0
+[16/Sep/2014 16:16:48] "GET /producto/116/ HTTP/1.1" 200 5869
+[16/Sep/2014 16:16:55] "GET /reciclar/904 HTTP/1.1" 301 0
+[16/Sep/2014 16:16:55] "GET /reciclar/904/ HTTP/1.1" 200 69
+[16/Sep/2014 16:16:55] "GET / HTTP/1.1" 200 2876
+[16/Sep/2014 16:16:59] "GET /verstock/904 HTTP/1.1" 301 0
+[16/Sep/2014 16:16:59] "GET /verstock/904/ HTTP/1.1" 200 3201
+[16/Sep/2014 16:17:08] "GET /desechar/904 HTTP/1.1" 301 0
+[16/Sep/2014 16:17:08] "GET /desechar/904/ HTTP/1.1" 200 1930
+[16/Sep/2014 16:18:03] "GET /crear_productos/ HTTP/1.1" 200 7676
+[16/Sep/2014 17:23:06] "GET /producto/28/ HTTP/1.1" 200 6100
+[16/Sep/2014 17:23:07] "GET /static/img/algamar.png HTTP/1.1" 200 22737
+[16/Sep/2014 17:23:10] "GET /desechar/171/ HTTP/1.1" 200 1927
+[16/Sep/2014 17:29:57] "GET /desechar/171/ HTTP/1.1" 200 1927
+[16/Sep/2014 17:30:12] "POST /desechar/171/ HTTP/1.1" 200 80
+[16/Sep/2014 17:30:12] "GET /producto/28/ HTTP/1.1" 200 6703
+[16/Sep/2014 17:30:13] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[16/Sep/2014 17:30:13] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[16/Sep/2014 17:30:13] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[16/Sep/2014 17:30:13] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[16/Sep/2014 18:09:21] "GET /verstock/171/ HTTP/1.1" 200 2912
+[16/Sep/2014 18:09:25] "GET /desechar/171/ HTTP/1.1" 200 1927
+[16/Sep/2014 18:09:28] "GET /reciclar/171/ HTTP/1.1" 200 69
+[16/Sep/2014 18:09:29] "GET / HTTP/1.1" 200 2876
+[16/Sep/2014 18:09:29] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[16/Sep/2014 18:12:50] "GET /desechar/171/ HTTP/1.1" 200 1927
+[16/Sep/2014 18:13:21] "GET /actualizar_cantidad/28/ HTTP/1.1" 200 1970
+Validating models...
+
+0 errors found
+September 16, 2014 - 17:58:05
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[16/Sep/2014 21:29:32] "GET / HTTP/1.0" 200 2876
+[16/Sep/2014 19:29:47] "POST / HTTP/1.0" 200 2703
+[16/Sep/2014 19:29:54] "POST / HTTP/1.0" 200 3258
+[16/Sep/2014 19:30:02] "GET /productos/ HTTP/1.0" 200 13317
+No handlers could be found for logger "openerp.osv.orm.browse_record.stock.production.lot"
+[16/Sep/2014 19:30:13] "GET /producto/111/ HTTP/1.0" 200 5861
+[16/Sep/2014 19:30:16] "GET /verstock/886 HTTP/1.0" 301 0
+[16/Sep/2014 19:30:19] "GET /verstock/886/ HTTP/1.0" 200 2911
+[16/Sep/2014 19:30:28] "GET /reciclar/886 HTTP/1.0" 301 0
+[16/Sep/2014 19:30:30] "GET /reciclar/886/ HTTP/1.0" 200 69
+Validating models...
+
+0 errors found
+September 16, 2014 - 21:14:32
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[17/Sep/2014 09:44:26] "GET / HTTP/1.1" 200 2876
+[17/Sep/2014 09:44:27] "GET /static/img/algamar.png HTTP/1.1" 200 22737
+[17/Sep/2014 07:44:35] "POST / HTTP/1.1" 200 3258
+[17/Sep/2014 07:44:35] "GET /static/img/algamar.png HTTP/1.1" 200 22737
+[17/Sep/2014 07:44:38] "GET /productos/ HTTP/1.1" 200 13317
+No handlers could be found for logger "openerp.osv.orm.browse_record.stock.production.lot"
+[17/Sep/2014 07:44:41] "GET /producto/28/ HTTP/1.1" 200 6703
+[17/Sep/2014 07:44:45] "GET /reciclar/171/ HTTP/1.1" 200 1930
+[17/Sep/2014 07:44:53] "GET /desechar/171/ HTTP/1.1" 200 1930
+[17/Sep/2014 07:44:57] "GET /reciclar/171/ HTTP/1.1" 200 1930
+[17/Sep/2014 07:45:14] "GET /verstock/171/ HTTP/1.1" 200 2912
+[17/Sep/2014 07:45:21] "GET /actualizar_cantidad/28/ HTTP/1.1" 200 1973
+[17/Sep/2014 07:45:28] "GET /desechar/171/ HTTP/1.1" 200 1930
+[17/Sep/2014 07:45:44] "POST /desechar/171/ HTTP/1.1" 200 80
+[17/Sep/2014 07:45:44] "GET /producto/28/ HTTP/1.1" 200 6935
+[17/Sep/2014 07:45:45] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Sep/2014 07:45:45] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[17/Sep/2014 07:45:45] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[17/Sep/2014 07:45:45] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Sep/2014 07:46:15] "GET /procesar/28 HTTP/1.1" 301 0
+[17/Sep/2014 07:46:15] "GET /procesar/28/ HTTP/1.1" 200 81
+[17/Sep/2014 07:46:16] "GET /producto/28/ HTTP/1.1" 200 6935
+[17/Sep/2014 07:46:22] "GET /procesar/28/ HTTP/1.1" 200 81
+[17/Sep/2014 07:46:22] "GET /producto/28/ HTTP/1.1" 200 6935
+[17/Sep/2014 07:50:52] "GET /desechar/171/ HTTP/1.1" 200 1930
+[17/Sep/2014 07:50:59] "GET /reciclar/171/ HTTP/1.1" 200 1930
+[17/Sep/2014 09:57:23] "GET / HTTP/1.1" 200 2642
+[17/Sep/2014 07:57:30] "POST / HTTP/1.1" 200 3258
+[17/Sep/2014 07:57:31] "GET /productos/ HTTP/1.1" 200 13317
+No handlers could be found for logger "openerp.osv.orm.browse_record.stock.production.lot"
+[17/Sep/2014 07:57:34] "GET /producto/28/ HTTP/1.1" 200 6935
+[17/Sep/2014 07:57:38] "GET /verstock/171/ HTTP/1.1" 200 2912
+[17/Sep/2014 07:57:42] "GET /actualizar_cantidad/28/ HTTP/1.1" 200 1973
+[17/Sep/2014 07:58:03] "GET /reciclar/171/ HTTP/1.1" 200 1930
+[17/Sep/2014 08:02:44] "GET /reciclar/171/ HTTP/1.1" 200 1931
+[17/Sep/2014 08:02:52] "GET /desechar/171/ HTTP/1.1" 200 1930
+[17/Sep/2014 08:03:46] "GET /desechar/171/ HTTP/1.1" 200 1976
+[17/Sep/2014 08:04:09] "GET /desechar/171/ HTTP/1.1" 200 1982
+[17/Sep/2014 08:04:52] "GET /reciclar/171/ HTTP/1.1" 200 1977
+[17/Sep/2014 08:05:39] "GET /verstock/171/ HTTP/1.1" 200 2912
+Validating models...
+
+0 errors found
+September 17, 2014 - 09:57:08
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+[17/Sep/2014 08:10:57] "GET /dividir/170/ HTTP/1.1" 200 8221
+[17/Sep/2014 08:11:20] "GET /salir/ HTTP/1.1" 200 69
+[17/Sep/2014 08:11:20] "GET / HTTP/1.1" 200 2642
+[17/Sep/2014 08:11:24] "POST / HTTP/1.1" 200 3258
+[17/Sep/2014 08:11:26] "GET /productos/ HTTP/1.1" 200 13317
+No handlers could be found for logger "openerp.osv.orm.browse_record.stock.production.lot"
+[17/Sep/2014 08:11:28] "GET /producto/28/ HTTP/1.1" 200 6935
+[17/Sep/2014 08:11:32] "GET /crear_productos/ HTTP/1.1" 200 7676
+Validating models...
+
+0 errors found
+September 17, 2014 - 10:10:01
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[17/Sep/2014 08:16:43] "GET /crear_productos/ HTTP/1.1" 200 6069
+[17/Sep/2014 08:19:39] "POST /crear_productos/ HTTP/1.1" 302 0
+[17/Sep/2014 08:19:39] "GET /producto/117 HTTP/1.1" 301 0
+No handlers could be found for logger "openerp.osv.orm.browse_record.stock.production.lot"
+[17/Sep/2014 08:19:39] "GET /producto/117/ HTTP/1.1" 200 5869
+[17/Sep/2014 08:22:17] "GET /reciclar/171/ HTTP/1.1" 200 1976
+[17/Sep/2014 08:22:24] "GET /reciclar/171/ HTTP/1.1" 200 1976
+[17/Sep/2014 08:22:30] "GET /desechar/171/ HTTP/1.1" 200 1977
+[17/Sep/2014 08:22:36] "GET /reciclar/171/ HTTP/1.1" 200 1976
+[17/Sep/2014 08:22:44] "GET /reciclar/171/ HTTP/1.1" 200 1976
+[17/Sep/2014 08:22:44] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Sep/2014 08:22:45] "GET /reciclar/171/ HTTP/1.1" 200 1976
+[17/Sep/2014 08:22:45] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Sep/2014 08:22:48] "GET /desechar/171/ HTTP/1.1" 200 1977
+Validating models...
+
+0 errors found
+September 17, 2014 - 10:16:27
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[17/Sep/2014 08:25:30] "GET /reciclar/171/ HTTP/1.1" 200 1977
+[17/Sep/2014 08:25:35] "GET /desechar/171/ HTTP/1.1" 200 1976
+[17/Sep/2014 08:25:42] "GET /dividir/170/ HTTP/1.1" 200 8221
+[17/Sep/2014 08:26:35] "GET /dividir/170/ HTTP/1.1" 200 8313
+[17/Sep/2014 08:26:36] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Sep/2014 08:30:42] "GET / HTTP/1.1" 200 2876
+[17/Sep/2014 08:30:42] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[17/Sep/2014 08:30:42] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[17/Sep/2014 08:30:42] "GET /static/img/algamar.png HTTP/1.1" 200 22737
+[17/Sep/2014 08:30:42] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[17/Sep/2014 08:30:46] "POST / HTTP/1.1" 200 3360
+[17/Sep/2014 08:30:47] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[17/Sep/2014 08:30:47] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[17/Sep/2014 08:30:48] "GET /productos/ HTTP/1.1" 200 13800
+No handlers could be found for logger "openerp.osv.orm.browse_record.stock.production.lot"
+[17/Sep/2014 08:30:53] "GET /producto/117/ HTTP/1.1" 200 5971
+[17/Sep/2014 08:31:03] "GET /reciclar/909 HTTP/1.1" 301 0
+[17/Sep/2014 08:31:03] "GET /reciclar/909/ HTTP/1.1" 200 1980
+[17/Sep/2014 08:31:23] "GET /finalizar/117 HTTP/1.1" 301 0
+[17/Sep/2014 08:31:25] "GET /finalizar/117/ HTTP/1.1" 200 69
+[17/Sep/2014 08:31:25] "GET / HTTP/1.1" 200 2642
+[17/Sep/2014 08:31:29] "POST / HTTP/1.1" 200 3260
+[17/Sep/2014 08:31:30] "GET /productos/ HTTP/1.1" 200 13319
+[17/Sep/2014 08:31:31] "GET / HTTP/1.1" 200 2878
+[17/Sep/2014 08:31:37] "POST / HTTP/1.1" 200 3360
+[17/Sep/2014 08:31:38] "GET /productos/ HTTP/1.1" 200 13419
+[17/Sep/2014 08:31:39] "GET /crear_productos/ HTTP/1.1" 200 6171
+[17/Sep/2014 08:31:49] "POST /crear_productos/ HTTP/1.1" 302 0
+[17/Sep/2014 08:31:49] "GET /producto/118 HTTP/1.1" 301 0
+[17/Sep/2014 08:31:49] "GET /producto/118/ HTTP/1.1" 200 5971
+[17/Sep/2014 08:32:02] "GET /salir/ HTTP/1.1" 200 69
+[17/Sep/2014 08:32:02] "GET / HTTP/1.1" 200 2878
+[17/Sep/2014 08:32:13] "GET / HTTP/1.1" 200 2878
+[17/Sep/2014 08:32:17] "POST / HTTP/1.1" 200 3351
+[17/Sep/2014 08:32:21] "GET / HTTP/1.1" 200 2969
+[17/Sep/2014 08:32:26] "POST / HTTP/1.1" 200 3451
+[17/Sep/2014 08:32:28] "GET /productos/ HTTP/1.1" 200 13893
+Validating models...
+
+0 errors found
+September 17, 2014 - 10:24:26
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[17/Sep/2014 08:39:27] "GET /procesar/28/ HTTP/1.1" 200 81
+No handlers could be found for logger "openerp.osv.orm.browse_record.stock.production.lot"
+[17/Sep/2014 08:39:28] "GET /producto/28/ HTTP/1.1" 200 7128
+[17/Sep/2014 08:39:57] "GET /verstock/171/ HTTP/1.1" 200 2957
+[17/Sep/2014 08:40:01] "GET /desechar/171/ HTTP/1.1" 200 1976
+[17/Sep/2014 08:41:18] "GET /actualizar_cantidad/28/ HTTP/1.1" 200 1973
+[17/Sep/2014 08:41:32] "GET /salir/ HTTP/1.1" 200 69
+[17/Sep/2014 08:41:32] "GET / HTTP/1.1" 200 2969
+[17/Sep/2014 08:41:35] "POST / HTTP/1.1" 200 3451
+[17/Sep/2014 08:41:37] "GET /productos/ HTTP/1.1" 200 13893
+[17/Sep/2014 08:41:38] "GET /crear_productos/ HTTP/1.1" 200 6262
+[17/Sep/2014 08:41:59] "GET /salir/ HTTP/1.1" 200 69
+[17/Sep/2014 08:41:59] "GET / HTTP/1.1" 200 2969
+[17/Sep/2014 08:42:01] "POST / HTTP/1.1" 200 3451
+[17/Sep/2014 08:42:03] "GET /productos/ HTTP/1.1" 200 13893
+[17/Sep/2014 08:42:05] "GET /producto/29/ HTTP/1.1" 200 6281
+[17/Sep/2014 08:42:07] "GET /verstock/174 HTTP/1.1" 301 0
+[17/Sep/2014 08:42:08] "GET /verstock/174/ HTTP/1.1" 200 2957
+[17/Sep/2014 08:42:31] "GET /verstock/174/ HTTP/1.1" 200 2957
+[17/Sep/2014 08:42:35] "POST /verstock/174/ HTTP/1.1" 200 79
+[17/Sep/2014 08:42:35] "GET /producto/29/ HTTP/1.1" 200 6293
+[17/Sep/2014 08:42:36] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Sep/2014 08:42:36] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[17/Sep/2014 08:42:36] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Sep/2014 08:42:36] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[17/Sep/2014 08:42:40] "GET /verstock/174/ HTTP/1.1" 200 2957
+[17/Sep/2014 08:42:43] "POST /verstock/174/ HTTP/1.1" 200 79
+[17/Sep/2014 08:42:43] "GET /producto/29/ HTTP/1.1" 200 6293
+[17/Sep/2014 08:42:44] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Sep/2014 08:42:44] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[17/Sep/2014 08:42:44] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[17/Sep/2014 08:42:44] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Sep/2014 08:42:46] "GET /dividir/173 HTTP/1.1" 301 0
+[17/Sep/2014 08:42:47] "GET /dividir/173/ HTTP/1.1" 200 4664
+[17/Sep/2014 08:42:59] "GET /actualizar_cantidad/29 HTTP/1.1" 301 0
+[17/Sep/2014 08:42:59] "GET /actualizar_cantidad/29/ HTTP/1.1" 200 1973
+[17/Sep/2014 08:52:35] "GET /dividir/170/ HTTP/1.1" 200 4664
+[17/Sep/2014 08:52:35] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Sep/2014 08:52:51] "GET /finalizar/117 HTTP/1.1" 301 0
+[17/Sep/2014 08:52:51] "GET /finalizar/117/ HTTP/1.1" 200 69
+[17/Sep/2014 08:52:52] "GET / HTTP/1.1" 200 3069
+[17/Sep/2014 08:59:39] "POST / HTTP/1.1" 200 3451
+[17/Sep/2014 08:59:41] "GET /productos/ HTTP/1.1" 200 13893
+[17/Sep/2014 08:59:43] "GET /producto/28/ HTTP/1.1" 200 7128
+[17/Sep/2014 08:59:47] "GET /dividir/170/ HTTP/1.1" 200 4664
+[17/Sep/2014 08:59:58] "POST /dividir/170/ HTTP/1.1" 200 79
+[17/Sep/2014 08:59:58] "GET /producto/28/ HTTP/1.1" 200 7493
+[17/Sep/2014 08:59:59] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[17/Sep/2014 08:59:59] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[17/Sep/2014 08:59:59] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[17/Sep/2014 08:59:59] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[17/Sep/2014 09:08:06] "GET /salir/ HTTP/1.1" 200 69
+[17/Sep/2014 09:08:07] "GET / HTTP/1.1" 200 2969

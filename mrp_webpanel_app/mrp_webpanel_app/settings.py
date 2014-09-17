@@ -30,7 +30,7 @@ PROJECT_PATH = os.path.split(os.path.abspath(os.path.dirname(__file__)))[0]
 # aplications "live" in apps dir
 sys.path.insert(0, os.path.join(PROJECT_PATH, "apps"))
 
-DEBUG = True
+DEBUG = True 
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -191,11 +191,11 @@ LOGGING = {
 
 #OpenERP connector conf
 ENABLE_ERP = True
-ERP_CONF = "/opt/Proyectos/openerp/algamar/server/install/openerp-server.conf"
-ERP_PATH = "/opt/Proyectos/openerp/algamar/server/"
-#ERP_CONF = "/opt/openerp/server/ocb70/install/openerp-server.conf"
-#ERP_PATH = "/opt/openerp/server/ocb70/"
+#ERP_CONF = "/opt/Proyectos/openerp/algamar/server/install/openerp-server.conf"
+#ERP_PATH = "/opt/Proyectos/openerp/algamar/server/"
+ERP_CONF = "/etc/openerp-server.conf"
+ERP_PATH = "/opt/openerp/server/"
 ERP_UN = 'admin'
 ERP_PW = 'admin'
 #ERP_DB = 'algamar_prod'
-ERP_DB = 'algamar'
+ERP_DB = 'algamar_testing'
