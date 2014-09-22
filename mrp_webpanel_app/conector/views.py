@@ -377,7 +377,7 @@ def reciclar(request, id):
     pr_id = int(id)
     oerp_ctx = {'lang': 'es_ES'}
     if request.method == 'POST':
-        cantidad = int(request.POST.get("unidades"))
+        cantidad = float(request.POST.get("unidades"))
         from erp import POOL, DB, USER
         cursor = DB.cursor()
         prod_obj = POOL.get('stock.move')
@@ -699,7 +699,7 @@ def actualizar_cantidad(request, id):
     pr_id = int(id)
     if request.method == 'POST':
         from erp import POOL, DB, USER
-        cantidad = int(request.POST.get("unidades"))
+        cantidad = float(request.POST.get("unidades"))
         cursor = DB.cursor()
         mrp_obj = POOL.get('mrp.production')
         change_obj = POOL.get('change.production.qty')
@@ -770,7 +770,7 @@ def desechar(request, id):
     pr_id = int(id)
     oerp_ctx = {'lang': 'es_ES'}
     if request.method == 'POST':
-        cantidad = int(request.POST.get("unidades"))
+        cantidad = float(request.POST.get("unidades"))
         from erp import POOL, DB, USER
         cursor = DB.cursor()
         prod_obj = POOL.get('stock.move')
