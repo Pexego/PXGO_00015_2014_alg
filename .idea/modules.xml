@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/PXGO_00015_2014_alg.iml" filepath="$PROJECT_DIR$/.idea/PXGO_00015_2014_alg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/.idea/addons.iml" filepath="$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/.idea/addons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/server/.idea/server.iml" filepath="$PROJECT_DIR$/../../launchpad/7.0_ocb/server/.idea/server.iml" />
+    </modules>
+  </component>
+</project>
+
