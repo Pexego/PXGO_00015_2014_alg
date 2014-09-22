@@ -1349,3 +1349,41 @@ No handlers could be found for logger "openerp.osv.orm.browse_record.stock.produ
 [17/Sep/2014 08:59:59] "GET /static/img/algamar.png HTTP/1.1" 304 0
 [17/Sep/2014 09:08:06] "GET /salir/ HTTP/1.1" 200 69
 [17/Sep/2014 09:08:07] "GET / HTTP/1.1" 200 2969
+Traceback (most recent call last):
+  File "manage.py", line 8, in <module>
+    from django.core.management import execute_from_command_line
+ImportError: No module named django.core.management
+[22/Sep/2014 19:00:14] "GET / HTTP/1.1" 200 2642
+[22/Sep/2014 19:00:14] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[22/Sep/2014 19:00:14] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[22/Sep/2014 19:00:14] "GET /static/img/algamar.png HTTP/1.1" 200 22737
+[22/Sep/2014 19:00:14] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+No handlers could be found for logger "openerp.addons.google_docs.google_docs"
+[22/Sep/2014 17:00:29] "POST / HTTP/1.1" 200 3258
+[22/Sep/2014 17:00:29] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[22/Sep/2014 17:00:29] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[22/Sep/2014 17:00:31] "GET /productos/ HTTP/1.1" 200 17885
+[22/Sep/2014 17:00:35] "GET /producto/28/ HTTP/1.1" 200 7301
+[22/Sep/2014 17:00:42] "GET /dividir/170 HTTP/1.1" 301 0
+[22/Sep/2014 17:00:42] "GET /dividir/170/ HTTP/1.1" 200 149
+[22/Sep/2014 17:00:55] "GET /producto/170/ HTTP/1.1" 200 3614
+Validating models...
+
+0 errors found
+September 22, 2014 - 19:00:06
+Django version 1.6.1, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+No handlers could be found for logger "openerp.addons.google_docs.google_docs"
+[22/Sep/2014 17:01:36] "GET /dividir/170/ HTTP/1.1" 200 4612
+[22/Sep/2014 17:09:22] "GET /crear_productos/ HTTP/1.1" 200 6481
+[22/Sep/2014 17:09:33] "POST /crear_productos/ HTTP/1.1" 302 0
+[22/Sep/2014 17:09:33] "GET /producto/143 HTTP/1.1" 301 0
+[22/Sep/2014 17:09:33] "GET /producto/143/ HTTP/1.1" 200 6078
+Validating models...
+
+0 errors found
+September 22, 2014 - 19:01:27
+Django version 1.6.1, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.

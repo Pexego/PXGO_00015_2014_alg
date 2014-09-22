@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4eb2365-c9ac-4e24-b636-03fd751d7994" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mrp_lot_language/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mrp_lot_language/__openerp__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mrp_lot_language/production_lot_view.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mrp_lot_language/stock_lot.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/desechar.html" afterPath="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/desechar.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/dividir.html" afterPath="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/dividir.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/nohup.out" afterPath="$PROJECT_DIR$/mrp_webpanel_app/nohup.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_lot_language/production_lot_view.xml" afterPath="$PROJECT_DIR$/mrp_lot_language/production_lot_view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/producto.html" afterPath="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/producto.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/reciclar.html" afterPath="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/reciclar.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/settings.py" afterPath="$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/conector/views.py" afterPath="$PROJECT_DIR$/mrp_webpanel_app/conector/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PXGO_00015_2014_alg.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,95 +33,83 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="stock_lot.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mrp_lot_language/stock_lot.py">
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/conector/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="750">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="675">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tests.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/conector/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/conector/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="6162" max-vertical-offset="12210">
+              <caret line="450" column="114" selection-start-line="450" selection-start-column="107" selection-end-line="450" selection-end-column="114" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="producto.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/producto.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="43.125" vertical-offset="1260" max-vertical-offset="2055">
+              <caret line="15" column="93" selection-start-line="15" selection-start-column="93" selection-end-line="15" selection-end-column="93" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dividir.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/dividir.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="11.916667" vertical-offset="856" max-vertical-offset="1395">
+              <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
               <folding>
-                <element signature="e#979#1008#0" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__openerp__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mrp_lot_language/__openerp__.py">
+      <file leaf-file-name="desechar.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/desechar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+            <state vertical-scroll-proportion="-5.5833335" vertical-offset="391" max-vertical-offset="885">
+              <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stock.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/stock/stock.py">
+      <file leaf-file-name="openerp-server-algamar.conf" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/server/install/openerp-server-algamar.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="38512" max-vertical-offset="47835">
-              <caret line="2580" column="56" selection-start-line="2580" selection-start-column="56" selection-end-line="2580" selection-end-column="56" />
-              <folding>
-                <element signature="e#979#1008#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stock_move.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/stock/wizard/stock_move.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33240998" vertical-offset="3345" max-vertical-offset="4245">
-              <caret line="233" column="0" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.04601227" vertical-offset="0" max-vertical-offset="420">
+              <caret line="1" column="112" selection-start-line="1" selection-start-column="112" selection-end-line="1" selection-end-column="112" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stock_move_view.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/stock/wizard/stock_move_view.xml">
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="988" max-vertical-offset="2040">
-              <caret line="75" column="30" selection-start-line="75" selection-start-column="30" selection-end-line="75" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stock_splitinto.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/stock/wizard/stock_splitinto.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="269" max-vertical-offset="1350">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stock_splitinto_view.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/stock/wizard/stock_splitinto_view.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stock_inventory_line_split.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/stock/wizard/stock_inventory_line_split.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1770">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stock_view.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/stock/stock_view.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.771428" vertical-offset="5823" max-vertical-offset="25995">
-              <caret line="411" column="61" selection-start-line="411" selection-start-column="52" selection-end-line="411" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2572" max-vertical-offset="3090">
+              <caret line="200" column="25" selection-start-line="200" selection-start-column="25" selection-end-line="200" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -125,8 +118,18 @@
       <file leaf-file-name="production_lot_view.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mrp_lot_language/production_lot_view.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1080">
-              <caret line="35" column="130" selection-start-line="35" selection-start-column="130" selection-end-line="35" selection-end-column="130" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1095">
+              <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reciclar.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/reciclar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.5" vertical-offset="315" max-vertical-offset="885">
+              <caret line="41" column="129" selection-start-line="41" selection-start-column="129" selection-end-line="41" selection-end-column="129" />
               <folding />
             </state>
           </provider>
@@ -151,7 +154,14 @@
         <option value="$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/stock/stock.py" />
         <option value="$PROJECT_DIR$/mrp_lot_language/__openerp__.py" />
         <option value="$PROJECT_DIR$/mrp_lot_language/stock_lot.py" />
+        <option value="$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/settings.py" />
+        <option value="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/dividir.html" />
+        <option value="$PROJECT_DIR$/mrp_webpanel_app/conector/views.py" />
+        <option value="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/producto.html" />
         <option value="$PROJECT_DIR$/mrp_lot_language/production_lot_view.xml" />
+        <option value="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/reciclar.html" />
+        <option value="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/desechar.html" />
+        <option value="$PROJECT_DIR$/../../launchpad/7.0_ocb/server/install/openerp-server-algamar.conf" />
       </list>
     </option>
   </component>
@@ -201,7 +211,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="addons" />
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -211,29 +221,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="addons" />
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="stock" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PXGO_00015_2014_alg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addons" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stock" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wizard" />
+              <option name="myItemId" value="install" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -243,29 +235,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="addons" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mrp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="PXGO_00015_2014_alg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addons" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mrp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wizard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -447,7 +417,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1600" height="839" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -455,7 +425,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32863188" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30564362" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3589093" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40056416" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44992948" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -501,22 +471,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../mercurial/pexego_erp70/task_time_control/project_task.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2070">
-          <caret line="34" column="62" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/project/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="22815">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/project/project_view.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="5233" max-vertical-offset="11835">
@@ -764,7 +718,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="750">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
-            <element signature="e#979#1008#0" expanded="true" />
+            <element signature="e#979#1008#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -773,14 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
           <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mrp_lot_language/production_lot_view.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1080">
-          <caret line="35" column="130" selection-start-line="35" selection-start-column="130" selection-end-line="35" selection-end-column="130" />
           <folding />
         </state>
       </provider>
@@ -829,8 +775,90 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/stock/wizard/stock_move.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33240998" vertical-offset="3345" max-vertical-offset="4245">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3345" max-vertical-offset="4245">
           <caret line="233" column="0" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/conector/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/conector/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2572" max-vertical-offset="3090">
+          <caret line="200" column="25" selection-start-line="200" selection-start-column="25" selection-end-line="200" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/conector/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6162" max-vertical-offset="12210">
+          <caret line="450" column="114" selection-start-line="450" selection-start-column="107" selection-end-line="450" selection-end-column="114" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/producto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="43.125" vertical-offset="1260" max-vertical-offset="2055">
+          <caret line="15" column="93" selection-start-line="15" selection-start-column="93" selection-end-line="15" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mrp_lot_language/production_lot_view.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1095">
+          <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/reciclar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.5" vertical-offset="315" max-vertical-offset="885">
+          <caret line="41" column="129" selection-start-line="41" selection-start-column="129" selection-end-line="41" selection-end-column="129" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/dividir.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="11.916667" vertical-offset="856" max-vertical-offset="1395">
+          <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/desechar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5833335" vertical-offset="391" max-vertical-offset="885">
+          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/server/install/openerp-server-algamar.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04601227" vertical-offset="0" max-vertical-offset="420">
+          <caret line="1" column="112" selection-start-line="1" selection-start-column="112" selection-end-line="1" selection-end-column="112" />
           <folding />
         </state>
       </provider>

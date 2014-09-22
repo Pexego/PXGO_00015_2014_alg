@@ -434,28 +434,26 @@ def dividir(request, id):
             updated=False
             move = move_obj.browse(cursor, USER, pr_id)
             new_lots = {}
-            for product, qty in zip(request.POST.getlist("product"), request.POST.getlist("unidades")):
+            first_lang = True
+            for language, qty in zip(request.POST.getlist("language"), request.POST.getlist("unidades")):
                 qty = float(qty)
-                product = int(product)
-                if product == move.product_id.id and not updated:
-                    move.write({'product_qty': qty})
-                    updated = True
-                else:
-                    copy_vals = {'product_id': product, 'product_qty': qty}
-                    if move.prodlot_id:
-                        if move.product_id.id == product:
-                            copy_vals['prodlot_id'] = move.prodlot_id.id
-                        else:
-                            if new_lots.get(product, False):
-                                new_lot = new_lots[product]
-                            else:
-                                new_lot = lot_obj.copy(cursor, USER, move.prodlot_id.id, {'product_id': product})
-                                new_lots[product] = new_lot
-                            copy_vals['prodlot_id'] = new_lot
-                    new_move = move_obj.copy(cursor, USER, move.id, copy_vals)
+                language = int(language)
 
-            if not updated and request.POST.get("product", False):
-                move_obj.unlink(cursor, USER, [move.id])
+                #copy_vals = {'language': language, 'product_qty': qty}
+
+                if move.prodlot_id:
+                    if first_lang:
+                        lot_obj.write(cursor, USER, move.prodlot_id.id, {'language': language})
+                        move_obj.write(cursor, USER, move.id, {'product_qty': qty})
+
+                    else:
+                        new_lot = lot_obj.copy(cursor, USER, move.prodlot_id.id, {'language': language})
+                        new_move = move_obj.copy(cursor, USER, move.id, {'product_qty': qty, 'prodlot_id': new_lot})
+                    first_lang = False
+
+
+            #if not updated and request.POST.get("product", False):
+            #move_obj.unlink(cursor, USER, [move.id])
 
         except Exception as e:
             return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
@@ -469,15 +467,19 @@ def dividir(request, id):
 
         from erp import POOL, DB, USER
         product_obj = POOL.get('product.product')
+        lang_obj = POOL.get('res.lang')
         move_obj = POOL.get('stock.move')
         cursor = DB.cursor()
         try:
             move = move_obj.browse(cursor, USER, [pr_id])
             products_ids = product_obj.search(cursor, USER, [('analytic_acc_id', '!=', False),('bom_ids', '!=', False), ('bom_ids.bom_id','=',False),('type', '=', 'product')], order="name ASC", context=oerp_ctx)
             products = product_obj.browse(cursor, USER, products_ids, context=oerp_ctx)
+            lang_ids = lang_obj.search(cursor, USER, [], context=oerp_ctx)
+            langs = lang_obj.browse(cursor, USER, lang_ids, context=oerp_ctx)
             context = RequestContext(request, {
                 'move': move[0],
                 'products': products,
+                'langs': langs,
             })
             return HttpResponse(template.render(context))
         except Exception as e:

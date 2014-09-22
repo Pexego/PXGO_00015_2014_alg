@@ -191,11 +191,11 @@ LOGGING = {
 
 #OpenERP connector conf
 ENABLE_ERP = True
-ERP_CONF = "/opt/Proyectos/openerp/algamar/server/install/openerp-server.conf"
-ERP_PATH = "/opt/Proyectos/openerp/algamar/server/"
+ERP_CONF = "/opt/openerp/launchpad/7.0_ocb/server/install/openerp-server-algamar.conf"
+ERP_PATH = "/opt/openerp/launchpad/7.0_ocb/server/"
 #~ ERP_CONF = "/etc/openerp-server.conf"
 #~ ERP_PATH = "/opt/openerp/server/"
 ERP_UN = 'admin'
 ERP_PW = 'admin'
 #~ ERP_DB = 'algamar_prod'
-ERP_DB = 'algamar'
+ERP_DB = 'algamar_testing'

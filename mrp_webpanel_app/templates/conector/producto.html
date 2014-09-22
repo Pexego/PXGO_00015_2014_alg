@@ -9,7 +9,7 @@
             <ul class="list-group" style="text-align:left;">
                 <li class="list-group-item"><strong>Producto:</strong> {{ product.product_id.name }}</li>
                 <li class="list-group-item"><strong>Cantidad:</strong> {{ product.product_qty }} unidades 
-                    {% if product.state == "confirmed" %}
+                    {% if product.state == "confirmed" or product.state == "in_production" or product.state == "ready"%}
                         <a href="/actualizar_cantidad/{{ product.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;" class="btn btn-warning" >Actualizar</a>
                     {% endif %}
                 </li>
@@ -59,12 +59,14 @@
                         <th>Producto</th>
                         <th>Cantidad</th>
                         <th>Lote</th>
+
                     </tr>
                     {% for p in product.move_lines2 %}
                         <tr>
                             <td>{{ p.product_id.name }}</td>
                             <td>{{ p.product_qty|floatformat:0 }}</td>
                             <td>{{ p.prodlot_id.name|default_if_none:"" }}</td>
+
                         </tr>
                     {% endfor %}
                 </table>
@@ -78,6 +80,7 @@
                         <th>Producto</th>
                         <th>Cantidad</th>
                         <th>Lote</th>
+                        <th>Idioma</th>
                         <th></th>
                     </tr>
                     {% for p in product.move_created_ids %}
@@ -85,6 +88,7 @@
                         <td>{{ p.product_id.name }}</td>
                         <td>{{ p.product_qty|floatformat:0 }}</td>
                         <td>{{ p.prodlot_id.name|default_if_none:"" }} {{ p.prodlot_id.expiry_date }}</td>
+                        <td>{{ p.prodlot_id.language.name|default_if_none:"" }}</td>
                         <td><a href="/dividir/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">DV</a></td>
                     </tr>
                     {% endfor %}

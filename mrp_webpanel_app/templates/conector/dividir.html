@@ -35,14 +35,14 @@
 
                 var cell1 = row.insertCell(0);
                 var element1 = document.createElement("select");
-                element1.id = "product";
-                element1.name = "product";
+                element1.id = "language";
+                element1.name = "language";
                 cell1.appendChild(element1);
 
                 //~ var array=new array();
 
                 //Create and append the options
-                {% for a in products %}
+                {% for a in langs %}
                     var option = document.createElement("option");
                     option.value = "{{ a.id }}";
                     option.text = "{{ a.name }}";
@@ -69,7 +69,7 @@
                         <h4>Cantidad total: {{ move.product_qty }}</h4>
                     </caption>
                     <tr>
-                        <th>Producto</th>
+                        <th>Idioma</th>
                         <th>Cantidad</th>
                     </tr>
 
