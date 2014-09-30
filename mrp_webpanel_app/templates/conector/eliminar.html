@@ -32,20 +32,20 @@
             <div class="col-md-6">
 
                 <table class="table table-hover f" style="width:500px;">
-                    <caption class="text-left"><h3>Desechar producto</h3></caption>
+                    <caption class="text-left"><h3>Eliminar línea</h3></caption>
                     <tr>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
+                        <th>¿Seguro que quieres eliminar esta línea?</th>
+
                     </tr>
-                    <tr>
-                        <th>{{ product.product_id.name }} </th>
-                        <th><input type="number" value="{{ product.product_qty|floatformat:2 }}" name="unidades" step="any"/> {{ product.product_uom.name }}  </th>
+                     <tr>
+                        <td>{{ product.product_id.name }} - {{  product.product_qty }} - {{ product.prodlot_id.name|default_if_none:"" }}</td>
                     </tr>
+
                 </table>
             </div>
         </div>
         <div class="row">
-            <input type="submit" class="btn btn-primary btn-default pull-left" style="margin-left:2em;" value="Desechar" />
+            <input type="submit" class="btn btn-primary btn-default pull-left" style="margin-left:2em;" value="Eliminar" />
             <input type=button class="btn btn-primary btn-default pull-left" value="Cancelar" onclick="cerrarse()">
         </div>
         </form>

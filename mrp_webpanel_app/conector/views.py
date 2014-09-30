@@ -373,6 +373,50 @@ def verstock(request, id):
         cursor.commit()
         cursor.close()
 
+
+def eliminar(request, id):
+    pr_id = int(id)
+    oerp_ctx = {'lang': 'es_ES', 'call_unlink': True}
+    if request.method == 'POST':
+
+        from erp import POOL, DB, USER
+        cursor = DB.cursor()
+        prod_obj = POOL.get('stock.move')
+        print "Eliminar " + str(pr_id)
+        try:
+            prod_obj.unlink(cursor, USER, [pr_id], context=oerp_ctx)
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+
+            return HttpResponse('<script type="text/javascript">opener.location.reload();window.close();</script>')
+    else:
+
+        template = loader.get_template('conector/eliminar.html')
+        context={}
+
+        from erp import POOL, DB, USER
+        product_obj = POOL.get('stock.move')
+        cursor = DB.cursor()
+        try:
+            product = product_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
+            context = RequestContext(request, {
+                'product': product[0],
+            })
+            return HttpResponse(template.render(context))
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+
+
+
 def reciclar(request, id):
     pr_id = int(id)
     oerp_ctx = {'lang': 'es_ES'}
@@ -383,7 +427,7 @@ def reciclar(request, id):
         prod_obj = POOL.get('stock.move')
         
         try:
-            
+
             product = prod_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
             prod_obj = prod_obj.action_scrap(cursor, USER, [product[0].id], cantidad, product[0].location_id.id, context=oerp_ctx)
         except Exception as e:

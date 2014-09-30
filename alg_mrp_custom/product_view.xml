@@ -5,13 +5,25 @@
 
         <act_window
             id="action_see_lots"
-            name="Lots"
+            name="Lotes"
             domain="[('product_id', 'in', active_ids),('stock_available','&gt;',0.0)]"
             context="{'default_product_id': active_id}"
             view_type="form"
             view_mode="tree,form"
             res_model="stock.production.lot"
             src_model="product.product"/>
+
+        <record model="ir.ui.view" id="view_product_form_lots">
+            <field name="name">product.normalvirtual.form.lots</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='buttons']" position="inside">
+                    <button string="Lotes" name="%(action_see_lots)d" type="action"/>
+                </xpath>
+
+            </field>
+        </record>
 
     </data>
 </openerp>
