@@ -56,6 +56,14 @@ class stock_move(orm.Model):
                         move.write({'product_qty': qty,
                                     'prodlot_id': lot.id})
                         qty = 0.0
+
+                        ## ADDED FOR mrp_automatic_lot and tranfer the lot to the products to produce for transfering
+                        #  the name to the produced lot
+                        if production.product_id.transfer_lot:
+                            for to_produce in production.move_created_ids:
+                                if to_produce.prodlot_id:
+                                    lot_obj.write(cr, uid, to_produce.prodlot_id.id, {'name': lot.name})
+
                         break
                     else:
                         qty -= lot.stock_available

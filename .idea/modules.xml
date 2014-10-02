@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/PXGO_00015_2014_alg.iml" filepath="$PROJECT_DIR$/.idea/PXGO_00015_2014_alg.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/.idea/addons.iml" filepath="$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/.idea/addons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../alimentacion_7_0/.idea/alimentacion_7_0.iml" filepath="$PROJECT_DIR$/../alimentacion_7_0/.idea/alimentacion_7_0.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/server/.idea/server.iml" filepath="$PROJECT_DIR$/../../launchpad/7.0_ocb/server/.idea/server.iml" />
     </modules>
   </component>
