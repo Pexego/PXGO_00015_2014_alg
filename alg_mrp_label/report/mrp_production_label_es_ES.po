@@ -1,0 +1,29 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE asdf\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-03 14:18+0200\n"
+"PO-Revision-Date: 2014-10-03 14:19+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: /tmp/tmp.3LvYLuXeJn:723 /tmp/tmp.3LvYLuXeJn:807 /tmp/tmp.3LvYLuXeJn:891
+msgid "Lot: "
+msgstr "Lote:"
+
+#: /tmp/tmp.3LvYLuXeJn:727 /tmp/tmp.3LvYLuXeJn:811 /tmp/tmp.3LvYLuXeJn:895
+msgid "Cad: "
+msgstr "Cad."
+
+#: /tmp/tmp.3LvYLuXeJn:731 /tmp/tmp.3LvYLuXeJn:815 /tmp/tmp.3LvYLuXeJn:899
+msgid "Uds: "
+msgstr "Uds:"

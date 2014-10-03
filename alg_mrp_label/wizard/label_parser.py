@@ -39,7 +39,7 @@ def parser( cr, uid, ids, data, context ):
 
     if data['form'].get('move_ids', []):
         for move in line_obj.browse(cr, uid, data['form']['move_ids']):
-            label_qty = int(math.ceil(move.qty / move.qty_box))
+            label_qty = int(math.ceil(move.qty / (move.qty_box or 1.0)))
             for rec in range(0, label_qty):
                 records.append({
                     'product': move.product_id.name,
