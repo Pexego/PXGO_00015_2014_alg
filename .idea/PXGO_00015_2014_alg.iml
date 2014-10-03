@@ -6,6 +6,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="server" />
     <orderEntry type="module" module-name="addons" />
+    <orderEntry type="module" module-name="alimentacion_7_0" />
   </component>
 </module>
 
