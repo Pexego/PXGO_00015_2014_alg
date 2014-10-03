@@ -460,6 +460,57 @@ def reciclar(request, id):
             cursor.commit()
             cursor.close()
 
+def etiquetas (request, id):
+    template = loader.get_template('conector/etiquetas.html')
+    context={}
+    oerp_ctx = {'lang': 'es_ES'}
+    pr_id = int(id)
+    if request.method == 'POST':
+        from erp import POOL, DB, USER
+        cursor = DB.cursor()
+        move_obj = POOL.get('stock.move')
+        lot_obj = POOL.get('stock.production.lot')
+        try:
+
+            updated=False
+            move = move_obj.browse(cursor, USER, pr_id)
+            new_lots = {}
+            first_lang = True
+            for move, unidades in zip(request.POST.getlist("move_id"), request.POST.getlist("unidades_caja")):
+                unidades = float(unidades)
+
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+
+            return HttpResponse('<script type="text/javascript">window.close()</script>')
+    else:
+
+        template = loader.get_template('conector/etiquetas.html')
+        context={}
+
+        from erp import POOL, DB, USER
+        product_obj = POOL.get('mrp.production')
+        cursor = DB.cursor()
+        try:
+            product = product_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
+            context = RequestContext(request, {
+                'product': product[0],
+            })
+            return HttpResponse(template.render(context))
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+
+
+
 def dividir(request, id):
     # Una vez recibido el post, tengo que llamar a alguna funcion que me pase omar.
     
