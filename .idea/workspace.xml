@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4eb2365-c9ac-4e24-b636-03fd751d7994" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/alg_mrp_label/report/mrp_production_label.jasper" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alg_mrp_label/report/mrp_production_label.jasper" afterPath="$PROJECT_DIR$/alg_mrp_label/report/mrp_production_label.jasper" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alg_mrp_label/report/mrp_production_label.jrxml" afterPath="$PROJECT_DIR$/alg_mrp_label/report/mrp_production_label.jrxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/openerp-jasper.pid" afterPath="$PROJECT_DIR$/mrp_webpanel_app/openerp-jasper.pid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/conector/views.py" afterPath="$PROJECT_DIR$/mrp_webpanel_app/conector/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PXGO_00015_2014_alg.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +31,8 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/conector/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6875" max-vertical-offset="13980">
-              <caret line="504" column="30" selection-start-line="504" selection-start-column="30" selection-end-line="504" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="7281" max-vertical-offset="14055">
+              <caret line="500" column="0" selection-start-line="500" selection-start-column="0" selection-end-line="500" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -47,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="label_parser.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="label_parser.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/alg_mrp_label/wizard/label_parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="930">
-              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6308725" vertical-offset="483" max-vertical-offset="930">
+              <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -87,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mrp_production_label.jrxml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mrp_production_label.jrxml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/alg_mrp_label/report/mrp_production_label.jrxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.7815125" vertical-offset="0" max-vertical-offset="2385">
-              <caret line="90" column="81" selection-start-line="90" selection-start-column="69" selection-end-line="90" selection-end-column="81" />
+            <state vertical-scroll-proportion="-3.057143" vertical-offset="1108" max-vertical-offset="1950">
+              <caret line="81" column="26" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -164,6 +165,7 @@
         <option value="$PROJECT_DIR$/alg_mrp_custom/stock.py" />
         <option value="$PROJECT_DIR$/../alimentacion_7_0/mrp_automatic_lot/mrp.py" />
         <option value="$PROJECT_DIR$/alg_mrp_label/wizard/print_label.py" />
+        <option value="$PROJECT_DIR$/alg_mrp_label/report/mrp_production_label.jrxml" />
         <option value="$PROJECT_DIR$/mrp_webpanel_app/conector/views.py" />
       </list>
     </option>
@@ -577,7 +579,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3052565" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22229259" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35955057" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3005618" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -948,14 +950,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/conector/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6875" max-vertical-offset="13980">
-          <caret line="504" column="30" selection-start-line="504" selection-start-column="30" selection-end-line="504" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../launchpad/7.0_ocb/server/openerp/osv/osv.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2630" max-vertical-offset="3450">
@@ -996,18 +990,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alg_mrp_label/wizard/label_parser.py">
+    <entry file="file://$PROJECT_DIR$/alg_mrp_label/report/mrp_production_label.jrxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="930">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.057143" vertical-offset="1108" max-vertical-offset="1950">
+          <caret line="81" column="26" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alg_mrp_label/report/mrp_production_label.jrxml">
+    <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/conector/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.7815125" vertical-offset="0" max-vertical-offset="2385">
-          <caret line="90" column="81" selection-start-line="90" selection-start-column="69" selection-end-line="90" selection-end-column="81" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="7281" max-vertical-offset="14055">
+          <caret line="500" column="0" selection-start-line="500" selection-start-column="0" selection-end-line="500" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alg_mrp_label/wizard/label_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6308725" vertical-offset="483" max-vertical-offset="930">
+          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
           <folding />
         </state>
       </provider>

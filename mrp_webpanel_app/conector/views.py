@@ -500,7 +500,12 @@ def etiquetas (request, id):
             service = netsvc.LocalService("report.mrp.production.label");
             (result, format) = service.create(cursor, USER, [pr_id], datas, {})
 
-
+            #fp = open("ticket.pdf", 'wb+')
+            #fp.write(result)
+            #fp.close()
+            response = HttpResponse(content_type='application/pdf')
+            response['Content-Disposition'] = 'attachment; filename="etiquetas.pdf"'
+            response.write(result)
 
         except Exception as e:
             return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");</script>')
@@ -508,8 +513,8 @@ def etiquetas (request, id):
         finally:
             cursor.commit()
             cursor.close()
-
-            return HttpResponse('<script type="text/javascript">window.close()</script>')
+            return response
+            #return HttpResponse('<script type="text/javascript">window.close()</script>')
     else:
 
         template = loader.get_template('conector/etiquetas.html')
