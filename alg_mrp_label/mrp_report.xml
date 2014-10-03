@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report id="report_mrp_label"
+                model="mrp.production"
+                name="mrp.production.label"
+                string="Label"
+                rml="alg_mrp_label/report/mrp_production_label.jrxml"
+                menu="False"
+                header="False"
+                auto="True"/>
+    </data>
+</openerp>
