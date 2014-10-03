@@ -473,14 +473,37 @@ def etiquetas (request, id):
         try:
 
             updated=False
-            move = move_obj.browse(cursor, USER, pr_id)
             new_lots = {}
             first_lang = True
-            for move, unidades in zip(request.POST.getlist("move_id"), request.POST.getlist("unidades_caja")):
+            label_moves_obj = POOL.get('print.label.moves')
+            data={'move_ids': []}
+            for move_id, unidades in zip(request.POST.getlist("move_id"), request.POST.getlist("unidades_caja")):
                 unidades = float(unidades)
+                move_id = int(move_id)
+                move = move_obj.browse(cursor, USER, move_id, oerp_ctx)
+                vals = {
+                    'product_id': move.product_id.id,
+                    'qty': move.product_qty,
+                    'lot_id': move.prodlot_id.id,
+                    'language': move.prodlot_id.language.id,
+                    'qty_box': unidades
+                }
+                label_id = label_moves_obj.create(cursor, USER, vals)
+                data['move_ids'].append(label_id)
+            import netsvc
+
+            datas = {
+                'ids': [pr_id,],
+                'model': 'mrp.production',
+                'form': data
+            }
+            service = netsvc.LocalService("report.mrp.production.label");
+            (result, format) = service.create(cursor, USER, [pr_id], datas, {})
+
+
 
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");</script>')
             pass
         finally:
             cursor.commit()
