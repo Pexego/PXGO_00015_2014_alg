@@ -38,8 +38,11 @@ def parser( cr, uid, ids, data, context ):
     company_name = user.company_id.name
 
     if data['form'].get('move_ids', []):
-        for move in line_obj.browse(cr, uid, data['form']['move_ids']):
+        for move in line_obj.browse(cr, uid, data['form']['move_ids'], context):
             label_qty = int(math.ceil(move.qty / (move.qty_box or 1.0)))
+            ctx = context.copy()
+            ctx['lang'] = move.language.code
+            move = line_obj.browse(cr, uid, move.id, ctx)
             for rec in range(0, label_qty):
                 records.append({
                     'product': move.product_id.name,
