@@ -460,6 +460,85 @@ def reciclar(request, id):
             cursor.commit()
             cursor.close()
 
+def etiquetas (request, id):
+    template = loader.get_template('conector/etiquetas.html')
+    context={}
+    oerp_ctx = {'lang': 'es_ES'}
+    pr_id = int(id)
+    if request.method == 'POST':
+        from erp import POOL, DB, USER
+        cursor = DB.cursor()
+        move_obj = POOL.get('stock.move')
+        lot_obj = POOL.get('stock.production.lot')
+        try:
+
+            updated=False
+            new_lots = {}
+            first_lang = True
+            label_moves_obj = POOL.get('print.label.moves')
+            data={'move_ids': []}
+            for move_id, unidades in zip(request.POST.getlist("move_id"), request.POST.getlist("unidades_caja")):
+                unidades = float(unidades)
+                move_id = int(move_id)
+                move = move_obj.browse(cursor, USER, move_id, oerp_ctx)
+                vals = {
+                    'product_id': move.product_id.id,
+                    'qty': move.product_qty,
+                    'lot_id': move.prodlot_id.id,
+                    'language': move.prodlot_id.language.id,
+                    'qty_box': unidades
+                }
+                label_id = label_moves_obj.create(cursor, USER, vals)
+                data['move_ids'].append(label_id)
+            import netsvc
+
+            datas = {
+                'ids': [pr_id,],
+                'model': 'mrp.production',
+                'form': data
+            }
+            service = netsvc.LocalService("report.mrp.production.label");
+            (result, format) = service.create(cursor, USER, [pr_id], datas, {})
+
+            #fp = open("ticket.pdf", 'wb+')
+            #fp.write(result)
+            #fp.close()
+            response = HttpResponse(content_type='application/pdf')
+            response['Content-Disposition'] = 'attachment; filename="etiquetas.pdf"'
+            response.write(result)
+
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");</script>')
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+            return response
+            #return HttpResponse('<script type="text/javascript">window.close()</script>')
+    else:
+
+        template = loader.get_template('conector/etiquetas.html')
+        context={}
+
+        from erp import POOL, DB, USER
+        product_obj = POOL.get('mrp.production')
+        cursor = DB.cursor()
+        try:
+            product = product_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
+            context = RequestContext(request, {
+                'product': product[0],
+            })
+            return HttpResponse(template.render(context))
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+
+
+
 def dividir(request, id):
     # Una vez recibido el post, tengo que llamar a alguna funcion que me pase omar.
     

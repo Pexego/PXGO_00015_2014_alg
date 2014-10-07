@@ -23,6 +23,7 @@ urlpatterns = patterns('',
     url(r'^dividir/(?P<id>\d+)/$', 'conector.views.dividir', name='dividir'),
     url(r'^reciclar/(?P<id>\d+)/$', 'conector.views.reciclar', name='reciclar'),
     url(r'^eliminar/(?P<id>\d+)/$', 'conector.views.eliminar', name='eliminar'),
+    url(r'^etiquetas/(?P<id>\d+)/$', 'conector.views.etiquetas', name='etiquetas'),
     
     url(r'^otrastareas/$', 'conector.views.tareas', name='tareas'),
     url(r'^creartarea/$', 'conector.views.tarea', name='tarea'),

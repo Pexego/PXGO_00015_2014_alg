@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block contenido %}
+
+ <form method="post" action=".">{% csrf_token %}
+    <div class="row">
+
+        <div class="col-md-6">
+
+
+            {% if product.move_created_ids %}
+                <table class="table table-hover">
+                    <caption class="text-left"><h3>Etiquetas a Imprimir</h3></caption>
+
+                    {% for p in product.move_created_ids %}
+                    <tr>
+                        <td>{{ p.product_id.name }}</td>
+                        <td>{{ p.product_qty|floatformat:2 }}</td>
+
+                        <td>{{ p.prodlot_id.language.name|default_if_none:"" }}</td>
+                        <input type="hidden" value="{{ p.id }}" name="move_id" step="any"/>
+                        <td><input type="number" value="" name="unidades_caja" step="any"/>  Unidades/caja</td>
+
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+            {% if product.move_created_ids2 %}
+                <table class="table table-hover">
+                    <caption class="text-left"><h3>Etiquetas a imprimir</h3></caption>
+
+                    {% for p in product.move_created_ids2 %}
+                    <tr>
+                        <td>{{ p.product_id.name }}</td>
+                        <td>{{ p.product_qty|floatformat:2 }}</td>
+
+                        <td>{{ p.prodlot_id.language.name|default_if_none:"" }}</td>
+                        <input type="hidden" value="{{ p.id }}" name="move_id" step="any"/>
+                        <td><input type="number" value="" name="unidades_caja" step="any"/>  Unidades/caja</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+
+        </div>
+    </div>
+    <div class="row">
+        <input type="submit" class="btn btn-primary btn-default pull-left" style="margin-left:2em;" value="Generar etiquetas" />
+        <input type=button value="Cerrar" onclick="cerrarse()" class="btn btn-primary btn-default pull-left">
+    </div>
+     </form>
+{% endblock contenido %}
