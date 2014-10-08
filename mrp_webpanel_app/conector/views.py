@@ -27,6 +27,8 @@ from django.shortcuts import redirect
 from models import Usuario
 import datetime,time
 from django.utils import timezone
+from datetime import datetime
+
 
 def timestamp(date):
     return time.mktime(date.timetuple())/3600
@@ -144,6 +146,7 @@ def producto(request,id):
             'users_list': users_list,
             'product': production[0],
             'codigo': request.session['codigo'],
+
         })
     except Exception as e:
         return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
@@ -382,7 +385,6 @@ def eliminar(request, id):
         from erp import POOL, DB, USER
         cursor = DB.cursor()
         prod_obj = POOL.get('stock.move')
-        print "Eliminar " + str(pr_id)
         try:
             prod_obj.unlink(cursor, USER, [pr_id], context=oerp_ctx)
         except Exception as e:
@@ -405,6 +407,49 @@ def eliminar(request, id):
             product = product_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
             context = RequestContext(request, {
                 'product': product[0],
+            })
+            return HttpResponse(template.render(context))
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+
+
+
+def cambiar_fecha(request, id):
+    pr_id = int(id)
+    oerp_ctx = {'lang': 'es_ES', 'call_unlink': True}
+    if request.method == 'POST':
+
+        from erp import POOL, DB, USER
+        cursor = DB.cursor()
+        prod_obj = POOL.get('stock.move')
+        lot_obj = POOL.get('stock.production.lot')
+        try:
+            lot_obj.write(cursor, USER, [pr_id], {'use_date': request.POST.get("use_date")}, oerp_ctx)
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+
+            return HttpResponse('<script type="text/javascript">opener.location.reload();window.close();</script>')
+    else:
+
+        template = loader.get_template('conector/cambiar_fecha.html')
+        context={}
+
+        from erp import POOL, DB, USER
+        lot_obj = POOL.get('stock.production.lot')
+        cursor = DB.cursor()
+        try:
+            prodlot = lot_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
+            context = RequestContext(request, {
+                'prodlot': prodlot[0],
             })
             return HttpResponse(template.render(context))
         except Exception as e:
