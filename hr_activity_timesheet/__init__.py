@@ -24,3 +24,4 @@ import product
 import hr_task
 import hr_analytic_timesheet
 import analytic
+import hr_timesheet_report

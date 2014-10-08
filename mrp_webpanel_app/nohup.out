@@ -3235,3 +3235,43 @@ ValueError: could not convert string to float:
 [08/Oct/2014 10:19:03] "POST / HTTP/1.1" 200 3448
 [08/Oct/2014 10:19:06] "GET /productos/ HTTP/1.1" 200 35126
 [08/Oct/2014 10:19:11] "GET /producto/224/ HTTP/1.1" 200 6961
+Validating models...
+
+0 errors found
+October 07, 2014 - 12:00:47
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Eliminar 1464
+Eliminar 1489
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.5', 56408)
+----------------------------------------
+Eliminar 1541
+Eliminar 1548
+Eliminar 1550
+Eliminar 1547
+Eliminar 1552
+Traceback (most recent call last):
+  File "manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/management/__init__.py", line 399, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/management/__init__.py", line 392, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/management/__init__.py", line 261, in fetch_command
+    commands = get_commands()
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/management/__init__.py", line 107, in get_commands
+    apps = settings.INSTALLED_APPS
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/conf/__init__.py", line 54, in __getattr__
+    self._setup(name)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/conf/__init__.py", line 49, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/conf/__init__.py", line 128, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/mrp_webpanel_app/settings.py", line 194
+    <<<<<<< HEAD
+     ^
+SyntaxError: invalid syntax

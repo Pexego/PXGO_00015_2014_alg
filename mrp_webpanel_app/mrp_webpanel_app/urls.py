@@ -24,6 +24,7 @@ urlpatterns = patterns('',
     url(r'^reciclar/(?P<id>\d+)/$', 'conector.views.reciclar', name='reciclar'),
     url(r'^eliminar/(?P<id>\d+)/$', 'conector.views.eliminar', name='eliminar'),
     url(r'^etiquetas/(?P<id>\d+)/$', 'conector.views.etiquetas', name='etiquetas'),
+    url(r'^cambiar_fecha/(?P<id>\d+)/$', 'conector.views.cambiar_fecha', name='cambiar_fecha'),
     
     url(r'^otrastareas/$', 'conector.views.tareas', name='tareas'),
     url(r'^creartarea/$', 'conector.views.tarea', name='tarea'),

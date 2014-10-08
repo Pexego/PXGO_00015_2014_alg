@@ -27,6 +27,8 @@ from django.shortcuts import redirect
 from models import Usuario
 import datetime,time
 from django.utils import timezone
+from datetime import datetime
+
 
 def timestamp(date):
     return time.mktime(date.timetuple())/3600
@@ -45,8 +47,8 @@ def home(request):
         cursor = DB.cursor()
         try:
             codigo = int(request.POST.get("code",False))
-            
-        
+
+
             user_ids = user_obj.search(cursor, USER, [('code', '=', codigo )], order="login ASC")
             users = user_obj.browse(cursor, USER, user_ids)
             if users:
@@ -103,7 +105,7 @@ def productos(request):
     from erp import POOL, DB, USER
     cursor = DB.cursor()
     product_obj = POOL.get('mrp.production')
-    
+
 
     try:
         product_ids = product_obj.search(cursor, USER, [('state', 'not in', ['done','cancel'])], order="name ASC")
@@ -114,7 +116,7 @@ def productos(request):
             'users_list': users_list,
             'products_list': products,
             'codigo': request.session['codigo'],
-    
+
         })
     except Exception as e:
         return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/productos/");</script>')
@@ -144,6 +146,7 @@ def producto(request,id):
             'users_list': users_list,
             'product': production[0],
             'codigo': request.session['codigo'],
+
         })
     except Exception as e:
         return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
@@ -244,7 +247,7 @@ def procesar(request, id):
         cursor.commit()
         cursor.close()
         return HttpResponse('<script type="text/javascript">window.location.replace("/producto/'+id+'/");</script>')
-    
+
 
 def abrir(request, id):
 
@@ -283,20 +286,20 @@ def finalizar(request, id):
         mrp_obj.action_produce(cursor, USER, mrp.id, mrp.product_qty, "consume_produce")
         mrp_obj.action_production_end(cursor, USER, [mrp.id,])
         user_access = Usuario.objects.filter(project =  mrp.id, end__isnull = True)
-        
+
         for u in user_access:
             u.end=timezone.now()
             u.save()
         users_time = Usuario.objects.filter(project = mrp.id )
 
         for t in users_time:
-        
+
             user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
             usere = user_obj.browse(cursor, USER, user_ids)
-        
+
             hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
             hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
-        
+
             vals = {}
 
             vals['production_id'] =  mrp.id
@@ -348,7 +351,7 @@ def verstock(request, id):
             if selected_lots:
                 move_obj.apply_lots_in_production(cursor, USER, [move.id], selected_lots)
             return HttpResponse('<script type="text/javascript">opener.location.reload();window.close()</script>')
-            
+
         else:
             lots = lot_obj.browse(cursor, USER, lot_ids)
             lots_qty = sum([x.stock_available for x in lots])
@@ -363,7 +366,7 @@ def verstock(request, id):
 
             context = RequestContext(request, {
                 'lots': lots,
-                
+
             })
             return HttpResponse(template.render(context))
     except Exception as e:
@@ -382,7 +385,6 @@ def eliminar(request, id):
         from erp import POOL, DB, USER
         cursor = DB.cursor()
         prod_obj = POOL.get('stock.move')
-        print "Eliminar " + str(pr_id)
         try:
             prod_obj.unlink(cursor, USER, [pr_id], context=oerp_ctx)
         except Exception as e:
@@ -417,6 +419,49 @@ def eliminar(request, id):
 
 
 
+def cambiar_fecha(request, id):
+    pr_id = int(id)
+    oerp_ctx = {'lang': 'es_ES', 'call_unlink': True}
+    if request.method == 'POST':
+
+        from erp import POOL, DB, USER
+        cursor = DB.cursor()
+        prod_obj = POOL.get('stock.move')
+        lot_obj = POOL.get('stock.production.lot')
+        try:
+            lot_obj.write(cursor, USER, [pr_id], {'use_date': request.POST.get("use_date")}, oerp_ctx)
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+
+            return HttpResponse('<script type="text/javascript">opener.location.reload();window.close();</script>')
+    else:
+
+        template = loader.get_template('conector/cambiar_fecha.html')
+        context={}
+
+        from erp import POOL, DB, USER
+        lot_obj = POOL.get('stock.production.lot')
+        cursor = DB.cursor()
+        try:
+            prodlot = lot_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
+            context = RequestContext(request, {
+                'prodlot': prodlot[0],
+            })
+            return HttpResponse(template.render(context))
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+
+
+
 def reciclar(request, id):
     pr_id = int(id)
     oerp_ctx = {'lang': 'es_ES'}
@@ -425,7 +470,7 @@ def reciclar(request, id):
         from erp import POOL, DB, USER
         cursor = DB.cursor()
         prod_obj = POOL.get('stock.move')
-        
+
         try:
 
             product = prod_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
@@ -454,7 +499,7 @@ def reciclar(request, id):
             return HttpResponse(template.render(context))
         except Exception as e:
             return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
-            
+
             pass
         finally:
             cursor.commit()
@@ -541,7 +586,7 @@ def etiquetas (request, id):
 
 def dividir(request, id):
     # Una vez recibido el post, tengo que llamar a alguna funcion que me pase omar.
-    
+
     template = loader.get_template('conector/dividir.html')
     context={}
     oerp_ctx = {'lang': 'es_ES'}
@@ -553,7 +598,7 @@ def dividir(request, id):
         lot_obj = POOL.get('stock.production.lot')
 
         try:
-            
+
             updated=False
             move = move_obj.browse(cursor, USER, pr_id)
             new_lots = {}
@@ -729,7 +774,7 @@ def tarea(request,id=None):
                             vals['user_id'] = usere[0].id
                             vals['amount'] = hr_usere[0].product_id.standard_price * vals['unit_amount']
                             time_obj.create(cursor, USER, vals, context=oerp_ctx)
-                        
+
                         vals['name'] = description
                         vals['product_id'] = pr_id
                         vals['note'] = note
@@ -817,7 +862,7 @@ def salir(request):
     return HttpResponse('<script type="text/javascript">window.location.replace("/");</script>')
 
 def actualizar_cantidad(request, id):
-    
+
     template = loader.get_template('conector/actualizar_cantidad.html')
     context={}
     oerp_ctx = {'lang': 'es_ES'}
@@ -830,23 +875,23 @@ def actualizar_cantidad(request, id):
         change_obj = POOL.get('change.production.qty')
         bom_obj = POOL.get('mrp.bom')
         move_obj = POOL.get('stock.move')
-        
+
         try:
             mrp = mrp_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
             mrp_obj.write(cursor, USER, [mrp[0].id], {'product_qty': cantidad})
             mrp_obj.action_compute(cursor, USER, [mrp[0].id])
             for move in mrp[0].move_lines:
-                
+
                 bom_point = mrp[0].bom_id
                 bom_id = mrp[0].bom_id.id
                 if not bom_point:
                     bom_id = bom_obj._bom_find(cursor, USER, mrp[0].product_id.id, mrp[0].product_uom.id)
-                    
+
                     if not bom_id:
                         raise osv.except_osv(_('Error!'), _("Cannot find bill of material for this product."))
                     mrp_obj.write(cursor, USER, [mrp[0].id], {'bom_id': bom_id})
                     bom_point = bom_obj.browse(cursor, USER, [bom_id])[0]
-                    
+
                 if not bom_id:
                     raise osv.except_osv(_('Error!'), _("Cannot find bill of material for this product."))
 
@@ -862,9 +907,8 @@ def actualizar_cantidad(request, id):
             if mrp[0].move_prod_id:
                 move_obj.write(cursor, USER, [mrp[0].move_prod_id.id], {'product_qty' : cantidad})
             change_obj._update_product_to_produce(cursor, USER, mrp[0], cantidad, context=context)
-                
+
         except Exception as e:
-            print 
             return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
             pass
         finally:
@@ -885,12 +929,12 @@ def actualizar_cantidad(request, id):
             return HttpResponse(template.render(context))
         except Exception as e:
             return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
-            
+
             pass
         finally:
             cursor.commit()
             cursor.close()
-            
+
 def desechar(request, id):
     pr_id = int(id)
     oerp_ctx = {'lang': 'es_ES'}
@@ -901,10 +945,10 @@ def desechar(request, id):
         prod_obj = POOL.get('stock.move')
         location_obj = POOL.get('stock.location')
         try:
-            
+
             product = prod_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
             scraped_location = location_obj.search(cursor, USER, [('scrap_location','=',True)])
-            prod_obj = prod_obj.action_scrap(cursor, USER, [product[0].id], cantidad, scraped_location[0].id, context=oerp_ctx)
+            prod_obj = prod_obj.action_scrap(cursor, USER, [product[0].id], cantidad, scraped_location[0], context=oerp_ctx)
         except Exception as e:
             return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
             pass
@@ -929,7 +973,7 @@ def desechar(request, id):
             return HttpResponse(template.render(context))
         except Exception as e:
             return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
-            
+
             pass
         finally:
             cursor.commit()
