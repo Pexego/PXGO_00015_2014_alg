@@ -3275,3 +3275,636 @@ Traceback (most recent call last):
     <<<<<<< HEAD
      ^
 SyntaxError: invalid syntax
+[08/Oct/2014 12:24:48] "GET / HTTP/1.1" 200 3066
+[08/Oct/2014 10:24:55] "POST / HTTP/1.1" 200 3548
+[08/Oct/2014 10:24:58] "GET /productos/ HTTP/1.1" 200 35226
+No handlers could be found for logger "openerp.sql_db"
+Internal Server Error: /producto/224/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 155, in producto
+    return HttpResponse(template.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 305, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 196, in render
+    nodelist.append(node.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 88, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 585, in resolve
+    obj = self.var.resolve(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 735, in resolve
+    value = self._resolve_lookup(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 765, in _resolve_lookup
+    current = current[bit]
+  File "/opt/openerp/server/openerp/osv/orm.py", line 405, in __getitem__
+    field_values = self._table.read(self._cr, self._uid, ids, field_names, context=self._context, load="_classic_write")
+  File "/opt/openerp/server/openerp/osv/orm.py", line 3680, in read
+    result = self._read_flat(cr, user, select, fields, context, load)
+  File "/opt/openerp/server/openerp/osv/orm.py", line 3732, in _read_flat
+    cr.execute(query, [tuple(sub_ids)] + rule_params)
+  File "/opt/openerp/server/openerp/sql_db.py", line 161, in wrapper
+    return f(self, *args, **kwargs)
+  File "/opt/openerp/server/openerp/sql_db.py", line 226, in execute
+    res = self._obj.execute(query, params)
+ProgrammingError: column stock_move.scrapped does not exist
+LINE 1: ...ck_move."move_dest_id",stock_move."consumed_date",stock_move...
+                                                             ^
+
+[08/Oct/2014 10:25:04] "GET /producto/224/ HTTP/1.1" 500 299832
+Internal Server Error: /producto/221/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 155, in producto
+    return HttpResponse(template.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 305, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 196, in render
+    nodelist.append(node.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 88, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 585, in resolve
+    obj = self.var.resolve(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 735, in resolve
+    value = self._resolve_lookup(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 765, in _resolve_lookup
+    current = current[bit]
+  File "/opt/openerp/server/openerp/osv/orm.py", line 405, in __getitem__
+    field_values = self._table.read(self._cr, self._uid, ids, field_names, context=self._context, load="_classic_write")
+  File "/opt/openerp/server/openerp/osv/orm.py", line 3680, in read
+    result = self._read_flat(cr, user, select, fields, context, load)
+  File "/opt/openerp/server/openerp/osv/orm.py", line 3732, in _read_flat
+    cr.execute(query, [tuple(sub_ids)] + rule_params)
+  File "/opt/openerp/server/openerp/sql_db.py", line 161, in wrapper
+    return f(self, *args, **kwargs)
+  File "/opt/openerp/server/openerp/sql_db.py", line 226, in execute
+    res = self._obj.execute(query, params)
+ProgrammingError: column stock_move.scrapped does not exist
+LINE 1: ...ck_move."move_dest_id",stock_move."consumed_date",stock_move...
+                                                             ^
+
+[08/Oct/2014 10:25:49] "GET /producto/221/ HTTP/1.1" 500 299853
+Internal Server Error: /producto/221/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 155, in producto
+    return HttpResponse(template.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 305, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 196, in render
+    nodelist.append(node.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 88, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 585, in resolve
+    obj = self.var.resolve(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 735, in resolve
+    value = self._resolve_lookup(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 765, in _resolve_lookup
+    current = current[bit]
+  File "/opt/openerp/server/openerp/osv/orm.py", line 405, in __getitem__
+    field_values = self._table.read(self._cr, self._uid, ids, field_names, context=self._context, load="_classic_write")
+  File "/opt/openerp/server/openerp/osv/orm.py", line 3680, in read
+    result = self._read_flat(cr, user, select, fields, context, load)
+  File "/opt/openerp/server/openerp/osv/orm.py", line 3732, in _read_flat
+    cr.execute(query, [tuple(sub_ids)] + rule_params)
+  File "/opt/openerp/server/openerp/sql_db.py", line 161, in wrapper
+    return f(self, *args, **kwargs)
+  File "/opt/openerp/server/openerp/sql_db.py", line 226, in execute
+    res = self._obj.execute(query, params)
+ProgrammingError: column stock_move.scrapped does not exist
+LINE 1: ...ck_move."move_dest_id",stock_move."consumed_date",stock_move...
+                                                             ^
+
+[08/Oct/2014 10:26:10] "GET /producto/221/ HTTP/1.1" 500 299853
+[08/Oct/2014 10:28:04] "GET / HTTP/1.1" 200 3166
+[08/Oct/2014 10:28:04] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961
+[08/Oct/2014 10:28:04] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 29110
+[08/Oct/2014 10:28:04] "GET /static/img/algamar.png HTTP/1.1" 200 22737
+[08/Oct/2014 10:28:04] "GET /static/js/jquery.min.js HTTP/1.1" 200 96381
+[08/Oct/2014 10:28:12] "POST / HTTP/1.1" 200 3548
+[08/Oct/2014 10:28:13] "GET /static/img/produc.jpg HTTP/1.1" 200 3431
+[08/Oct/2014 10:28:13] "GET /static/img/otras.jpg HTTP/1.1" 200 4110
+[08/Oct/2014 10:28:14] "GET /productos/ HTTP/1.1" 200 35226
+[08/Oct/2014 10:28:23] "GET /crear_productos/ HTTP/1.1" 200 7592
+[08/Oct/2014 10:28:43] "POST /crear_productos/ HTTP/1.1" 302 0
+[08/Oct/2014 10:28:43] "GET /producto/225 HTTP/1.1" 301 0
+[08/Oct/2014 10:28:43] "GET /producto/225/ HTTP/1.1" 200 4018
+[08/Oct/2014 10:28:52] "POST /crear_productos/ HTTP/1.1" 302 0
+[08/Oct/2014 10:28:52] "GET /producto/226 HTTP/1.1" 301 0
+[08/Oct/2014 10:28:52] "GET /producto/226/ HTTP/1.1" 200 4018
+[08/Oct/2014 10:28:59] "POST /crear_productos/ HTTP/1.1" 302 0
+[08/Oct/2014 10:28:59] "GET /producto/227 HTTP/1.1" 301 0
+[08/Oct/2014 10:28:59] "GET /producto/227/ HTTP/1.1" 200 4018
+[08/Oct/2014 10:29:02] "GET /salir/ HTTP/1.1" 200 69
+[08/Oct/2014 10:29:02] "GET / HTTP/1.1" 200 3066
+Internal Server Error: /producto/221/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 155, in producto
+    return HttpResponse(template.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 138, in render
+    context.render_context.push()
+AttributeError: 'dict' object has no attribute 'render_context'
+[08/Oct/2014 10:30:15] "GET /producto/221/ HTTP/1.1" 500 69941
+[08/Oct/2014 10:31:39] "GET /productos/ HTTP/1.1" 200 35111
+[08/Oct/2014 10:31:42] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[08/Oct/2014 10:31:42] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[08/Oct/2014 10:31:42] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[08/Oct/2014 10:31:42] "GET /static/img/algamar.png HTTP/1.1" 304 0
+Internal Server Error: /producto/224/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 155, in producto
+    return HttpResponse(template.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 138, in render
+    context.render_context.push()
+AttributeError: 'dict' object has no attribute 'render_context'
+[08/Oct/2014 10:32:12] "GET /producto/224/ HTTP/1.1" 500 69941
+[08/Oct/2014 10:32:39] "GET /salir/ HTTP/1.1" 200 131
+[08/Oct/2014 10:32:42] "GET / HTTP/1.1" 200 3066
+[08/Oct/2014 10:32:47] "POST / HTTP/1.1" 200 3548
+[08/Oct/2014 10:32:49] "GET /productos/ HTTP/1.1" 200 35226
+Internal Server Error: /producto/224/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 155, in producto
+    return HttpResponse(template.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 305, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 196, in render
+    nodelist.append(node.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 88, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 585, in resolve
+    obj = self.var.resolve(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 735, in resolve
+    value = self._resolve_lookup(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 765, in _resolve_lookup
+    current = current[bit]
+  File "/opt/openerp/server/openerp/osv/orm.py", line 405, in __getitem__
+    field_values = self._table.read(self._cr, self._uid, ids, field_names, context=self._context, load="_classic_write")
+  File "/opt/openerp/server/openerp/osv/orm.py", line 3680, in read
+    result = self._read_flat(cr, user, select, fields, context, load)
+  File "/opt/openerp/server/openerp/osv/orm.py", line 3732, in _read_flat
+    cr.execute(query, [tuple(sub_ids)] + rule_params)
+  File "/opt/openerp/server/openerp/sql_db.py", line 161, in wrapper
+    return f(self, *args, **kwargs)
+  File "/opt/openerp/server/openerp/sql_db.py", line 226, in execute
+    res = self._obj.execute(query, params)
+ProgrammingError: column stock_move.scrapped does not exist
+LINE 1: ...ck_move."move_dest_id",stock_move."consumed_date",stock_move...
+                                                             ^
+
+[08/Oct/2014 10:32:54] "GET /producto/224/ HTTP/1.1" 500 299832
+[08/Oct/2014 10:34:45] "GET /producto/224/ HTTP/1.1" 200 7222
+[08/Oct/2014 10:34:46] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[08/Oct/2014 10:34:46] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[08/Oct/2014 10:34:46] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[08/Oct/2014 10:34:46] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[08/Oct/2014 10:34:53] "GET /cambiar_fecha/281 HTTP/1.1" 301 0
+[08/Oct/2014 10:34:54] "GET /cambiar_fecha/281/ HTTP/1.1" 200 1921
+[08/Oct/2014 10:35:00] "POST /cambiar_fecha/281/ HTTP/1.1" 200 80
+[08/Oct/2014 10:35:00] "GET /producto/224/ HTTP/1.1" 200 7222
+[08/Oct/2014 10:35:00] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[08/Oct/2014 10:35:01] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[08/Oct/2014 10:35:01] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[08/Oct/2014 10:35:01] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[08/Oct/2014 10:35:02] "GET /cambiar_fecha/281/ HTTP/1.1" 200 1921
+[08/Oct/2014 10:35:06] "POST /cambiar_fecha/281/ HTTP/1.1" 200 80
+[08/Oct/2014 10:35:06] "GET /producto/224/ HTTP/1.1" 200 7222
+[08/Oct/2014 10:35:07] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[08/Oct/2014 10:35:07] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[08/Oct/2014 10:35:07] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[08/Oct/2014 10:35:07] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[08/Oct/2014 10:35:09] "GET /etiquetas/224 HTTP/1.1" 301 0
+[08/Oct/2014 10:35:09] "GET /etiquetas/224/ HTTP/1.1" 200 3598
+Internal Server Error: /etiquetas/224/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 561, in etiquetas
+    return response
+UnboundLocalError: local variable 'response' referenced before assignment
+[08/Oct/2014 10:35:16] "POST /etiquetas/224/ HTTP/1.1" 500 93549
+[08/Oct/2014 10:35:24] "GET /dividir/1551 HTTP/1.1" 301 0
+[08/Oct/2014 10:35:24] "GET /dividir/1551/ HTTP/1.1" 200 4620
+[08/Oct/2014 10:35:35] "POST /dividir/1551/ HTTP/1.1" 200 79
+[08/Oct/2014 10:35:35] "GET /producto/224/ HTTP/1.1" 200 8019
+[08/Oct/2014 10:35:36] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[08/Oct/2014 10:35:36] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[08/Oct/2014 10:35:36] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[08/Oct/2014 10:35:36] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[08/Oct/2014 10:35:38] "GET /etiquetas/224/ HTTP/1.1" 200 4024
+[08/Oct/2014 10:35:49] "POST /etiquetas/224/ HTTP/1.1" 200 189851
+[08/Oct/2014 10:38:13] "GET /salir/ HTTP/1.1" 200 69
+[08/Oct/2014 10:38:13] "GET / HTTP/1.1" 200 3066
+[08/Oct/2014 10:38:16] "POST / HTTP/1.1" 200 3548
+[08/Oct/2014 10:38:18] "GET /productos/ HTTP/1.1" 200 35226
+[08/Oct/2014 10:45:29] "GET /salir/ HTTP/1.1" 200 69
+[08/Oct/2014 10:45:29] "GET / HTTP/1.1" 200 3066
+[08/Oct/2014 11:05:11] "GET /salir/ HTTP/1.1" 200 69
+[08/Oct/2014 11:05:11] "GET / HTTP/1.1" 200 2972
+[08/Oct/2014 11:06:50] "POST / HTTP/1.1" 200 3456
+[08/Oct/2014 11:06:51] "GET /productos/ HTTP/1.1" 200 35134
+[08/Oct/2014 11:06:55] "GET /crear_productos/ HTTP/1.1" 200 7500
+[08/Oct/2014 11:07:10] "POST /crear_productos/ HTTP/1.1" 302 0
+[08/Oct/2014 11:07:10] "GET /producto/228 HTTP/1.1" 301 0
+Internal Server Error: /producto/228/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 155, in producto
+    return HttpResponse(template.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 305, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 196, in render
+    nodelist.append(node.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 88, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 613, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/templatetags/mrp_webpanel_app_tag.py", line 23, in parse_date
+    return datetime.strptime(date_string, format)
+TypeError: must be string, not bool
+[08/Oct/2014 11:07:11] "GET /producto/228/ HTTP/1.1" 500 246795
+[08/Oct/2014 11:17:21] "GET / HTTP/1.1" 200 3074
+[08/Oct/2014 11:18:18] "POST / HTTP/1.1" 200 3556
+[08/Oct/2014 11:18:21] "GET /productos/ HTTP/1.1" 200 35617
+Internal Server Error: /producto/228/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 155, in producto
+    return HttpResponse(template.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 305, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 196, in render
+    nodelist.append(node.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 88, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 613, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/templatetags/mrp_webpanel_app_tag.py", line 23, in parse_date
+    return datetime.strptime(date_string, format)
+TypeError: must be string, not bool
+[08/Oct/2014 11:18:36] "GET /producto/228/ HTTP/1.1" 500 247350
+[08/Oct/2014 11:25:14] "GET / HTTP/1.1" 200 3174
+[08/Oct/2014 11:25:19] "POST / HTTP/1.1" 200 3556
+[08/Oct/2014 11:25:24] "GET /productos/ HTTP/1.1" 200 35617
+Exception psycopg2.OperationalError: 'server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request.\n' in <bound method Cursor.__del__ of <openerp.sql_db.Cursor object at 0x7f9586382e90>> ignored
+Internal Server Error: /producto/228/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 155, in producto
+    return HttpResponse(template.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 305, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 196, in render
+    nodelist.append(node.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 88, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 613, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/templatetags/mrp_webpanel_app_tag.py", line 23, in parse_date
+    return datetime.strptime(date_string, format)
+TypeError: must be string, not bool
+[08/Oct/2014 11:25:32] "GET /producto/228/ HTTP/1.1" 500 248361
+[08/Oct/2014 11:33:27] "POST / HTTP/1.1" 200 3556
+[08/Oct/2014 11:33:31] "GET /productos/ HTTP/1.1" 200 35617
+[08/Oct/2014 11:33:45] "GET /producto/224/ HTTP/1.1" 200 8027
+[08/Oct/2014 11:33:56] "GET /salir/ HTTP/1.1" 200 69
+[08/Oct/2014 11:33:56] "GET / HTTP/1.1" 200 3079
+[08/Oct/2014 11:34:08] "POST / HTTP/1.1" 200 3461
+[08/Oct/2014 11:34:10] "GET /productos/ HTTP/1.1" 200 35522
+[08/Oct/2014 11:34:28] "GET /producto/224/ HTTP/1.1" 200 7932
+[08/Oct/2014 11:34:42] "GET /salir/ HTTP/1.1" 200 69
+[08/Oct/2014 11:34:42] "GET / HTTP/1.1" 200 2978
+[08/Oct/2014 11:35:51] "GET / HTTP/1.1" 200 2978
+[08/Oct/2014 11:35:54] "POST / HTTP/1.1" 200 3360
+[08/Oct/2014 11:35:56] "GET /productos/ HTTP/1.1" 200 35421
+Internal Server Error: /producto/228/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/views.py", line 155, in producto
+    return HttpResponse(template.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 305, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/defaulttags.py", line 196, in render
+    nodelist.append(node.render(context))
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/debug.py", line 88, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 613, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/conector/templatetags/mrp_webpanel_app_tag.py", line 23, in parse_date
+    return datetime.strptime(date_string, format)
+TypeError: must be string, not bool
+[08/Oct/2014 11:36:01] "GET /producto/228/ HTTP/1.1" 500 246168
+[08/Oct/2014 11:36:06] "GET /producto/221/ HTTP/1.1" 200 7111
+[08/Oct/2014 11:36:10] "GET /finalizar/221 HTTP/1.1" 301 0
+[08/Oct/2014 11:36:11] "GET /finalizar/221/ HTTP/1.1" 200 69
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/wsgiref/handlers.py", line 86, in run
+    self.finish_response()
+  File "/usr/lib/python2.7/wsgiref/handlers.py", line 128, in finish_response
+    self.write(data)
+  File "/usr/lib/python2.7/wsgiref/handlers.py", line 212, in write
+    self.send_headers()
+  File "/usr/lib/python2.7/wsgiref/handlers.py", line 270, in send_headers
+    self.send_preamble()
+  File "/usr/lib/python2.7/wsgiref/handlers.py", line 194, in send_preamble
+    'Date: %s\r\n' % format_date_time(time.time())
+  File "/usr/lib/python2.7/socket.py", line 324, in write
+    self.flush()
+  File "/usr/lib/python2.7/socket.py", line 303, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+[08/Oct/2014 11:36:11] "GET /finalizar/221/ HTTP/1.1" 500 59
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/SocketServer.py", line 593, in process_request_thread
+[08/Oct/2014 11:36:11] "GET /finalizar/221/ HTTP/1.1" 200 69
+    self.finish_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/servers/basehttp.py", line 126, in __init__
+    super(WSGIRequestHandler, self).__init__(*args, **kwargs)
+  File "/usr/lib/python2.7/SocketServer.py", line 651, in __init__
+    self.finish()
+  File "/usr/lib/python2.7/SocketServer.py", line 710, in finish
+    self.wfile.close()
+  File "/usr/lib/python2.7/socket.py", line 279, in close
+    self.flush()
+  File "/usr/lib/python2.7/socket.py", line 303, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+[08/Oct/2014 11:36:11] "GET / HTTP/1.1" 200 2876
+[08/Oct/2014 11:36:15] "POST / HTTP/1.1" 200 3360
+[08/Oct/2014 11:36:17] "GET /productos/ HTTP/1.1" 200 35019
+[08/Oct/2014 11:36:21] "GET /producto/224/ HTTP/1.1" 200 7831
+[08/Oct/2014 11:36:25] "GET /eliminar/1551 HTTP/1.1" 301 0
+[08/Oct/2014 11:36:25] "GET /eliminar/1551/ HTTP/1.1" 200 1882
+[08/Oct/2014 11:36:26] "POST /eliminar/1551/ HTTP/1.1" 200 80
+[08/Oct/2014 11:36:27] "GET /producto/224/ HTTP/1.1" 200 7052
+[08/Oct/2014 11:36:27] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[08/Oct/2014 11:36:27] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[08/Oct/2014 11:36:27] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[08/Oct/2014 11:36:27] "GET /static/img/algamar.png HTTP/1.1" 304 0
+[08/Oct/2014 11:36:31] "GET /eliminar/1559 HTTP/1.1" 301 0
+[08/Oct/2014 11:36:31] "GET /eliminar/1559/ HTTP/1.1" 200 1883
+[08/Oct/2014 11:36:33] "POST /eliminar/1559/ HTTP/1.1" 200 80
+[08/Oct/2014 11:36:33] "GET /producto/224/ HTTP/1.1" 200 5784
+[08/Oct/2014 11:36:33] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[08/Oct/2014 11:36:33] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[08/Oct/2014 11:36:33] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[08/Oct/2014 11:36:33] "GET /static/img/algamar.png HTTP/1.1" 304 0
+Validating models...
+
+0 errors found
+October 08, 2014 - 12:24:37
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.5', 59019)
+----------------------------------------
+Exception psycopg2.OperationalError: 'server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request.\n' in <bound method Cursor.__del__ of <openerp.sql_db.Cursor object at 0x7f9587738d50>> ignored
+Exception psycopg2.OperationalError: 'server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request.\n' in <bound method Cursor.__del__ of <openerp.sql_db.Cursor object at 0x7f95876e3850>> ignored
+Exception psycopg2.OperationalError: 'server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request.\n' in <bound method Cursor.__del__ of <openerp.sql_db.Cursor object at 0x7f9587521a50>> ignored
+Exception psycopg2.OperationalError: 'server closed the connection unexpectedly\n\tThis probably means the server terminated abnormally\n\tbefore or while processing the request.\n' in <bound method Cursor.__del__ of <openerp.sql_db.Cursor object at 0x7f958636cd10>> ignored
+Traceback (most recent call last):
+  File "manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/management/__init__.py", line 399, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/management/__init__.py", line 392, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/management/__init__.py", line 261, in fetch_command
+    commands = get_commands()
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/management/__init__.py", line 107, in get_commands
+    apps = settings.INSTALLED_APPS
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/conf/__init__.py", line 54, in __getattr__
+    self._setup(name)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/conf/__init__.py", line 49, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/conf/__init__.py", line 128, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/mrp_webpanel_app/settings.py", line 194
+    <<<<<<< HEAD
+     ^
+SyntaxError: invalid syntax
