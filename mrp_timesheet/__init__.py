@@ -22,3 +22,4 @@
 
 import hr_analytic_timesheet
 import mrp_production
+import hr_timesheet_report
