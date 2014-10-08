@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4eb2365-c9ac-4e24-b636-03fd751d7994" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/cambiar_fecha.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/conector/templatetags/mrp_webpanel_app_tag.py" afterPath="$PROJECT_DIR$/mrp_webpanel_app/conector/templatetags/mrp_webpanel_app_tag.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/producto.html" afterPath="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/producto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/urls.py" afterPath="$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/conector/views.py" afterPath="$PROJECT_DIR$/mrp_webpanel_app/conector/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/settings.py" afterPath="$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PXGO_00015_2014_alg.iws" />
@@ -33,11 +30,9 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/conector/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.2285714" vertical-offset="6317" max-vertical-offset="14790">
+            <state vertical-scroll-proportion="0.0" vertical-offset="6317" max-vertical-offset="14790">
               <caret line="431" column="0" selection-start-line="431" selection-start-column="0" selection-end-line="431" selection-end-column="0" />
-              <folding>
-                <element signature="e#1041#1077#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,20 +50,8 @@
       <file leaf-file-name="mrp_webpanel_app_tag.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/conector/templatetags/mrp_webpanel_app_tag.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+            <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="465">
               <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-              <folding>
-                <element signature="e#1#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file:///usr/lib/python2.7/dist-packages/django/core/handlers/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1284" max-vertical-offset="4185">
-              <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -77,8 +60,18 @@
       <file leaf-file-name="producto.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/producto.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3486842" vertical-offset="0" max-vertical-offset="2250">
-              <caret line="41" column="148" selection-start-line="41" selection-start-column="77" selection-end-line="41" selection-end-column="148" />
+            <state vertical-scroll-proportion="0.39539748" vertical-offset="366" max-vertical-offset="2490">
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2128" max-vertical-offset="3090">
+              <caret line="179" column="57" selection-start-line="179" selection-start-column="57" selection-end-line="179" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -87,7 +80,7 @@
       <file leaf-file-name="dividir.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/dividir.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.625" vertical-offset="510" max-vertical-offset="1395">
+            <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1395">
               <caret line="51" column="44" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="44" />
               <folding />
             </state>
@@ -97,7 +90,7 @@
       <file leaf-file-name="etiquetas.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/etiquetas.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.5" vertical-offset="300" max-vertical-offset="900">
+            <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="900">
               <caret line="40" column="47" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="47" />
               <folding />
             </state>
@@ -107,7 +100,7 @@
       <file leaf-file-name="cambiar_fecha.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/cambiar_fecha.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.875" vertical-offset="405" max-vertical-offset="915">
+            <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="915">
               <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
@@ -117,7 +110,7 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="675">
+            <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="675">
               <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
               <folding />
             </state>
@@ -127,7 +120,7 @@
       <file leaf-file-name="crear_producto.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/crear_producto.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="1095">
+            <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1095">
               <caret line="14" column="40" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="40" />
               <folding />
             </state>
@@ -152,7 +145,6 @@
         <option value="$PROJECT_DIR$/../../launchpad/7.0_ocb/addons/stock/stock.py" />
         <option value="$PROJECT_DIR$/mrp_lot_language/__openerp__.py" />
         <option value="$PROJECT_DIR$/mrp_lot_language/stock_lot.py" />
-        <option value="$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/settings.py" />
         <option value="$PROJECT_DIR$/mrp_lot_language/production_lot_view.xml" />
         <option value="$PROJECT_DIR$/../../launchpad/7.0_ocb/server/install/openerp-server-algamar.conf" />
         <option value="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/eliminar.html" />
@@ -171,18 +163,18 @@
         <option value="$PROJECT_DIR$/alg_mrp_label/wizard/print_label.py" />
         <option value="$PROJECT_DIR$/alg_mrp_label/report/mrp_production_label.jrxml" />
         <option value="$PROJECT_DIR$/mrp_webpanel_app/conector/templatetags/mrp_webpanel_app_tag.py" />
-        <option value="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/producto.html" />
         <option value="$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/urls.py" />
         <option value="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/cambiar_fecha.html" />
         <option value="$PROJECT_DIR$/mrp_webpanel_app/conector/views.py" />
+        <option value="$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/settings.py" />
+        <option value="$PROJECT_DIR$/mrp_webpanel_app/templates/conector/producto.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="y" value="28" />
-    <option name="width" value="1602" />
-    <option name="height" value="840" />
+    <option name="x" value="1599" />
+    <option name="width" value="1682" />
+    <option name="height" value="1051" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -434,6 +426,22 @@
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="182" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="212" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="218" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1004" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="199" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="207" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="212" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="998" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -600,7 +608,7 @@
       <option name="ADD_SOURCE_ROOTS" value="false" />
       <module name="PXGO_00015_2014_alg" />
       <option name="SCRIPT_NAME" value="manage.py" />
-      <option name="PARAMETERS" value="runserver 0.0.0.0:8000" />
+      <option name="PARAMETERS" value="runserver 0.0.0.0:8010" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <method />
@@ -623,26 +631,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="28" width="1602" height="840" extended-state="6" />
+    <frame x="1599" y="0" width="1682" height="1051" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32816902" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2127929" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22229259" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23380281" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2127929" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21157324" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3488624" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32816902" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -841,13 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2431" max-vertical-offset="3090">
-          <caret line="179" column="57" selection-start-line="179" selection-start-column="57" selection-end-line="179" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../alimentacion_7_0/mrp_automatic_lot/product.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="645">
@@ -902,7 +903,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="1350">
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -924,7 +924,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2630" max-vertical-offset="3450">
           <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -932,7 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3845" max-vertical-offset="5085">
           <caret line="269" column="0" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -940,7 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="10295" max-vertical-offset="11355">
           <caret line="718" column="0" selection-start-line="718" selection-start-column="0" selection-end-line="718" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -948,7 +945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -972,7 +968,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
           <caret line="19" column="49" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -980,7 +975,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1108" max-vertical-offset="1950">
           <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1004,7 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10135135" vertical-offset="0" max-vertical-offset="570">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1012,9 +1005,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding>
-            <element signature="e#1#30#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1028,7 +1019,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/dividir.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.625" vertical-offset="510" max-vertical-offset="1395">
+        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1395">
           <caret line="51" column="44" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="44" />
           <folding />
         </state>
@@ -1036,7 +1027,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/crear_producto.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="1095">
+        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1095">
           <caret line="14" column="40" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="40" />
           <folding />
         </state>
@@ -1044,7 +1035,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/etiquetas.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.5" vertical-offset="300" max-vertical-offset="900">
+        <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="900">
           <caret line="40" column="47" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="47" />
           <folding />
         </state>
@@ -1052,7 +1043,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/cambiar_fecha.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.875" vertical-offset="405" max-vertical-offset="915">
+        <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="915">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
@@ -1060,18 +1051,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/conector/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2285714" vertical-offset="6317" max-vertical-offset="14790">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6317" max-vertical-offset="14790">
           <caret line="431" column="0" selection-start-line="431" selection-start-column="0" selection-end-line="431" selection-end-column="0" />
-          <folding>
-            <element signature="e#1041#1077#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/mrp_webpanel_app/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2128" max-vertical-offset="3090">
+          <caret line="179" column="57" selection-start-line="179" selection-start-column="57" selection-end-line="179" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mrp_webpanel_app/templates/conector/producto.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3486842" vertical-offset="0" max-vertical-offset="2250">
-          <caret line="41" column="148" selection-start-line="41" selection-start-column="77" selection-end-line="41" selection-end-column="148" />
+        <state vertical-scroll-proportion="0.39539748" vertical-offset="366" max-vertical-offset="2490">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
