@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_hr_timesheet_report_tree_add_prod" model="ir.ui.view">
+            <field name="name">hr.timesheet.report.custom.tree.add_prod</field>
+            <field name="model">hr.timesheet.report.custom</field>
+            <field name="inherit_id" ref="hr_activity_timesheet.view_hr_timesheet_report_tree"/>
+            <field name="arch" type="xml">
+                <field name="hr_task_id" position="after">
+                    <field name="production_id" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_hr_timesheet_report_search_add_prod" model="ir.ui.view">
+            <field name="name">hr.timesheet.report.custom.search.add_prod</field>
+            <field name="model">hr.timesheet.report.custom</field>
+            <field name="inherit_id" ref="hr_activity_timesheet.view_hr_timesheet_report_search"/>
+            <field name="arch" type="xml">
+                <field name="hr_task_id" position="after">
+                    <field name="production_id"/>
+                </field>
+                <filter string="Activity" position="after">
+                    <filter string="Production" context="{'group_by':'production_id'}"/>
+                </filter>
+            </field>
+        </record>
+
+    </data>
+</openerp>

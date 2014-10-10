@@ -32,6 +32,7 @@ class stock_move(orm.Model):
                                            'mrp_production_move_ids',
                                            'move_id', 'production_id',
                                            'Consumed Products'),
+        'scrapped': fields.boolean('Scrapped', readonly=True),
     }
 
     def apply_lots_in_production(self, cr, uid, ids, selected_lots):

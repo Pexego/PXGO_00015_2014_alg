@@ -6,14 +6,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-17 16:58+0000\n"
-"PO-Revision-Date: 2014-06-17 16:58+0000\n"
+"POT-Creation-Date: 2014-10-08 09:00+0000\n"
+"PO-Revision-Date: 2014-10-08 09:00+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: hr_activity_timesheet
+#: model:ir.actions.act_window,help:hr_activity_timesheet.action_hr_timesheet_report
+msgid "<p>\n"
+"                This report performs analysis on timesheets created by your\n"
+"                human resources in the system. It allows you to have a full\n"
+"                overview of  entries done by your employees. You can group them\n"
+"                by specific selection criteria thanks to the search tool.\n"
+"              </p>\n"
+"            "
+msgstr "<p>\n"
+"Este informe realiza un análisis sobre los partes de horas creados en el sistema por sus empleados. Permite tener una vista general de las entradas realizadas por sus empleados. Puede agruparlas por un criterio específico de selección gracias a la herramienta de búsqueda.\n"
+"</p>\n"
+"            "
 
 #. module: hr_activity_timesheet
 #: view:hr.task:0
@@ -23,13 +37,15 @@ msgstr "Actividades"
 #. module: hr_activity_timesheet
 #: field:hr.analytic.timesheet,hr_task_id:0
 #: view:hr.task:0
+#: view:hr.timesheet.report.custom:0
+#: field:hr.timesheet.report.custom,hr_task_id:0
 msgid "Activity"
 msgstr "Actividad"
 
 #. module: hr_activity_timesheet
-#: code:_description:0
+#: view:hr.timesheet.report.custom:0
+#: field:hr.timesheet.report.custom,account_id:0
 #: model:ir.model,name:hr_activity_timesheet.model_account_analytic_account
-#, python-format
 msgid "Analytic Account"
 msgstr "Cuenta analítica"
 
@@ -37,6 +53,16 @@ msgstr "Cuenta analítica"
 #: field:product.product,analytic_acc_id:0
 msgid "Analytic account"
 msgstr "Cuenta analítica"
+
+#. module: hr_activity_timesheet
+#: selection:hr.timesheet.report.custom,month:0
+msgid "April"
+msgstr "Abril"
+
+#. module: hr_activity_timesheet
+#: selection:hr.timesheet.report.custom,month:0
+msgid "August"
+msgstr "Agosto"
 
 #. module: hr_activity_timesheet
 #: view:hr.task:0
@@ -64,12 +90,36 @@ msgid "Closed"
 msgstr "Cerrada"
 
 #. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+#: field:hr.timesheet.report.custom,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: hr_activity_timesheet
+#: field:hr.timesheet.report.custom,cost:0
+msgid "Cost"
+msgstr "Coste"
+
+#. module: hr_activity_timesheet
 #: view:hr.task:0
+#: field:hr.timesheet.report.custom,date:0
 msgid "Date"
 msgstr "Fecha"
 
 #. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+#: field:hr.timesheet.report.custom,day:0
+msgid "Day"
+msgstr "Día"
+
+#. module: hr_activity_timesheet
+#: selection:hr.timesheet.report.custom,month:0
+msgid "December"
+msgstr "Diciembre"
+
+#. module: hr_activity_timesheet
 #: field:hr.task,name:0
+#: field:hr.timesheet.report.custom,name:0
 msgid "Description"
 msgstr "Descripción"
 
@@ -90,9 +140,46 @@ msgid "End date"
 msgstr "Fecha fin"
 
 #. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+msgid "Extended Filters..."
+msgstr "Filtros extendidos..."
+
+#. module: hr_activity_timesheet
+#: selection:hr.timesheet.report.custom,month:0
+msgid "February"
+msgstr "Febrero"
+
+#. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+#: field:hr.timesheet.report.custom,general_account_id:0
+msgid "General Account"
+msgstr "Cuenta contable"
+
+#. module: hr_activity_timesheet
 #: view:hr.task:0
+#: view:hr.timesheet.report.custom:0
 msgid "Group By..."
 msgstr "Agrupar por..."
+
+#. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+msgid "Group by day of date"
+msgstr "Agrupar por día de fecha"
+
+#. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+msgid "Group by month of date"
+msgstr "Agrupar por el mes de una fecha"
+
+#. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+msgid "Group by year of date"
+msgstr "Agrupar por el año de una fecha"
+
+#. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+msgid "Hours"
+msgstr "Horas"
 
 #. module: hr_activity_timesheet
 #: view:hr.task:0
@@ -100,16 +187,68 @@ msgid "Information"
 msgstr "Información"
 
 #. module: hr_activity_timesheet
+#: selection:hr.timesheet.report.custom,month:0
+msgid "January"
+msgstr "Enero"
+
+#. module: hr_activity_timesheet
+#: field:hr.timesheet.report.custom,journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: hr_activity_timesheet
+#: selection:hr.timesheet.report.custom,month:0
+msgid "July"
+msgstr "Julio"
+
+#. module: hr_activity_timesheet
+#: selection:hr.timesheet.report.custom,month:0
+msgid "June"
+msgstr "Junio"
+
+#. module: hr_activity_timesheet
 #: field:hr.analytic.timesheet,kg_moved:0
 #: field:hr.task,kg_moved:0
+#: field:hr.timesheet.report.custom,kg_moved:0
 msgid "KG moved"
 msgstr "KG movidos"
+
+#. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+msgid "Kg. Moved"
+msgstr "Kg. movidos"
+
+#. module: hr_activity_timesheet
+#: selection:hr.timesheet.report.custom,month:0
+msgid "March"
+msgstr "Marzo"
+
+#. module: hr_activity_timesheet
+#: selection:hr.timesheet.report.custom,month:0
+msgid "May"
+msgstr "Mayo"
+
+#. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+#: field:hr.timesheet.report.custom,month:0
+msgid "Month"
+msgstr "Mes"
 
 #. module: hr_activity_timesheet
 #: view:hr.task:0
 #: field:hr.task,note:0
 msgid "Notes"
 msgstr "Notas"
+
+#. module: hr_activity_timesheet
+#: selection:hr.timesheet.report.custom,month:0
+msgid "November"
+msgstr "Noviembre"
+
+#. module: hr_activity_timesheet
+#: selection:hr.timesheet.report.custom,month:0
+msgid "October"
+msgstr "Octubre"
 
 #. module: hr_activity_timesheet
 #: view:hr.task:0
@@ -122,12 +261,17 @@ msgid "Opened"
 msgstr "Abierta"
 
 #. module: hr_activity_timesheet
-#: code:_description:0
 #: view:hr.task:0
+#: view:hr.timesheet.report.custom:0
+#: field:hr.timesheet.report.custom,product_id:0
 #: model:ir.model,name:hr_activity_timesheet.model_product_product
-#, python-format
 msgid "Product"
 msgstr "Producto"
+
+#. module: hr_activity_timesheet
+#: selection:hr.timesheet.report.custom,month:0
+msgid "September"
+msgstr "Septiembre"
 
 #. module: hr_activity_timesheet
 #: field:hr.task,date:0
@@ -140,17 +284,39 @@ msgid "State"
 msgstr "Estado"
 
 #. module: hr_activity_timesheet
+#: field:hr.timesheet.report.custom,quantity:0
+msgid "Time"
+msgstr "Horas"
+
+#. module: hr_activity_timesheet
 #: view:hr.task:0
 #: field:hr.task,work_line_ids:0
+#: view:hr.timesheet.report.custom:0
+#: model:ir.model,name:hr_activity_timesheet.model_hr_timesheet_report_custom
 msgid "Timesheet"
 msgstr "Parte de horas"
 
 #. module: hr_activity_timesheet
-#: code:_description:0
+#: view:hr.timesheet.report.custom:0
+#: model:ir.actions.act_window,name:hr_activity_timesheet.action_hr_timesheet_report
+#: model:ir.ui.menu,name:hr_activity_timesheet.menu_hr_timesheet_report
+msgid "Timesheet Analysis"
+msgstr "Análisis de horas"
+
+#. module: hr_activity_timesheet
 #: model:ir.model,name:hr_activity_timesheet.model_hr_analytic_timesheet
-#, python-format
 msgid "Timesheet Line"
 msgstr "Línea del parte de horas"
+
+#. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+msgid "Today"
+msgstr "Hoy"
+
+#. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+msgid "Total Cost"
+msgstr "Coste total"
 
 #. module: hr_activity_timesheet
 #: help:product.product,analytic_acc_id:0
@@ -159,14 +325,29 @@ msgid "Used from employee's\n"
 msgstr "Usada desde las actividades de los empleados al registrar el tiempo como coste a la cuenta."
 
 #. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+#: field:hr.timesheet.report.custom,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: hr_activity_timesheet
 #: field:hr.task,product_id:0
 msgid "Work"
 msgstr "Trabajo"
 
 #. module: hr_activity_timesheet
-#: code:_description:0
+#: view:hr.timesheet.report.custom:0
+#: field:hr.timesheet.report.custom,year:0
+msgid "Year"
+msgstr "Año"
+
+#. module: hr_activity_timesheet
+#: view:hr.timesheet.report.custom:0
+msgid "Yesterday"
+msgstr "Ayer"
+
+#. module: hr_activity_timesheet
 #: model:ir.model,name:hr_activity_timesheet.model_hr_task
-#, python-format
 msgid "hr.task"
 msgstr "hr.task"
 
