@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mrp_production_label" language="groovy" pageWidth="100" pageHeight="252" whenNoDataType="BlankPage" columnWidth="100" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mrp_production_label" language="groovy" pageWidth="129" pageHeight="252" whenNoDataType="BlankPage" columnWidth="129" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -32,28 +32,28 @@
 		<initialValueExpression><![CDATA[$P{REPORT_LOCALE}]]></initialValueExpression>
 	</variable>
 	<detail>
-		<band height="233" splitType="Stretch">
+		<band height="246" splitType="Stretch">
 			<textField isStretchWithOverflow="true" evaluationTime="Auto" pattern="" isBlankWhenNull="true">
-				<reportElement positionType="Float" x="1" y="9" width="24" height="116"/>
+				<reportElement positionType="Float" x="15" y="12" width="24" height="127"/>
 				<box>
 					<topPen lineWidth="0.0"/>
 					<leftPen lineWidth="0.0"/>
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="Left">
-					<font size="6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{product}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement positionType="Float" x="36" y="21" width="54" height="95" isPrintWhenDetailOverflows="true"/>
+				<reportElement positionType="Float" x="53" y="18" width="59" height="104" isPrintWhenDetailOverflows="true"/>
 				<jr:EAN13 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" orientation="90" textPosition="bottom">
 					<jr:codeExpression><![CDATA[$F{ean13}]]></jr:codeExpression>
 				</jr:EAN13>
 			</componentElement>
 			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
-				<reportElement positionType="Float" x="31" y="146" width="15" height="47"/>
+				<reportElement positionType="Float" x="62" y="157" width="15" height="47"/>
 				<box>
 					<topPen lineWidth="0.0"/>
 					<leftPen lineWidth="0.0"/>
@@ -61,12 +61,12 @@
 					<rightPen lineWidth="0.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="Left">
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{lot}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="MMM-yy" isBlankWhenNull="true">
-				<reportElement positionType="Float" x="45" y="117" width="14" height="51"/>
+				<reportElement positionType="Float" x="76" y="128" width="14" height="41"/>
 				<box>
 					<topPen lineWidth="0.0"/>
 					<leftPen lineWidth="0.0"/>
@@ -74,12 +74,12 @@
 					<rightPen lineWidth="0.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="Left">
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression class="java.util.Date"><![CDATA[$F{use_date}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
-				<reportElement positionType="Float" x="58" y="141" width="13" height="52"/>
+				<reportElement positionType="Float" x="89" y="152" width="13" height="52"/>
 				<box>
 					<topPen lineWidth="0.0"/>
 					<leftPen lineWidth="0.0"/>
@@ -87,35 +87,35 @@
 					<rightPen lineWidth="0.0"/>
 				</box>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="Left">
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{qty}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" x="31" y="193" width="15" height="28" backcolor="#FEFEFE"/>
+				<reportElement positionType="Float" x="62" y="204" width="15" height="28" backcolor="#FEFEFE"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="Left" markup="none">
-					<font size="8" isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[tr($V{L}, "Lot: ")]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" x="45" y="168" width="14" height="53" backcolor="#FEFEFE"/>
+				<reportElement positionType="Float" x="76" y="169" width="14" height="63" backcolor="#FEFEFE"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="Left" markup="none">
-					<font size="8" isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[tr($V{L}, "Cons. Pref.: ")]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" x="58" y="193" width="13" height="28" backcolor="#FEFEFE"/>
+				<reportElement positionType="Float" x="89" y="204" width="13" height="28" backcolor="#FEFEFE"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="Left" markup="none">
-					<font size="8" isBold="true"/>
+					<font size="9" isBold="true"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[tr($V{L}, "Uds: ")]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="Float" x="0" y="136" width="25" height="79"/>
+				<reportElement positionType="Float" x="12" y="155" width="27" height="77"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left" markup="none">
-					<font fontName="Liberation Sans" size="12" pdfFontName="Helvetica"/>
+					<font fontName="Liberation Sans" size="15" pdfFontName="Helvetica"/>
 				</textElement>
 				<text><![CDATA[ALGAMAR]]></text>
 			</staticText>
