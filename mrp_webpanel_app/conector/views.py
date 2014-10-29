@@ -112,7 +112,13 @@ def productos(request):
         products = product_obj.browse(cursor, USER, product_ids, context=oerp_ctx)
 
         users_list = Usuario.objects.filter(end__isnull = True)
+
+
+
+
+
         context = RequestContext(request, {
+
             'users_list': users_list,
             'products_list': products,
             'codigo': request.session['codigo'],
@@ -545,9 +551,6 @@ def etiquetas (request, id):
             service = netsvc.LocalService("report.mrp.production.label");
             (result, format) = service.create(cursor, USER, [pr_id], datas, {})
 
-            #fp = open("ticket.pdf", 'wb+')
-            #fp.write(result)
-            #fp.close()
             response = HttpResponse(content_type='application/pdf')
             response['Content-Disposition'] = 'attachment; filename="etiquetas.pdf"'
             response.write(result)

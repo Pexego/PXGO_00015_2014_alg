@@ -11,15 +11,28 @@
                 <tr>
                     <th>Producción</th>
                     <th>Producto final</th>
+                    <th>Trabajando</th>
                     <th>Fecha Inicio</th>
                     <th>Cantidad</th>
                     <th>Lote</th>
                     <th>Estado</th>
                 </tr>
+
+
+
                 {% for product in products_list %}
+
                     <tr>
                         <td><a href="/producto/{{product.id}}/">{{ product.name }}</a></td>
                         <td>{{ product.product_id.name }}</td>
+                        <td>
+                            {% for usua in users_list %}
+                                {% if usua.project|stringformat:"s" == product.id|stringformat:"s"%}
+                                   {% if usua.code|stringformat:"s" == codigo|stringformat:"s" %}<b>{{ usua.name }},</b>{% else %}{{ usua.name }},{% endif %}
+                                {% endif %}
+                            {% endfor %}
+
+                        </td>
                         <td>{{ product.date_planned }}</td>
                         <td>{{ product.product_qty }}</td>
                         <td></td>
