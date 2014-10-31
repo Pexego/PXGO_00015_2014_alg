@@ -48,7 +48,7 @@
                     {% if users_list %}
                         <ul class="nav navbar-nav" > 
                             {% for usua in users_list %}
-                                {% if codigo|stringformat:"s" == usua|stringformat:"s" %}<li class="active">{% else %}<li>{% endif %}<a href="#">{{ usua.name }}</a></li>
+                                {% if codigo|stringformat:"s" == usua|stringformat:"s" %}<li class="active">{% else %}<li>{% endif %}<a href="#">{{ usua.name }} ({{ usua.project }})</a></li>
                             {% endfor %}
                         </ul>
                     {% endif %}

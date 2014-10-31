@@ -9741,3 +9741,10 @@ AttributeError: 'dict' object has no attribute 'render_context'
 [31/Oct/2014 11:04:00] "GET /salir/ HTTP/1.1" 200 69
 [31/Oct/2014 11:04:00] "GET / HTTP/1.1" 200 2642
 [31/Oct/2014 11:04:10] "POST / HTTP/1.1" 200 3258
+Validating models...
+
+0 errors found
+October 31, 2014 - 11:54:26
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.

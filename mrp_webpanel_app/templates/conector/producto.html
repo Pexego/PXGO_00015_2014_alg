@@ -15,6 +15,15 @@
                 </li>
                 <li class="list-group-item"><strong>Almacen:</strong> {{ product.warehouse_id.name }}</li>
             </ul>
+            <ul class="nav navbar-nav" >
+                <li class="list-group-item"><strong>Usuarios en esta produccion:</strong>
+                 {% for usua in users_list %}
+                    {% if usua.project|stringformat:"s" == product.id|stringformat:"s"%}
+                       {% if usua.code|stringformat:"s" == codigo|stringformat:"s" %}<b>{{ usua.name }},</b>{% else %}{{ usua.name }},{% endif %}
+                    {% endif %}
+                {% endfor %}
+                </li>
+            </ul>
         </div>
         <div class="col-md-6">
             <div style="float:left;margin-left:12em;padding:2em;">
