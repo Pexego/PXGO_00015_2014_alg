@@ -151,7 +151,11 @@
                     {% endfor %}
                 </table>
             {% endif %}
+             {% if product.state == "in_production" or product.state == "ready" %}
+                <a href="/recalcular/{{ product.id }}" class="btn btn-warning" >Recálculo final de consumidos</a>
+            {% endif %}
         </div>
+
     </div>
     <div class="row">
         {% if product.state == "draft" %}

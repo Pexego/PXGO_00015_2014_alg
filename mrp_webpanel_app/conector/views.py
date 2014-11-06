@@ -255,6 +255,69 @@ def procesar(request, id):
         return HttpResponse('<script type="text/javascript">window.location.replace("/producto/'+id+'/");</script>')
 
 
+def recalcular(request, id):
+
+    context={}
+    from erp import POOL, DB, USER
+    context={}
+    oerp_ctx = {'lang': 'es_ES'}
+    mrp_obj = POOL.get('mrp.production')
+    cursor = DB.cursor()
+    change_obj = POOL.get('change.production.qty')
+    bom_obj = POOL.get('mrp.bom')
+    move_obj = POOL.get('stock.move')
+    line_planned_obj = POOL.get('mrp.production.product.line')
+    try:
+        pr_id = int(id)
+        mrp = mrp_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)[0]
+        total = 0
+        for final in mrp.move_created_ids:
+            total = total + final.product_qty
+
+        #Actualizacion de cantidades y recálculo de bom
+
+        mrp_obj.write(cursor, USER, [mrp.id], {'product_qty': total})
+
+        for move in mrp.move_lines:
+
+            bom_point = mrp.bom_id
+            bom_id = mrp.bom_id.id
+            if not bom_point:
+                bom_id = bom_obj._bom_find(cursor, USER, mrp.product_id.id, mrp.product_uom.id)
+
+                if not bom_id:
+                    raise osv.except_osv(_('Error!'), _("Cannot find bill of material for this product."))
+                mrp_obj.write(cursor, USER, [mrp.id], {'bom_id': bom_id})
+                bom_point = bom_obj.browse(cursor, USER, [bom_id])[0]
+
+            if not bom_id:
+                raise osv.except_osv(_('Error!'), _("Cannot find bill of material for this product."))
+
+            factor = mrp.product_qty * mrp.product_uom.factor / bom_point.product_uom.factor
+            product_details, workcenter_details = \
+                bom_obj._bom_explode(cursor, USER, bom_point, factor / bom_point.product_qty, [])
+            product_move = dict((mv.product_id.id, mv.id) for mv in mrp.picking_id.move_lines)
+            product_planned = dict((line_planned.product_id.id, line_planned.id) for line_planned in mrp.product_lines)
+            for r in product_details:
+                if r['product_id'] == move.product_id.id:
+                    move_obj.write(cursor, USER, [move.id], {'product_qty': r['product_qty']})
+                if r['product_id'] in product_move:
+                    move_obj.write(cursor, USER, [product_move[r['product_id']]], {'product_qty': r['product_qty']})
+                if r['product_id'] in product_planned:
+                    line_planned_obj.write(cursor, USER, [product_planned[r['product_id']]], {'product_qty': r['product_qty']})
+        # if mrp[0].move_prod_id:
+        #     move_obj.write(cursor, USER, [mrp[0].move_prod_id.id], {'product_qty' : cantidad})
+        # change_obj._update_product_to_produce(cursor, USER, mrp[0], cantidad, context=context)
+
+    except Exception as e:
+        return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
+        pass
+    finally:
+        cursor.commit()
+        cursor.close()
+        return HttpResponse('<script type="text/javascript">window.location.replace("/producto/'+id+'/");</script>')
+
+
 def abrir(request, id):
 
     context={}
@@ -346,7 +409,7 @@ def verstock(request, id):
     cursor = DB.cursor()
     oerp_ctx = {'lang': 'es_ES'}
     move = move_obj.browse(cursor, USER, move_id, context=oerp_ctx)
-    lot_ids = lot_obj.search(cursor, USER, [('product_id', '=', move.product_id.id),('stock_available', '>', 0.0)])
+    lot_ids = lot_obj.search(cursor, USER, [('product_id', '=', move.product_id.id),('stock_available', '>', 0.0)], order='use_date ASC')
     try:
         if request.method == 'POST':
             selected_lots = []
@@ -368,6 +431,7 @@ def verstock(request, id):
                              'product_id': product,
                              'stock_available': qty_without_lot,
                              'expiry_date': '',
+                             'use_date': '',
                              'id': 0})
 
             context = RequestContext(request, {
