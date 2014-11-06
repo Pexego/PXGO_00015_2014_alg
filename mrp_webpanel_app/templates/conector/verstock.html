@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load mrp_webpanel_app_tag %}
 {% load staticfiles %}
 <html>
     <head>
@@ -49,7 +50,7 @@
                         <tr>
                             <th>{{ lot.name }}</th>
                             <th>{{ lot.stock_available }} {{ lot.product_id.uom_id.name }}</th>
-                            <th>{{ lot.expiry_date }}</th>
+                            <th>{{ lot.use_date|parse_date:"%Y-%m-%d %H:%M:%S"|date:"d/m/Y"  }}</th>
                             <th><input type="checkbox" name="foo{{ forloop.counter }}" value="{{ lot.id }}"></th>
                         </tr>
                         {% endfor %}
