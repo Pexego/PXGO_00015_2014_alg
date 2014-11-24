@@ -33,14 +33,18 @@
             <div class="col-md-6">
 
                 <table class="table table-hover f" style="width:500px;">
-                    <caption class="text-left"><h3>Modificar fecha de consumo preferente</h3></caption>
+                    <caption
+                            class="text-left"><h3>Modificar cantidad de
+                        producto</h3></caption>
                     <tr>
                         <th></th>
 
                     </tr>
                      <tr>
-                        <td>{{ prodlot.name }} </td>
-                         <td><input type="date" value="{{ prodlot.use_date|parse_date:"%Y-%m-%d %H:%M:%S"|date:"d/m/Y" }}" name="use_date"/></td>
+                        <td>{{ move.product_id.name }} </td>
+                         <td><input type="number"
+                                    value="{{ move.product_qty|floatformat:2 }}"
+                                    name="product_qty" step="any"/></td>
                     </tr>
 
                 </table>
