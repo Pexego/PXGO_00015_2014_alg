@@ -147,6 +147,7 @@ def producto(request,id):
         users_list = Usuario.objects.filter(end__isnull = True)
         user_access = Usuario.objects.get(code = request.session['codigo'], end__isnull = True)
         user_access.project = id
+        user_access.pr_name = production[0].name
         user_access.save()
         context = RequestContext(request, {
             'users_list': users_list,
@@ -192,9 +193,11 @@ def crear_producto(request):
             vals['user_id'] = users[0].id
 
             mrp = mrp_obj.create(cursor, USER, vals)
+            production = mrp_obj.browse(cursor, USER, mrp)
             wf_service.trg_validate(USER, 'mrp.production', mrp, 'button_confirm', cursor)
             user_access = Usuario.objects.get(code = codigo, end__isnull = True)
             user_access.project = mrp
+            user_access.pr_name = production.name
             user_access.save()
         except Exception as e:
             return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/crear_productos/");</script>')
@@ -487,6 +490,49 @@ def eliminar(request, id):
             cursor.commit()
             cursor.close()
 
+
+def cambiar_cantidad(request, id):
+    pr_id = int(id)
+    oerp_ctx = {'lang': 'es_ES', 'call_unlink': True}
+    if request.method == 'POST':
+
+        from erp import POOL, DB, USER
+        cursor = DB.cursor()
+        prod_obj = POOL.get('stock.move')
+        lot_obj = POOL.get('stock.production.lot')
+        try:
+            cantidad = float(request.POST.get("product_qty"))
+            prod_obj.write(cursor, USER, [pr_id], {'product_qty':
+                                                    cantidad}, oerp_ctx)
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+
+            return HttpResponse('<script type="text/javascript">opener.location.reload();window.close();</script>')
+    else:
+
+        template = loader.get_template('conector/cambiar_cantidad.html')
+        context={}
+
+        from erp import POOL, DB, USER
+        move_obj = POOL.get('stock.move')
+        cursor = DB.cursor()
+        try:
+            move = move_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
+            context = RequestContext(request, {
+                'move': move[0],
+            })
+            return HttpResponse(template.render(context))
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
 
 
 def cambiar_fecha(request, id):

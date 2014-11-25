@@ -47,7 +47,11 @@
 
                         <tr>
                             <td>{{ p.product_id.name }}</td>
-                            <td>{{ p.product_qty|floatformat:2 }}</td>
+                            <td><a href="/cambiar_cantidad/{{ p.id }}"
+                               target="_blank"
+                               onClick="window.open(this.href, this.target, 'width=500,height=600'); return false;">
+                                {{ p.product_qty|floatformat:2 }}
+                            </a></td>
                             {% if p.prodlot_id and p.prodlot_id.use_date %}
                                 <td>{{ p.prodlot_id.name|default_if_none:"" }} - {{ p.prodlot_id.use_date|parse_date:"%Y-%m-%d %H:%M:%S"|date:"d/m/Y" }}</td>
                             {% else %}
@@ -111,7 +115,11 @@
                     {% for p in product.move_created_ids %}
                     <tr>
                         <td>{{ p.product_id.name }}</td>
-                        <td>{{ p.product_qty|floatformat:2 }}</td>
+                        <td><a href="/cambiar_cantidad/{{ p.id }}"
+                               target="_blank"
+                               onClick="window.open(this.href, this.target, 'width=500,height=600'); return false;">
+                            {{ p.product_qty|floatformat:2 }}
+                        </a></td>
                         {% if p.prodlot_id and p.prodlot_id.use_date %}
                             <td>{{ p.prodlot_id.name|default_if_none:"" }} -  <a href="/cambiar_fecha/{{ p.prodlot_id.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=600'); return false;">{{ p.prodlot_id.use_date|parse_date:"%Y-%m-%d %H:%M:%S"|date:"d/m/Y" }}</a></td>
                         {% else %}

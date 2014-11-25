@@ -29,6 +29,8 @@ class Usuario(models.Model):
     code = models.CharField(_(u'Codigo'), max_length = 200)
     name = models.CharField(_(u'Usuario'), max_length = 200)
     project = models.CharField(_(u"Proyecto"), max_length = 200, blank=True, null=True)
+    pr_name = models.CharField(_(u"Pr Nombre"), max_length = 200, blank=True,
+                         null=True)
     task = models.CharField(_(u"Tarea"), max_length = 200, blank=True, null=True)
     start = models.DateTimeField(auto_now_add=True, editable=False)
     end = models.DateTimeField(_(u"Fin"), blank=True, null=True)

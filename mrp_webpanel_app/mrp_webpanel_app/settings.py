@@ -198,4 +198,4 @@ ERP_PATH = "/opt/openerp/server/"
 ERP_UN = 'admin'
 ERP_PW = 'admin'
 #ERP_DB = 'algamar_prod'
-ERP_DB = 'algamar_testing'
+ERP_DB = 'algamar_limpia'
