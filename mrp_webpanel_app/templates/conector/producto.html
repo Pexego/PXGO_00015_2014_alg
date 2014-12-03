@@ -10,7 +10,7 @@
                 <li class="list-group-item"><strong>Producto:</strong> {{ product.product_id.name }}</li>
                 <li class="list-group-item"><strong>Cantidad:</strong> {{ product.product_qty }} unidades 
                     {% if product.state == "confirmed" or product.state == "in_production" or product.state == "ready"%}
-                        <a href="/actualizar_cantidad/{{ product.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;" class="btn btn-warning" >Actualizar</a>
+                        <a href="/actualizar_cantidad/{{ product.id }}" target="_blank" onClick="window.open(this.href, this.target, 'scrollbars=1,width=500,height=400'); return false;" class="btn btn-warning" >Actualizar</a>
                     {% endif %}
                 </li>
                 <li class="list-group-item"><strong>Almacen:</strong> {{ product.warehouse_id.name }}</li>
@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-6">
             <div style="float:left;margin-left:12em;padding:2em;">
-                <a href="/etiquetas/{{ product.id }}" class="btn btn-success" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">Imprimir etiquetas</a>
+                <a href="/etiquetas/{{ product.id }}" class="btn btn-success" target="_blank" onClick="window.open(this.href, this.target, 'scrollbars=1,width=500,height=400'); return false;">Imprimir etiquetas</a>
             </div>
 
         </div>
@@ -49,7 +49,7 @@
                             <td>{{ p.product_id.name }}</td>
                             <td><a href="/cambiar_cantidad/{{ p.id }}"
                                target="_blank"
-                               onClick="window.open(this.href, this.target, 'width=500,height=600'); return false;">
+                               onClick="window.open(this.href, this.target, 'scrollbars=1,width=500,height=600'); return false;">
                                 {{ p.product_qty|floatformat:2 }}
                             </a></td>
                             {% if p.prodlot_id and p.prodlot_id.use_date %}
@@ -58,16 +58,16 @@
                                 <td>{{ p.prodlot_id.name|default_if_none:"" }} </td>
                             {% endif %}
                             <td>
-                                <a href="/verstock/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">VS</a>
+                                <a href="/verstock/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'scrollbars=1,width=500,height=400'); return false;">VS</a>
                             </td>
                             <td>
-                                <a href="/desechar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">DS</a>
+                                <a href="/desechar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'scrollbars=1,width=500,height=400'); return false;">DS</a>
                             </td>
                             <td>
-                                <a href="/reciclar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">RC</a>
+                                <a href="/reciclar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'scrollbars=1,width=500,height=400'); return false;">RC</a>
                             </td>
                             <td>
-                                <a href="/eliminar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">X</a>
+                                <a href="/eliminar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'scrollbars=1,width=500,height=400'); return false;">X</a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -92,7 +92,7 @@
                                 <td>{{ p.prodlot_id.name|default_if_none:"" }}</td>
                             {% endif %}
                             <td>
-                                <a href="/eliminar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">X</a>
+                                <a href="/eliminar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'scrollbars=1,width=500,height=400'); return false;">X</a>
                             </td>
 
                         </tr>
@@ -121,14 +121,14 @@
                             {{ p.product_qty|floatformat:2 }}
                         </a></td>
                         {% if p.prodlot_id and p.prodlot_id.use_date %}
-                            <td>{{ p.prodlot_id.name|default_if_none:"" }} -  <a href="/cambiar_fecha/{{ p.prodlot_id.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=600'); return false;">{{ p.prodlot_id.use_date|parse_date:"%Y-%m-%d %H:%M:%S"|date:"d/m/Y" }}</a></td>
+                            <td>{{ p.prodlot_id.name|default_if_none:"" }} -  <a href="/cambiar_fecha/{{ p.prodlot_id.id }}" target="_blank" onClick="window.open(this.href, this.target, 'scrollbars=1,width=500,height=600'); return false;">{{ p.prodlot_id.use_date|parse_date:"%Y-%m-%d %H:%M:%S"|date:"d/m/Y" }}</a></td>
                         {% else %}
                             <td>{{ p.prodlot_id.name|default_if_none:"" }} -  </td>
                         {% endif %}
                         <td>{{ p.prodlot_id.language.name|default_if_none:"" }} </td>
-                        <td><a href="/dividir/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=600'); return false;">DV</a></td>
+                        <td><a href="/dividir/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'scrollbars=1,width=500,height=600'); return false;">DV</a></td>
                         <td>
-                            <a href="/eliminar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">X</a>
+                            <a href="/eliminar/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'scrollbars=1,width=500,height=400'); return false;">X</a>
                         </td>
                     </tr>
                     {% endfor %}
@@ -154,7 +154,7 @@
                             <td>{{ p.prodlot_id.name|default_if_none:"" }}</td>
                         {% endif %}
                          <td>{{ p.prodlot_id.language.name|default_if_none:"" }} </td>
-                        <td><a href="/dividir/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'width=500,height=400'); return false;">DV</a></td>
+                        <td><a href="/dividir/{{ p.id }}" target="_blank" onClick="window.open(this.href, this.target, 'scrollbars=1,width=500,height=400'); return false;">DV</a></td>
                     </tr>
                     {% endfor %}
                 </table>
