@@ -29,7 +29,7 @@
     'description': """Add code field to users'""",
     'website': 'http://www.pexego.es',
     'depends' : ['base'],
-    'data': ['res_users_view.xml'],
+    'data': ['res_users_view.xml', 'user_report.xml'],
     'demo': [],
     'test': [],
     'installable': True,
