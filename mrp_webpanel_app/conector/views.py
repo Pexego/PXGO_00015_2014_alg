@@ -49,19 +49,20 @@ def home(request):
             codigo = int(request.POST.get("code",False))
 
 
-            user_ids = user_obj.search(cursor, USER, [('code', '=', codigo )], order="login ASC")
+            user_ids = user_obj.search(cursor, USER, [('code', '=', codigo)], order="login ASC")
             users = user_obj.browse(cursor, USER, user_ids)
             if users:
                 try:
 
-                    user_access= Usuario.objects.get(code = codigo, end__isnull = True)
-                    user_access.end = timezone.now()
+                    user_access = Usuario.objects.get(code=str(codigo))
+                    #user_access.end = timezone.now()
+
                     user_access.save()
-                    user_access = Usuario(code=codigo, name = users[0].name )
-                    user_access.save()
+                    #user_access = Usuario(code=codigo, name = users[0].name )
+                    #user_access.save()
 
                 except:
-                    user_access = Usuario(code=codigo, name = users[0].name )
+                    user_access = Usuario(code=str(codigo), name=users[0].name)
                     user_access.save()
                 request.session['codigo'] = user_access.code
                 return selector(request)
@@ -79,7 +80,7 @@ def home(request):
             cursor.commit()
             cursor.close()
     else:
-        users_list = Usuario.objects.filter(end__isnull = True)
+        users_list = Usuario.objects.filter()
         context = RequestContext(request, {
                 'users_list': users_list,
                 'inicio': True,
@@ -89,7 +90,7 @@ def home(request):
 def selector(request):
     template = loader.get_template('conector/selector.html')
 
-    users_list = Usuario.objects.filter(end__isnull = True)
+    users_list = Usuario.objects.filter()
 
     context = RequestContext(request, {
             'users_list': users_list,
@@ -111,7 +112,7 @@ def productos(request):
         product_ids = product_obj.search(cursor, USER, [('state', 'not in', ['done','cancel'])], order="name ASC")
         products = product_obj.browse(cursor, USER, product_ids, context=oerp_ctx)
 
-        users_list = Usuario.objects.filter(end__isnull = True)
+        users_list = Usuario.objects.filter()
 
 
 
@@ -144,11 +145,10 @@ def producto(request,id):
     production_obj = POOL.get('mrp.production')
     try:
         production = production_obj.browse(cursor, USER, [int(id)], context=oerp_ctx)
-        users_list = Usuario.objects.filter(end__isnull = True)
-        user_access = Usuario.objects.get(code = request.session['codigo'], end__isnull = True)
-        user_access.project = id
-        user_access.pr_name = production[0].name
-        user_access.save()
+        users_list = Usuario.objects.filter()
+        user_access = Usuario.objects.get(code = str(request.session[
+            'codigo']))
+        user_access.control_time(project=id)
         context = RequestContext(request, {
             'users_list': users_list,
             'product': production[0],
@@ -195,10 +195,7 @@ def crear_producto(request):
             mrp = mrp_obj.create(cursor, USER, vals)
             production = mrp_obj.browse(cursor, USER, mrp)
             wf_service.trg_validate(USER, 'mrp.production', mrp, 'button_confirm', cursor)
-            user_access = Usuario.objects.get(code = codigo, end__isnull = True)
-            user_access.project = mrp
-            user_access.pr_name = production.name
-            user_access.save()
+            user_access.control_time(project=mrp)
         except Exception as e:
             return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/crear_productos/");</script>')
             pass
@@ -220,7 +217,7 @@ def crear_producto(request):
             products = product_obj.browse(cursor, USER, products_ids, context=oerp_ctx)
             warehouse_ids = warehouse_obj.search(cursor, USER, [], order="name ASC")
             warehouses = warehouse_obj.browse(cursor, USER, warehouse_ids, context=oerp_ctx)
-            users_list = Usuario.objects.filter(end__isnull = True)
+            users_list = Usuario.objects.filter()
 
             context = RequestContext(request, {
                 'users_list': users_list,
@@ -357,36 +354,34 @@ def finalizar(request, id):
         mrp = mrp_obj.browse(cursor, USER, pr_id)
         mrp_obj.action_produce(cursor, USER, mrp.id, mrp.product_qty, "consume_produce")
         mrp_obj.action_production_end(cursor, USER, [mrp.id,])
-        user_access = Usuario.objects.filter(project =  mrp.id, end__isnull = True)
+        user_access = Usuario.objects.filter(project = mrp.id, end__isnull = True)
 
-        for u in user_access:
-            u.end=timezone.now()
-            u.save()
+
         users_time = Usuario.objects.filter(project = mrp.id )
 
         for t in users_time:
-
-            user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
-            usere = user_obj.browse(cursor, USER, user_ids)
-
-            hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
-            hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
-
-            vals = {}
-
-            vals['production_id'] =  mrp.id
-            vals['journal_id'] =  hr_usere[0].journal_id.id
-            vals['product_uom_id'] = mrp.product_id.uom_id.id
-            vals['product_id'] = mrp.product_id.id
-            vals['general_account_id'] = False
-            vals['account_id'] = mrp.product_id.analytic_acc_id.id
-            vals['date'] = t.end
-            vals['unit_amount'] = timestamp(t.end) - timestamp(t.start)
-            vals['name'] = mrp.name
-            vals['user_id'] = usere[0].id
-            vals['amount'] = hr_usere[0].product_id.standard_price * vals['unit_amount']
-
-            time_obj.create(cursor, USER, vals, context=oerp_ctx)
+            t.control_time(project=mrp.id)
+            # user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
+            # usere = user_obj.browse(cursor, USER, user_ids)
+            #
+            # hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
+            # hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
+            #
+            # vals = {}
+            #
+            # vals['production_id'] =  mrp.id
+            # vals['journal_id'] =  hr_usere[0].journal_id.id
+            # vals['product_uom_id'] = mrp.product_id.uom_id.id
+            # vals['product_id'] = mrp.product_id.id
+            # vals['general_account_id'] = False
+            # vals['account_id'] = mrp.product_id.analytic_acc_id.id
+            # vals['date'] = t.end
+            # vals['unit_amount'] = timestamp(t.end) - timestamp(t.start)
+            # vals['name'] = mrp.name
+            # vals['user_id'] = usere[0].id
+            # vals['amount'] = hr_usere[0].product_id.standard_price * vals['unit_amount']
+            #
+            # time_obj.create(cursor, USER, vals, context=oerp_ctx)
 
     except Exception as e:
         return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')
@@ -784,7 +779,7 @@ def tareas(request):
 
         tareas = tarea_obj.browse(cursor, USER, tarea_ids, context=oerp_ctx)
 
-        users_list = Usuario.objects.filter(end__isnull = True)
+        users_list = Usuario.objects.filter()
         context = RequestContext(request, {
             'users_list': users_list,
             'tareas_list': tareas,
@@ -837,56 +832,59 @@ def tarea(request,id=None):
                     vals['note'] = note
                     tareas=tarea_obj.create(cursor,USER, vals)
                     task_id = int(tareas)
-                    user_access = Usuario.objects.get(code = codigo, end__isnull = True)
-                    user_access.task = tareas
-                    user_access.save()
+                    user_access = Usuario.objects.get(code = codigo)
+                    user_access.control_time(task=task_id)
+                    #
+                    # user_access.task = tareas
+                    # user_access.save()
 
 
                 else:
                 #Si existe, se finaliza o se abre, dependiendo del estado.
                     tareas_ids = tarea_obj.browse(cursor, USER, int(task_id), context=oerp_ctx)
 
-                    user_access = Usuario.objects.get(code = codigo, end__isnull = True)
+                    user_access = Usuario.objects.get(code=codigo)
                     if tareas_ids.state == "draft":
                         tarea_obj.set_open(cursor, USER, [tareas_ids.id])
-                        user_access.task = task_id
-                        user_access.save()
+                        #user_access.task = task_id
+                        user_access.control_time(task=task_id)
 
                     else:
-                        tar = True
+                        # tar = True
+                        #
+                        # user_access.task = task_id
+                        # user_access.end = timezone.now()
+                        # user_access.save()
 
-                        user_access.task = task_id
-                        user_access.end = timezone.now()
-                        user_access.save()
+                        # user_access = Usuario.objects.filter(task = id)
+                        # for u in user_access:
+                        #     u.register_time()
+                        #     u.save()
 
-                        user_access = Usuario.objects.filter(task = id, end__isnull = True)
-                        for u in user_access:
-                            u.end=timezone.now()
-                            u.save()
-
+                        # FINALIZA Y REGISTRA TODOS LOS USUARIOS DE LA TAREA
                         users_time = Usuario.objects.filter(task = id )
 
                         for t in users_time:
-
-                            user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
-                            usere = user_obj.browse(cursor, USER, user_ids)
-
-                            hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
-                            hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
-
-                            vals = {}
-                            vals['hr_task_id'] = tareas_ids.id
-                            vals['journal_id'] =  hr_usere[0].journal_id.id
-                            vals['product_uom_id'] = tareas_ids.product_id.uom_id.id
-                            vals['product_id'] = tareas_ids.product_id.id
-                            vals['general_account_id'] = False
-                            vals['account_id'] = tareas_ids.product_id.analytic_acc_id.id
-                            vals['date'] = t.end
-                            vals['unit_amount'] = timestamp(t.end) - timestamp(t.start)
-                            vals['name'] = tareas_ids.name
-                            vals['user_id'] = usere[0].id
-                            vals['amount'] = hr_usere[0].product_id.standard_price * vals['unit_amount']
-                            time_obj.create(cursor, USER, vals, context=oerp_ctx)
+                            t.register_time()
+                            # user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
+                            # usere = user_obj.browse(cursor, USER, user_ids)
+                            #
+                            # hr_ids = hr_obj.search(cursor, USER, [('user_id', '=', usere[0].id )], order="login ASC")
+                            # hr_usere = hr_obj.browse(cursor, USER, hr_ids, context=oerp_ctx)
+                            #
+                            # vals = {}
+                            # vals['hr_task_id'] = tareas_ids.id
+                            # vals['journal_id'] =  hr_usere[0].journal_id.id
+                            # vals['product_uom_id'] = tareas_ids.product_id.uom_id.id
+                            # vals['product_id'] = tareas_ids.product_id.id
+                            # vals['general_account_id'] = False
+                            # vals['account_id'] = tareas_ids.product_id.analytic_acc_id.id
+                            # vals['date'] = t.end
+                            # vals['unit_amount'] = timestamp(t.end) - timestamp(t.start)
+                            # vals['name'] = tareas_ids.name
+                            # vals['user_id'] = usere[0].id
+                            # vals['amount'] = hr_usere[0].product_id.standard_price * vals['unit_amount']
+                            # time_obj.create(cursor, USER, vals, context=oerp_ctx)
 
                         vals['name'] = description
                         vals['product_id'] = pr_id
@@ -917,10 +915,19 @@ def tarea(request,id=None):
                 tarea = tarea_obj.browse(cursor, USER, [int(id)])
             trabajos_ids = trabajo_obj.search(cursor, USER, [('type', '=', 'service'),('analytic_acc_id', '!=', False)], order="name ASC")
             trabajos = trabajo_obj.browse(cursor, USER, trabajos_ids, context=oerp_ctx)
-            users_list = Usuario.objects.filter(end__isnull = True)
-            user_access = Usuario.objects.get(code = request.session['codigo'], end__isnull = True)
-            user_access.task = id
-            user_access.save()
+            users_list = Usuario.objects.filter()
+            user_access = Usuario.objects.get(code = request.session['codigo'])
+            # if (user_access.project or user_access.task):
+            #     if user_access.project or (int(user_access.task) != int(id)):
+            #         user_access.register_time()
+            #         user_access.init_time()
+            # else:
+            #     user_access.task = id
+            #     user_access.save()
+            #     user_access.init_time
+            if id != None:
+                if tarea[0].state != 'close':
+                    user_access.control_time(task=id)
             if id != None:
                 context = RequestContext(request, {
                     'users_list': users_list,
@@ -957,9 +964,16 @@ def salir(request):
         user_ids = user_obj.search(cursor, USER, [('code', '=', codigo )], order="login ASC")
         users = user_obj.browse(cursor, USER, user_ids)
         if users:
-            user_access= Usuario.objects.get(code = codigo, end__isnull = True)
-            user_access.end = timezone.now()
+            user_access= Usuario.objects.get(code = codigo)
+            #user_access.end = timezone.now()
+
+            user_access.register_time()
+            user_access.project = None
+            user_access.task = None
+            user_access.pr_name = None
             user_access.save()
+            user_access.delete()
+
             del request.session['codigo']
         else:
             context = RequestContext(request, {
