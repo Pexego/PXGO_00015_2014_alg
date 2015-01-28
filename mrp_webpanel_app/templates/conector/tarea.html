@@ -7,13 +7,15 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
     <!-- keyboard widget css & script (required) -->
-    <link href="/static/keyboard/css/keyboard.css" rel="stylesheet">
+    <!--link href="/static/keyboard/css/keyboard.css" rel="stylesheet">
     <script src="/static/keyboard/js/jquery.keyboard.js"></script>
     <script>
         jQuery(function($) {
             $('#multi').keyboard({ layout: 'international' });
             $('#multi1').keyboard({ layout: 'international' });
         });
+    </script-->
+    <script>
         function popupUploadForm(){
             var newWindow = window.open('/static/kg_mov.html', 'name', 'height=500,width=600');
             //document.write(document.getElementById('kg_mov').value);
@@ -21,7 +23,7 @@
 
 
         }
-    </script>
+   </script>
 {% endblock js %}
 
 
@@ -45,10 +47,17 @@
             {% endif %}
             <h3>Descripción</h3>
             <p>
-                <input type="text" name="description" class="qwerty" id="multi" value="{% if tarea.name %}{{ tarea.name }}{% endif %}" />
+                <!--input type="text" name="description" class="qwerty"
+                       id="multi"
+                       value="{% if tarea.name %}{{ tarea.name }}{% endif %}" /-->
+                <input type="text" name="description"  id="multi" value="{% if tarea.name %}{{ tarea.name }}{% endif %}" />
             </p>
             <h3>Notas</h3>
-            <textarea name="note" class="qwerty" id="multi1">
+            <!--textarea name="note" class="qwerty" id="multi1">
+                {% if tarea.note %}{{ tarea.note }}{% endif %}
+            </textarea-->
+
+            <textarea name="note"  id="multi1">
                 {% if tarea.note %}{{ tarea.note }}{% endif %}
             </textarea>
         </div>

@@ -31,3 +31,4 @@ class hr_analytic_timesheet(orm.Model):
                                       readonly=True),
         'kg_moved': fields.float('KG moved', digits=(12, 4), readonly=True),
     }
+
