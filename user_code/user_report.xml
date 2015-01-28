@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report id="report_user_card"
+                model="res.users"
+                name="res.user.card"
+                string="User Card"
+                rml="user_code/report/user_card.jrxml"
+                menu="True"
+                auto="False"/>
+    </data>
+</openerp>
