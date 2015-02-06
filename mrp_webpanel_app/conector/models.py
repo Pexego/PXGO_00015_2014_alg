@@ -70,7 +70,7 @@ class Usuario(models.Model):
                 tarea = tarea_obj.browse(cursor, USER,
                                          [int(task)],
                                          context=oerp_ctx)
-                self.pr_name = "[T]" + tarea[0].name
+                self.pr_name = "[T]- REG --"
                 self.save()
         if project:
             if self.project or self.task:   # EL USUARIO YA ESTÁ REGISTRANDO

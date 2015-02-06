@@ -830,7 +830,7 @@ def tarea(request,id=None):
                     vals['name'] = description
                     vals['product_id'] = pr_id
                     vals['note'] = note
-                    tareas=tarea_obj.create(cursor,USER, vals)
+                    tareas=tarea_obj.create(cursor, USER, vals)
                     task_id = int(tareas)
                     user_access = Usuario.objects.get(code = codigo)
                     user_access.control_time(task=task_id)
