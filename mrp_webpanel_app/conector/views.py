@@ -360,7 +360,7 @@ def finalizar(request, id):
         users_time = Usuario.objects.filter(project = mrp.id )
 
         for t in users_time:
-            t.control_time(project=mrp.id)
+            t.control_time()
             # user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
             # usere = user_obj.browse(cursor, USER, user_ids)
             #
@@ -850,7 +850,7 @@ def tarea(request,id=None):
                         user_access.control_time(task=task_id)
 
                     else:
-                        # tar = True
+                        tar = True
                         #
                         # user_access.task = task_id
                         # user_access.end = timezone.now()
@@ -865,7 +865,7 @@ def tarea(request,id=None):
                         users_time = Usuario.objects.filter(task = id )
 
                         for t in users_time:
-                            t.register_time()
+                            t.control_time()
                             # user_ids = user_obj.search(cursor, USER, [('code', '=', t.code )], order="login ASC")
                             # usere = user_obj.browse(cursor, USER, user_ids)
                             #
@@ -892,6 +892,7 @@ def tarea(request,id=None):
                         vals['kg_moved'] = kg_mov
                         tarea_obj.write(cursor, USER, [tareas_ids.id], vals, context=oerp_ctx)
                         tarea_obj.set_close(cursor, USER, [tareas_ids.id])
+
 
         except Exception as e:
             return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/tarea/'+id+'/");</script>')

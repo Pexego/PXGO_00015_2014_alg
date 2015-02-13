@@ -52,6 +52,16 @@ class Usuario(models.Model):
         production_obj = POOL.get('mrp.production')
         tarea_obj = POOL.get('hr.task')
         oerp_ctx = {'lang': 'es_ES'}
+
+        if not task and not project:
+            self.register_time()
+            self.project = None
+            self.task = None
+            self.pr_name = None
+            self.save()
+            self.delete()
+
+
         if task: #REGISTRO EN TAREA
             if self.project or self.task:   # EL USUARIO YA ESTÁ REGISTRANDO
                 if self.project or (int(self.task) != int(task)):  #SI ES UNA
