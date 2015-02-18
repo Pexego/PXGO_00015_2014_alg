@@ -64,6 +64,14 @@ def home(request):
                 except:
                     user_access = Usuario(code=str(codigo), name=users[0].name)
                     user_access.save()
+                hr_obj = POOL.get('hr.employee')
+                hr_ids = hr_obj.search(cursor, USER, [('user_id', '=',
+                                                        users[0].id )],
+                                       order="login ASC")
+                if not hr_ids:
+                     return HttpResponse('<script '
+                                         'type="text/javascript">window.alert("ESTE USUARIO NO TIENE EMPLEADO CONFIGURADO EN EL ERP!!!");window.location.replace("/");</script>')
+
                 request.session['codigo'] = user_access.code
                 return selector(request)
             else:
