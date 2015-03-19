@@ -23,14 +23,26 @@
 from openerp.osv import fields, orm
 
 
-class hr_analytic_timesheet(orm.Model):
-    _inherit = "hr.analytic.timesheet"
+class mrp_production(orm.Model):
+    _inherit = "mrp.production"
+
+    def _get_lot(self, cursor, user, ids, name, args, context=None):
+        res = {}
+
+        for production in self.browse(cursor, user, ids, context=context):
+            res[production.id] = False
+            for move in production.move_created_ids:
+                if move.product_id.id == production.product_id.id:
+                    res[production.id] = move.prodlot_id.id
+                    break
+            if not res[production.id]:
+                for move in production.move_created_ids2:
+                    if move.product_id.id == production.product_id.id:
+                        res[production.id] = move.prodlot_id.id
+        return res
 
     _columns = {
-        'hr_task_id': fields.many2one('hr.task', 'Activity',
-                                      readonly=True),
-
-        'kg_moved': fields.float('KG moved', digits=(12, 4), readonly=True),
-        'init_date': fields.datetime ('Hora inicio'),
+        'lot_id': fields.function(_get_lot, string='Lot', type='many2one',
+                                  relation='stock.production.lot'),
     }
 

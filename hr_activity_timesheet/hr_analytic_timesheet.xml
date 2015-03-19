@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="hr_anlytic_timesheet_tree_ini" model="ir.ui.view">
+            <field name="name">hr.anlytic.timesheet.tree.ini</field>
+            <field name="model">hr.analytic.timesheet</field>
+             <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="date" position="after">
+                    <field name="init_date" />
+                </field>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

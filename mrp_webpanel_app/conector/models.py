@@ -134,6 +134,7 @@ class Usuario(models.Model):
             vals['product_id'] = mrp.product_id.id
             vals['general_account_id'] = False
             vals['account_id'] = mrp.product_id.analytic_acc_id.id
+            vals['init_date'] = self.start
             vals['date'] = timezone.now()
             v_tiempo = self.timestamp(vals['date']) - self.timestamp(self.start)
             vals['unit_amount'] = v_tiempo
@@ -153,6 +154,7 @@ class Usuario(models.Model):
             vals['product_id'] = tareas_ids.product_id.id
             vals['general_account_id'] = False
             vals['account_id'] = tareas_ids.product_id.analytic_acc_id.id
+            vals['init_date'] = self.start
             vals['date'] = timezone.now()
             v_tiempo = self.timestamp(vals['date']) - self.timestamp(self.start)
             vals['unit_amount'] = v_tiempo

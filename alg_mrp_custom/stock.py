@@ -64,7 +64,14 @@ class stock_move(orm.Model):
                             for to_produce in production.move_created_ids:
                                 if to_produce.prodlot_id:
                                     lot_obj.write(cr, uid, to_produce.prodlot_id.id, {'name': lot.name})
-
+                        if production.product_id.transfer_lot_date:
+                            for to_produce in production.move_created_ids:
+                                if to_produce.prodlot_id:
+                                    lot_obj.write(cr, uid,
+                                                  to_produce.prodlot_id.id,
+                                                  {'use_date': lot.use_date,
+                                                   'life_date': lot.life_date
+                                                   })
                         break
                     else:
                         qty -= lot.stock_available

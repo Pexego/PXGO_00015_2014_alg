@@ -20914,3 +20914,105 @@ error: [Errno 32] Broken pipe
 [19/Mar/2015 16:15:57] "GET /productos/ HTTP/1.1" 200 40533
 [19/Mar/2015 16:16:04] "GET /salir/ HTTP/1.1" 200 69
 [19/Mar/2015 16:16:04] "GET / HTTP/1.1" 200 4407
+Validating models...
+
+0 errors found
+March 12, 2015 - 22:20:07
+Django version 1.6.5, using settings 'mrp_webpanel_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.5', 52997)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.5', 53446)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.5', 53738)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 3317)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.12', 50100)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 3444)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 3555)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.5', 59583)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.5', 59584)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.5', 60203)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.5', 61863)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 4217)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 4240)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 2339)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 2344)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 2438)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 2500)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.5', 64641)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 2551)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 2560)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 2769)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 2775)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.11', 2780)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('192.168.1.5', 49392)
+----------------------------------------
+Traceback (most recent call last):
+  File "manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/management/__init__.py", line 399, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/management/__init__.py", line 392, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/management/__init__.py", line 261, in fetch_command
+    commands = get_commands()
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/core/management/__init__.py", line 107, in get_commands
+    apps = settings.INSTALLED_APPS
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/conf/__init__.py", line 54, in __getattr__
+    self._setup(name)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/conf/__init__.py", line 49, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/conf/__init__.py", line 128, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/usr/local/lib/python2.7/dist-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/pexadmin/algamar/mrp_webpanel_app/mrp_webpanel_app/settings.py", line 194
+    <<<<<<< HEAD
+     ^
+SyntaxError: invalid syntax
