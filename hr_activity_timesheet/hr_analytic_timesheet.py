@@ -29,6 +29,8 @@ class hr_analytic_timesheet(orm.Model):
     _columns = {
         'hr_task_id': fields.many2one('hr.task', 'Activity',
                                       readonly=True),
+
         'kg_moved': fields.float('KG moved', digits=(12, 4), readonly=True),
+        'init_date': fields.datetime ('Hora inicio'),
     }
 

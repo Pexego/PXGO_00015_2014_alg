@@ -40,6 +40,7 @@ class hr_timesheet_report_custom(osv.osv):
                                   ('11', 'November'), ('12', 'December')],
                                  'Month', readonly=True),
         'date': fields.date('Date', readonly=True),
+        'init_date': fields.date('Init Date', readonly=True),
         'name': fields.char('Description', size=64, readonly=True),
         'product_id': fields.many2one('product.product', 'Product',
                                       readonly=True),
@@ -66,6 +67,7 @@ class hr_timesheet_report_custom(osv.osv):
                 select
                     min(t.id) as id,
                     l.date as date,
+                    t.init_date as init_date,
                     to_char(l.date, 'YYYY-MM-DD') as day,
                     to_char(l.date,'YYYY') as year,
                     to_char(l.date,'MM') as month,
@@ -92,6 +94,7 @@ class hr_timesheet_report_custom(osv.osv):
                     l.user_id,
                     l.company_id,
                     l.currency_id,
+                    t.init_date,
                     t.kg_moved,
                     t.hr_task_id
             )
