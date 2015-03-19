@@ -42,3 +42,17 @@ class stock_production_lot(osv.osv):
         'language': fields.many2one('res.lang', 'Language', select=True),
 
     }
+
+    def name_get(self, cr, uid, ids, context=None):
+        if not ids:
+            return []
+        if isinstance(ids, (int, long)):
+                    ids = [ids]
+        reads = self.read(cr, uid, ids, ['name', 'language'], context=context)
+        res = []
+        for record in reads:
+            name = record['name']
+            if record['language']:
+                name = name + '-' + record['language'][1]
+            res.append((record['id'], name))
+        return res
