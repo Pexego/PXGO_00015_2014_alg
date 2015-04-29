@@ -60,4 +60,8 @@ class account_invoice(osv.osv):
                                                 string='Expiration dates',
                                                 readonly=True,
                                                 type="text"),
+        'contact_address_id': fields.many2one('res.partner', 'Mail address',
+                                              readonly=True,
+                                              states={'draft': [('readonly',
+                                                                 False)]},)
     }

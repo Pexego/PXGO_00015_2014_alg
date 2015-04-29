@@ -26,7 +26,8 @@
     "author": "Pexego",
     "description": """
 Add serveral custom reports""",
-    'data': ["alg_report.xml"],
+    'data': ["alg_report.xml",
+             "invoice_view.xml"],
     'installable': True,
     'active': False,
 }

@@ -369,6 +369,22 @@
         </td>
       </tr>
     </blockTable>
+    <para style="terp_default_8">
+      <font color="white"> </font>
+    </para>
+    <blockTable colWidths="297.0,233.0" style="Table_Partner_Address">
+      <tr>
+          <td>
+          <para style="terp_default_8">
+            <font color="white"> </font>
+          </para>
+        </td>
+        <td>
+          <para style="terp_default_8">[[ (o.contact_address_id and o.partner_id.name) or removeParentNode('blockTable') ]]</para>
+          <para style="terp_default_8">[[ display_address(o.contact_address_id) ]]</para>
+        </td>
+      </tr>
+    </blockTable>
     <para style="terp_default_2">
       <font color="white"> </font>
     </para>

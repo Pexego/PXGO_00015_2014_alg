@@ -154,3 +154,8 @@ msgstr "Total:"
 #: report:account.invoice.report:0
 msgid "Unit Price"
 msgstr "Precio unidad"
+
+#. module: alg_reports
+#: field:account.invoice,contact_address_id:0
+msgid "Mail address"
+msgstr "Dirección contacto"
