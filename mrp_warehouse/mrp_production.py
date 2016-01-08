@@ -30,7 +30,8 @@ class mrp_production(orm.Model):
         'warehouse_id': fields.many2one('stock.warehouse', 'Warehouse',
                                         readonly=True,
                                         states={'draft': [('readonly',
-                                                           False)]})
+                                                           False)]}),
+        'notes': fields.text('Notes')
     }
 
     _defaults = {

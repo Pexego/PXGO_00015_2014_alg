@@ -10,6 +10,9 @@
                 <field name="location_src_id" position="before">
                     <field name="warehouse_id" on_change="on_change_warehouse(warehouse_id)"/>
                 </field>
+                <field name="priority" position="after">
+                    <field name="notes" />
+                </field>
             </field>
         </record>
 
