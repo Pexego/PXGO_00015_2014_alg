@@ -142,6 +142,46 @@ def productos(request):
         cursor.close()
 
 
+def nota(request, id):
+    if request.method == 'POST':
+        from erp import POOL, DB, USER
+        cursor = DB.cursor()
+        move_obj = POOL.get('stock.move')
+        lot_obj = POOL.get('stock.production.lot')
+        production_obj = POOL.get('mrp.production')
+        try:
+            production_obj.write(cursor, USER, [int(id)], {'notes':
+                                                              request.POST.get("notes")})
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+            pass
+        finally:
+            cursor.commit()
+            cursor.close()
+            return HttpResponse('<script type="text/javascript">opener.location.reload();window.close()</script>')
+    else:
+        template = loader.get_template('conector/nota.html')
+        context={}
+        oerp_ctx = {'lang': 'es_ES'}
+        from erp import POOL, DB, USER
+        cursor = DB.cursor()
+
+        production_obj = POOL.get('mrp.production')
+        try:
+            production = production_obj.browse(cursor, USER, [int(id)], context=oerp_ctx)
+            context = RequestContext(request, {
+                'product': production[0],
+                'notes': production[0].notes,
+            })
+
+        except Exception as e:
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");window.close();</script>')
+            pass
+        finally:
+            return HttpResponse(template.render(context))
+            cursor.commit()
+            cursor.close()
+
 
 def producto(request,id):
     template = loader.get_template('conector/producto.html')
