@@ -169,9 +169,14 @@ def nota(request, id):
         production_obj = POOL.get('mrp.production')
         try:
             production = production_obj.browse(cursor, USER, [int(id)], context=oerp_ctx)
+            print production[0].notes
+            if production[0].notes:
+                notes = production[0].notes
+            else:
+                notes = ""
             context = RequestContext(request, {
                 'product': production[0],
-                'notes': production[0].notes,
+                'notes': notes,
             })
 
         except Exception as e:
