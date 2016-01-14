@@ -14,5 +14,36 @@
             usage="default"
             />
 
+        <report
+            auto="True"
+            id="stock_picking_valued.report_valued_picking_list"
+            model="stock.picking"
+            name="stock.picking.valued"
+            string="Valued Picking"
+            rml="alg_reports/report/valued_picking.rml"
+            />
+
+        <report
+            auto="True"
+            id="stock_picking_valued.report_valued_picking_list_in"
+            model="stock.picking.in"
+            name="stock.picking.valued.in"
+            string="Valued Receipt Slip"
+            rml="alg_reports/report/valued_picking.rml"
+            />
+
+        <report
+            auto="True"
+            id="stock_picking_valued.report_valued_picking_list_out"
+            model="stock.picking.out"
+            name="stock.picking.valued.out"
+            string="Valued Picking"
+            rml="alg_reports/report/valued_picking.rml"
+            />
+
+        <report id="stock.report_picking_list_out" model="stock.picking.out"
+                name="stock.picking.list.out" string="Delivery Slip"
+                rml="alg_reports/report/picking.rml"/>
+
     </data>
 </openerp>
