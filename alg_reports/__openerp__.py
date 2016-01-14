@@ -22,7 +22,7 @@
 {
     "name": "ALG Reports",
     "version": "1.0",
-    "depends": ["account"],
+    "depends": ["account","stock_picking_valued"],
     "author": "Pexego",
     "description": """
 Add serveral custom reports""",
