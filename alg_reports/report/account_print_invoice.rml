@@ -361,22 +361,22 @@
         </tr>
         <tr>
           <td>
-             <para style="terp_default_9">Payment mode: [[ (o.payment_type and o.payment_type.note ) or removeParentNode('para') ]]</para>
+             <para style="terp_default_9">Modo de pago: [[ (o.payment_type and o.payment_type.note ) or removeParentNode('para') ]]</para>
           </td>
         </tr>
         <tr>
           <td>
-             <para style="terp_default_9">Pyment Term :[[ (o.payment_term and o.payment_term.note and format(o.payment_term and o.payment_term.note)) or removeParentNode('para') ]]</para>
+             <para style="terp_default_9">Plazo de pago: [[ (o.payment_term and o.payment_term.note and format(o.payment_term and o.payment_term.note)) or removeParentNode('para') ]]</para>
           </td>
         </tr>
         <tr>
           <td>
-            <para style="terp_default_9">Due dates: [[ o.expiration_dates_str and format(o.expiration_dates_str) or o.date_due or removeParentNode('para') ]]</para>
+            <para style="terp_default_9">Vencimientos: [[ o.expiration_dates_str and format(o.expiration_dates_str) or o.date_due or removeParentNode('para') ]]</para>
           </td>
         </tr>
         <tr>
           <td>
-               <para style="terp_default_9">Bank account: [[ o.partner_bank_id and format(o.partner_bank_id.acc_number) or removeParentNode('para') ]]</para>
+               <para style="terp_default_9">Cuenta bancaria: [[ o.partner_bank_id and format(o.partner_bank_id.acc_number) or removeParentNode('para') ]]</para>
           </td>
           <td>
           <para style="terp_default_8">
