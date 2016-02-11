@@ -297,7 +297,8 @@ def procesar(request, id):
     try:
         pr_id = int(id)
         product = mrp_obj.browse(cursor, USER, [pr_id], context=oerp_ctx)
-        mrp = mrp_obj.force_production(cursor, USER, [product[0].id])
+        mrp = mrp_obj.check_availability(cursor, USER, [product[0].id])
+        #mrp = mrp_obj.force_production(cursor, USER, [product[0].id])
         #mrp_obj.action_produce(cursor, USER, product[0].id, product[0].product_qty, "consume_produce")
     except Exception as e:
         return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/producto/'+id+'/");</script>')

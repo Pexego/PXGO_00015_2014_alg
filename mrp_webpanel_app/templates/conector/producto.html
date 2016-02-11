@@ -171,7 +171,7 @@
             <a href="/abrir/{{ product.id }}" class="btn btn-primary btn-default pull-left" >Abrir</a>
         {% endif %}
         {% if product.state == "confirmed" %}
-            <a href="/procesar/{{ product.id }}" class="btn btn-primary btn-default pull-left" >Procesar</a>
+            <a href="/procesar/{{ product.id }}" class="btn btn-primary btn-default pull-left" >Comprobar disponibilidad</a>
         {% endif %}
 
         {% if product.state == "in_production" or product.state == "ready" %}
