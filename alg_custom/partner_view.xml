@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+        <record model="ir.ui.view" id="view_partner_ref">
+            <field name="name">partner.ref.list</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree" />
+            <field name="arch" type="xml">
+                <field name="name" position="before">
+                    <field name="ref" />
+                </field>
+
+            </field>
+        </record>
+
+    </data>
+</openerp>
