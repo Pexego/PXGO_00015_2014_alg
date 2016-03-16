@@ -248,15 +248,18 @@ def crear_producto(request):
             mrp = mrp_obj.create(cursor, USER, vals)
             production = mrp_obj.browse(cursor, USER, mrp)
             wf_service.trg_validate(USER, 'mrp.production', mrp, 'button_confirm', cursor)
-            user_access.control_time(project=mrp)
+            #user_access = Usuario.objects.get(code = codigo)
+            #user_access.control_time(project=mrp)
         except Exception as e:
-            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/crear_productos/");</script>')
-            pass
-        finally:
-            cursor.commit()
+            cursor.rollback()
             cursor.close()
-
+            return HttpResponse('<script type="text/javascript">window.alert("ERROR: '+unicode(e)+'");window.location.replace("/crear_productos/");</script>')
             return redirect('/producto/' + str(mrp))
+
+        cursor.commit()
+        cursor.close()
+
+        return redirect('/producto/' + str(mrp))
 
     else:
         template = loader.get_template('conector/crear_producto.html')

@@ -21,20 +21,22 @@
 ##############################################################################
 
 {
-    'name' : 'Mrp customization',
-    'version' : '1.1',
-    'author' : 'Pexego',
+    'name' : 'Algamar split lots',
+    'version' : '1.0',
+    'author' : 'Comunitea',
     'category': 'Custom',
-    'summary': 'Several changes in mrp orders',
+    'summary': 'Split one lot in several lots',
     'description': """
-Allow split mrp moves from web interface (mrp_webpanel_app)""",
-    'website': 'http://www.pexego.es',
+    """,
+    'website': 'http://www.comunitea.com',
     'depends' : ['mrp',
                  'stock',
                  'product_expiry',
                  'mrp_automatic_lot',
-                 'stock_picking_valued'],
-    'data': [],
+                 'full_stock_traceability'
+                 ],
+    'data': ['split_lot.xml',
+             ],
     'demo': [],
     'test': [],
     'installable': True,

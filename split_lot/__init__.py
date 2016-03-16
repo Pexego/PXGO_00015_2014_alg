@@ -20,23 +20,6 @@
 #
 ##############################################################################
 
-{
-    'name' : 'Mrp customization',
-    'version' : '1.1',
-    'author' : 'Pexego',
-    'category': 'Custom',
-    'summary': 'Several changes in mrp orders',
-    'description': """
-Allow split mrp moves from web interface (mrp_webpanel_app)""",
-    'website': 'http://www.pexego.es',
-    'depends' : ['mrp',
-                 'stock',
-                 'product_expiry',
-                 'mrp_automatic_lot',
-                 'stock_picking_valued'],
-    'data': [],
-    'demo': [],
-    'test': [],
-    'installable': True,
-    'auto_install': False,
-}
+from . import split_lot
+from . import traceability
+from . import wizard

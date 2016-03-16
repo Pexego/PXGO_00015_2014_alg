@@ -35,7 +35,8 @@
                  'mrp_automatic_lot',
                  'stock_picking_valued'],
     'data': ['partner_view.xml',
-             'stock_report.xml'],
+             'product_view.xml'
+             ],
     'demo': [],
     'test': [],
     'installable': True,

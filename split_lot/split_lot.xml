@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_split_lot_filter" model="ir.ui.view">
+            <field name="name">split.lot.filter</field>
+            <field name="model">split.lot</field>
+            <field name="arch" type="xml">
+                <search string="Search Split Lot">
+                    <field name="lot_id"/>
+                </search>
+            </field>
+        </record>
+        <record id="view_split_lot_tree" model="ir.ui.view">
+            <field name="name">split.lot.tree</field>
+            <field name="model">split.lot</field>
+            <field name="arch" type="xml">
+                <tree string="Split lot">
+                    <field name="product_id"/>
+                    <field name="lot_id"/>
+                    <field name="location_id"/>
+                    <field name="location_dest_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_split_lot_form" model="ir.ui.view">
+            <field name="name">split.lot.form</field>
+            <field name="model">split.lot</field>
+            <field name="arch" type="xml">
+                <form string="Split lot" version="7.0">
+                 <header>
+                    <button name="action_split_lots" states="draft" string="Split Lots" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft" statusbar_colors='{"draft":"blue"}'/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="lot_id" default_focus="1" placeholder="Select the lot to split"  on_change='onchange_lot_id(lot_id)'/>
+                            <field name="product_id" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Locations">
+                            <field name="location_id"/>
+                            <field name="location_dest_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="New lots">
+                            <field colspan="4" name="new_lot_lines" nolabel="1" mode="tree">
+                                 <tree editable="bottom" string="New Lots" >
+                                    <field name="new_lot_id" context="{'default_product_id': parent.product_id}"/>
+                                    <field name="qty" />
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Generated moves">
+                            <field colspan="4" name="move_ids" nolabel="1" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_split_lot_form" model="ir.actions.act_window">
+            <field name="name">Dividir lotes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">split.lot</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_split_lot_tree"/>
+            <field name="search_view_id" ref="view_split_lot_filter"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click para dividir un lote
+              </p>
+
+            </field>
+        </record>
+        <menuitem
+            action="action_split_lot_form"
+            id="menu_action_split_lot"
+            parent="stock.menu_traceability"
+            sequence="2"
+        />
+
+   </data>
+</openerp>
