@@ -599,7 +599,7 @@ def validateDateEs(date):
             pass
     return False
 
-def def cambiar_fecha(request, id):
+def cambiar_fecha(request, id):
     pr_id = int(id)
     oerp_ctx = {'lang': 'es_ES', 'call_unlink': True}
     if request.method == 'POST':
